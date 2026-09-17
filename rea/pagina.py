@@ -14,14 +14,14 @@ from .estilo import (CITA_REA, CSS, ETIQUETA_CATEGORIA, ORDEN_CATEGORIAS,
 
 
 def configurar(prototipo: str) -> None:
-    st.set_page_config(page_title="Denuncias REA · probable golondrinaje",
+    st.set_page_config(page_title=TITULO,
                        page_icon="🗺️", layout="wide",
                        initial_sidebar_state="expanded")
     st.markdown(CSS, unsafe_allow_html=True)
 
 
 def encabezado(meta: dict, prototipo: str) -> None:
-    izq, der = st.columns([5, 2])
+    izq, der = st.columns([7, 2])
     with izq:
         st.markdown(f'<p class="titulo-rea">{TITULO}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="sub-rea">{SUBTITULO}</p>', unsafe_allow_html=True)
@@ -76,45 +76,20 @@ def _tabla(df: pd.DataFrame, altura: int | None = None) -> None:
 
 
 def tablas(f: pd.DataFrame) -> None:
-    """Las cuatro tablas resumen que pide el correo, mas el ranking departamental.
+    """Una sola tabla, ordenada por numero de denuncias.
 
-    Ninguna cifra del tablero exige leer el mapa: esa era la queja de fondo
-    detras de 'la imagen se ve muy pequena'.
+    Sus primeras filas son el ranking de los lugares mas afectados, y las
+    columnas traen la tipologia, el canal y los ciudadanos listados. Una tabla
+    que se lee entera pesa mas que cinco que obligan a saltar entre cuadros.
     """
-    st.markdown("### Ranking · los 5 lugares con más denuncias")
-    st.markdown('<div class="nota-tabla">Distrito con mayor concentración de '
-                'denuncias y su desglose por tipo.</div>', unsafe_allow_html=True)
-    _tabla(datos.tabla_ranking(f, 5))
-
-    a, b = st.columns(2)
-    with a:
-        st.markdown("### Tipología de las denuncias")
-        st.markdown('<div class="nota-tabla">Las cuatro causales registradas en el '
-                    'REA.</div>', unsafe_allow_html=True)
-        _tabla(datos.tabla_tipologia(f))
-    with b:
-        st.markdown("### Canal de ingreso")
-        st.markdown('<div class="nota-tabla">Entidad por la que ingresó la denuncia, '
-                    'según la columna INSTITUCION de la fuente.</div>',
-                    unsafe_allow_html=True)
-        _tabla(datos.tabla_canal(f))
-
-    c, d = st.columns([1, 1])
-    with c:
-        st.markdown("### Ranking departamental")
-        st.markdown('<div class="nota-tabla">El top 5 distrital esconde el patrón '
-                    'regional; este cuadro lo muestra completo.</div>',
-                    unsafe_allow_html=True)
-        _tabla(datos.tabla_departamentos(f), altura=320)
-    with d:
-        st.markdown("### Listados de ciudadanos adjuntados")
-        lst = datos.tabla_listados(f)
-        cob = len(lst)
-        st.markdown(f'<div class="nota-tabla">Denuncias que adjuntaron una relación '
-                    f'nominal. Consta en {cob} de {len(f)} denuncias '
-                    f'({100*cob/max(len(f),1):.0f} %): el resto no declara cantidad.'
-                    f'</div>', unsafe_allow_html=True)
-        _tabla(lst, altura=320)
+    st.markdown("### Detalle por distrito")
+    lst = f["ciudadanos"].notna().sum()
+    st.markdown(
+        f'<div class="nota-tabla">Ordenado por número de denuncias: las primeras '
+        f'filas son los lugares con mayor concentración. Incluye el desglose por '
+        f'tipo, el canal de ingreso y los ciudadanos listados, que constan en '
+        f'{lst} de {len(f)} denuncias.</div>', unsafe_allow_html=True)
+    _tabla(datos.tabla_resumen(f), altura=460)
 
 
 def reservado(f: pd.DataFrame) -> None:
@@ -143,14 +118,10 @@ def reservado(f: pd.DataFrame) -> None:
 
 
 def pie(meta: dict, f: pd.DataFrame, total: int) -> None:
+    """Solo la cita del Reglamento, que es lo que pidio el correo.
+
+    Se retiro la ficha tecnica (fuente, shapefile, fecha de generacion, nota de
+    ubigeo, conteo de filtrados): esa informacion es para quien mantiene el
+    tablero, no para quien lo consulta, y vive en el README.
+    """
     st.markdown(f'<div class="aviso-norma">{CITA_REA}</div>', unsafe_allow_html=True)
-    sin = total - len(f) if len(f) < total else 0
-    st.markdown(
-        f'<div class="pie-rea">'
-        f'Fuente: <code>{meta["fuente"]}</code> · {meta["geodata"]} · '
-        f'generado el {meta["generado"]}.<br>'
-        f'{meta["nota_ubigeo"]}<br>'
-        f'Mostrando <b>{len(f)}</b> de <b>{total}</b> denuncias del registro'
-        f'{f" ({sin} ocultas por los filtros activos)" if sin else ""}. '
-        f'Uso interno RENIEC.'
-        f'</div>', unsafe_allow_html=True)

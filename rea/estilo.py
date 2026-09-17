@@ -79,11 +79,21 @@ CSS = f"""
 .stApp {{ background:{T['plano']}; }}
 html, body, [class*="css"] {{ font-family:{FUENTE}; }}
 #MainMenu, footer {{ visibility:hidden; }}
-.block-container {{ padding-top:2.1rem; padding-bottom:2.5rem; max-width:1500px; }}
 
-.titulo-rea {{ font-size:1.62rem; font-weight:700; letter-spacing:-0.015em;
-  color:{T['tinta']}; line-height:1.25; margin:0 0 3px; }}
-.sub-rea {{ font-size:0.9rem; color:{T['tinta2']}; margin:0 0 4px; }}
+/* El encabezado de Streamlit mide 60 px y es opaco: con 2.1rem de padding
+   tapaba los 10 px superiores del titulo. */
+[data-testid="stHeader"] {{ background:transparent; }}
+[data-testid="stMainBlockContainer"], .block-container {{
+  padding-top:4.6rem !important; padding-bottom:2.5rem; max-width:1500px; }}
+
+/* Streamlit fija el tamano de los <p> de su markdown con un selector mas
+   especifico que una sola clase: sin .stApp y sin !important el titulo se
+   quedaba en 16 px en vez de los 26 pedidos. */
+.stApp .titulo-rea {{ font-size:1.75rem !important; line-height:1.3 !important;
+  font-weight:700; letter-spacing:-0.015em; color:{T['tinta']};
+  margin:0 0 6px !important; }}
+.stApp .sub-rea {{ font-size:0.92rem !important; line-height:1.45 !important;
+  color:{T['tinta2']}; margin:0 0 4px !important; }}
 .corte-rea {{ display:inline-block; font-size:0.84rem; color:{T['tinta2']};
   background:{T['superficie']}; border:1px solid {T['borde']}; border-radius:6px;
   padding:5px 12px; }}

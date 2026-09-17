@@ -1,4 +1,9 @@
-"""Carga de datos, KPIs y las cuatro tablas resumen. Compartido por B y F."""
+"""Carga de datos, KPIs y la tabla resumen. Compartido por B y F.
+
+tabla_resumen() es la que usa el tablero. Las demas (ranking, tipologia,
+canal, departamentos, listados) quedan disponibles por si se vuelve a
+necesitar alguna suelta, pero no se muestran.
+"""
 from __future__ import annotations
 
 import json
@@ -54,6 +59,36 @@ def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, str]]:
 
 
 # --- Tablas resumen ---------------------------------------------------------
+def tabla_resumen(f: pd.DataFrame) -> pd.DataFrame:
+    """Tabla unica del tablero.
+
+    Ordenada por numero de denuncias, de modo que sus primeras filas SON el
+    ranking de los lugares mas afectados, y las columnas siguientes traen la
+    tipologia, el canal de ingreso y los ciudadanos listados. Reune en un solo
+    cuadro lo que antes estaba repartido en cinco.
+    """
+    g = (f.groupby(["ubigeo_inei", "distrito", "provincia", "departamento"])
+           .agg(Denuncias=("item", "size"),
+                Ciudadanos=("ciudadanos", lambda x: int(x.dropna().sum())),
+                Canal=("canal", lambda x: " · ".join(sorted(set(x)))))
+           .reset_index())
+    piv = f.pivot_table(index="ubigeo_inei", columns="tipo_etq",
+                        aggfunc="size", fill_value=0)
+    g = g.merge(piv, on="ubigeo_inei", how="left").fillna(0)
+    tipos = [ETIQUETA_CATEGORIA[c] for c in ORDEN_CATEGORIAS
+             if ETIQUETA_CATEGORIA[c] in g.columns]
+    for c in tipos:
+        g[c] = g[c].astype(int)
+    g = g.sort_values(["Denuncias", "departamento"], ascending=[False, True])
+    g = g.rename(columns={"distrito": "Distrito", "provincia": "Provincia",
+                          "departamento": "Departamento",
+                          "ubigeo_inei": "Ubigeo INEI",
+                          "Ciudadanos": "Ciudadanos listados"})
+    cols = (["Distrito", "Provincia", "Departamento", "Ubigeo INEI", "Denuncias"]
+            + tipos + ["Canal", "Ciudadanos listados"])
+    return g[cols].reset_index(drop=True)
+
+
 def tabla_ranking(f: pd.DataFrame, n: int = 5) -> pd.DataFrame:
     """Los n lugares con mas denuncias, con su desglose por tipo."""
     g = (f.groupby(["distrito", "provincia", "departamento", "ubigeo_inei"])

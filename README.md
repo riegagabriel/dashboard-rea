@@ -45,8 +45,9 @@ una actualización de la base.
 - Filtros de tipo de denuncia, canal de ingreso y departamento, que afectan **a la vez**
   al mapa, a los indicadores y a todas las tablas.
 - Cinco indicadores: denuncias, documentos, distritos, departamentos y ciudadanos listados.
-- **Cinco tablas resumen**: ranking de los 5 lugares con más denuncias, tipología,
-  canal de ingreso, ranking departamental y listados de ciudadanos adjuntados.
+- **Una tabla de detalle por distrito**, ordenada por número de denuncias: sus primeras
+  filas son el ranking de los lugares más afectados, y sus columnas traen el desglose
+  por tipo, el canal de ingreso y los ciudadanos listados.
 - Límites **provinciales y distritales que aparecen al acercar** el zoom.
 - Nota al pie con la cita literal del Reglamento.
 
@@ -110,8 +111,10 @@ pondría magnitud e identidad en la misma familia de color. Y la rampa se corta 
 `#dcd8cd` porque más oscuro borra los marcadores justo donde hay más datos: medido,
 sobre `#7a756a` los cuatro colores caen por debajo de 2:1 de contraste.
 
-**Las tablas no son un extra.** La queja de fondo —«la imagen se ve muy pequeña»— no
-se arregla agrandando el mapa, sino haciendo que ninguna cifra dependa de leerlo.
+**La tabla no es un extra.** La queja de fondo —«la imagen se ve muy pequeña»— no se
+arregla agrandando el mapa, sino haciendo que ninguna cifra dependa de leerlo. Y es
+una sola: una tabla que se lee entera pesa más que cinco que obligan a saltar entre
+cuadros.
 
 **El mapa no usa teselas.** La coropleta es la superficie; un fondo cartográfico
 competiría con ella y añadiría una dependencia de red innecesaria.
