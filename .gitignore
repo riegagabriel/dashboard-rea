@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.streamlit/secrets.toml
+.DS_Store
+
+# Datos personales: nunca en este repositorio (es publico)
+data/rea_nominal.csv
+data/*_nominal*.csv
+*.xlsx

@@ -1,0 +1,2857 @@
+{
+ "meta": {
+  "fecha_corte": "14/09/2026",
+  "generado": "17/09/2026 17:22",
+  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_CRC_Q20260914.xlsx",
+  "geodata": "Shapefile distrital INEI (1891 distritos, EPSG:4326)",
+  "nota_ubigeo": "El codigo territorial es UBIGEO INEI, el que corresponde a la geometria. NO es el ubigeo RENIEC: difieren en el 94,1 % de los distritos.",
+  "titulo": "Denuncias registradas en el REA por casos de probable golondrinaje",
+  "reglamento_cita": "Registro de Alertas (REA): Registro que contiene denuncias realizadas por ciudadanos, organizaciones politicas, autoridades, de la administracion publica y asociaciones civiles referidas a cambios domiciliarios irregulares. En este registro se incluyen reportes o informes remitidos por entidades de la administracion publica respecto a riesgos de indole electoral, social y economica que tengan un efecto directo sobre la trashumancia electoral.",
+  "reglamento_fuente": "RENIEC, Verificacion del Domicilio Declarado, RE-002-DRE/001, Segunda Version, numeral 6.9, p. 6.",
+  "reglamento_uso": "Los articulos 13.1 y 14.3 del mismo reglamento establecen que la SDPEG debe considerar las circunscripciones con reiteradas denuncias en el REA para determinar donde aplicar verificacion domiciliaria."
+ },
+ "categorias": {
+  "IMPUGNACION": "#2a78d6",
+  "VERIFICACION": "#008300",
+  "PADRON": "#4a3aa7",
+  "SUSPENSION DE DEPURACION": "#e87ba4"
+ },
+ "kpis": {
+  "casos": 67,
+  "documentos": 60,
+  "distritos": 52,
+  "departamentos": 15,
+  "ciudadanos": 5089,
+  "ciudadanos_cobertura": 21,
+  "georreferenciado_pct": 100.0,
+  "sin_match": 0
+ },
+ "canales": {
+  "RENIEC": 63,
+  "Ministerio Publico": 2,
+  "Defensoria del Pueblo": 2
+ },
+ "territorios": [
+  {
+   "ubigeo_inei": "010105",
+   "ubigeo_reniec": "010105",
+   "departamento": "AMAZONAS",
+   "provincia": "CHACHAPOYAS",
+   "distrito": "CHILIQUIN",
+   "localidades": [],
+   "lat": -6.07981,
+   "lon": -77.756009,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 004544-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 115,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "01/06/2026",
+   "fecha_max": "01/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "010118",
+   "ubigeo_reniec": "010118",
+   "departamento": "AMAZONAS",
+   "provincia": "CHACHAPOYAS",
+   "distrito": "SAN FRANCISCO DE DAGUAS",
+   "localidades": [],
+   "lat": -6.236462,
+   "lon": -77.745388,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002999-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 61,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "20/04/2026",
+   "fecha_max": "20/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "010307",
+   "ubigeo_reniec": "010312",
+   "departamento": "AMAZONAS",
+   "provincia": "BONGARA",
+   "distrito": "JAZAN",
+   "localidades": [],
+   "lat": -5.94069,
+   "lon": -78.02143,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 001912-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "12/08/2026",
+   "fecha_max": "12/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "010603",
+   "ubigeo_reniec": "010502",
+   "departamento": "AMAZONAS",
+   "provincia": "RODRIGUEZ DE MENDOZA",
+   "distrito": "COCHAMAL",
+   "localidades": [],
+   "lat": -6.36907,
+   "lon": -77.656685,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 002471-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 63,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "05/05/2026",
+   "fecha_max": "05/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "020104",
+   "ubigeo_reniec": "020105",
+   "departamento": "ANCASH",
+   "provincia": "HUARAZ",
+   "distrito": "HUANCHAY",
+   "localidades": [],
+   "lat": -9.732998,
+   "lon": -77.819462,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003744-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 107,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "05/05/2026",
+   "fecha_max": "05/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "020514",
+   "ubigeo_reniec": "020317",
+   "departamento": "ANCASH",
+   "provincia": "BOLOGNESI",
+   "distrito": "SAN MIGUEL DE CORPANQUI",
+   "localidades": [],
+   "lat": -10.293227,
+   "lon": -77.206401,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002586-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 41,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "07/09/2026",
+   "fecha_max": "07/09/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "020601",
+   "ubigeo_reniec": "020401",
+   "departamento": "ANCASH",
+   "provincia": "CARHUAZ",
+   "distrito": "CARHUAZ",
+   "localidades": [],
+   "lat": -9.29126,
+   "lon": -77.674348,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 003908-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "03/06/2026",
+   "fecha_max": "03/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "021005",
+   "ubigeo_reniec": "020804",
+   "departamento": "ANCASH",
+   "provincia": "HUARI",
+   "distrito": "HUACACHI",
+   "localidades": [],
+   "lat": -9.313796,
+   "lon": -76.911578,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003687-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 506,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "04/05/2026",
+   "fecha_max": "04/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "021011",
+   "ubigeo_reniec": "020810",
+   "departamento": "ANCASH",
+   "provincia": "HUARI",
+   "distrito": "PONTO",
+   "localidades": [],
+   "lat": -9.341966,
+   "lon": -76.992477,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003750-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "07/05/2026",
+   "fecha_max": "07/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "021016",
+   "ubigeo_reniec": "020815",
+   "departamento": "ANCASH",
+   "provincia": "HUARI",
+   "distrito": "UCO",
+   "localidades": [],
+   "lat": -9.181958,
+   "lon": -76.933664,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003251-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 388,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "04/05/2026",
+   "fecha_max": "04/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "021210",
+   "ubigeo_reniec": "020709",
+   "departamento": "ANCASH",
+   "provincia": "HUAYLAS",
+   "distrito": "YURACMARCA",
+   "localidades": [],
+   "lat": -8.767733,
+   "lon": -77.725884,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 000970-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "10/06/2026",
+   "fecha_max": "10/06/2026",
+   "canales": [
+    "Ministerio Publico"
+   ]
+  },
+  {
+   "ubigeo_inei": "021308",
+   "ubigeo_reniec": "020907",
+   "departamento": "ANCASH",
+   "provincia": "MARISCAL LUZURIAGA",
+   "distrito": "MUSGA",
+   "localidades": [],
+   "lat": -8.893155,
+   "lon": -77.341193,
+   "total": 5,
+   "por_tipo": {
+    "IMPUGNACION": 4,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002584-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004653-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004715-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004834-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004885-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 109,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "01/09/2026",
+   "fecha_max": "30/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "021404",
+   "ubigeo_reniec": "022003",
+   "departamento": "ANCASH",
+   "provincia": "OCROS",
+   "distrito": "CARHUAPAMPA",
+   "localidades": [],
+   "lat": -10.498312,
+   "lon": -77.217176,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 004519-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "16/06/2026",
+   "fecha_max": "16/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "021405",
+   "ubigeo_reniec": "022004",
+   "departamento": "ANCASH",
+   "provincia": "OCROS",
+   "distrito": "COCHAS",
+   "localidades": [],
+   "lat": -10.656908,
+   "lon": -77.482599,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 004519-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 500,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "16/06/2026",
+   "fecha_max": "16/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "040119",
+   "ubigeo_reniec": "040116",
+   "departamento": "AREQUIPA",
+   "provincia": "AREQUIPA",
+   "distrito": "SAN JUAN DE TARUCANI",
+   "localidades": [],
+   "lat": -16.210082,
+   "lon": -71.094223,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003255-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 73,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "22/05/2026",
+   "fecha_max": "22/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "040127",
+   "ubigeo_reniec": "040124",
+   "departamento": "AREQUIPA",
+   "provincia": "AREQUIPA",
+   "distrito": "YARABAMBA",
+   "localidades": [
+    "SAN ANTONIO DE YARABAMBA"
+   ],
+   "lat": -16.629662,
+   "lon": -71.547289,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003862-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "04/06/2026",
+   "fecha_max": "04/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "040807",
+   "ubigeo_reniec": "040807",
+   "departamento": "AREQUIPA",
+   "provincia": "LA UNION",
+   "distrito": "QUECHUALLA",
+   "localidades": [],
+   "lat": -15.288504,
+   "lon": -73.088365,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 2,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 000950-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004780-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "16/06/2026",
+   "fecha_max": "23/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "051006",
+   "ubigeo_reniec": "050706",
+   "departamento": "AYACUCHO",
+   "provincia": "VICTOR FAJARDO",
+   "distrito": "CAYARA",
+   "localidades": [],
+   "lat": -13.793857,
+   "lon": -73.988491,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "ACCESO A LA INFORMACION PUBLICA"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "24/08/2026",
+   "fecha_max": "24/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "051007",
+   "ubigeo_reniec": "050707",
+   "departamento": "AYACUCHO",
+   "provincia": "VICTOR FAJARDO",
+   "distrito": "COLCA",
+   "localidades": [],
+   "lat": -13.715584,
+   "lon": -74.03189,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002116-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 240,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "26/04/2026",
+   "fecha_max": "26/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "060702",
+   "ubigeo_reniec": "060702",
+   "departamento": "CAJAMARCA",
+   "provincia": "HUALGAYOC",
+   "distrito": "CHUGUR",
+   "localidades": [],
+   "lat": -6.68927,
+   "lon": -78.699862,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 2,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002647-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004803-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 105,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "24/04/2026",
+   "fecha_max": "28/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "060902",
+   "ubigeo_reniec": "061102",
+   "departamento": "CAJAMARCA",
+   "provincia": "SAN IGNACIO",
+   "distrito": "CHIRINOS",
+   "localidades": [],
+   "lat": -5.317789,
+   "lon": -78.898163,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 002377-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 49,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "31/08/2026",
+   "fecha_max": "31/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "090303",
+   "ubigeo_reniec": "080303",
+   "departamento": "HUANCAVELICA",
+   "provincia": "ANGARAES",
+   "distrito": "CALLANMARCA",
+   "localidades": [],
+   "lat": -12.881774,
+   "lon": -74.626244,
+   "total": 3,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 2,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "PADRON",
+   "documentos": [
+    "PROVEIDO N° 004707-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004722-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 004899-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "05/06/2026",
+   "fecha_max": "19/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "090310",
+   "ubigeo_reniec": "080309",
+   "departamento": "HUANCAVELICA",
+   "provincia": "ANGARAES",
+   "distrito": "SAN ANTONIO DE ANTAPARCO",
+   "localidades": [],
+   "lat": -13.067817,
+   "lon": -74.43519,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 1
+   },
+   "dominante": "SUSPENSION DE DEPURACION",
+   "documentos": [
+    "PROVEIDO N° 004227-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "22/05/2026",
+   "fecha_max": "22/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "100110",
+   "ubigeo_reniec": "090109",
+   "departamento": "HUANUCO",
+   "provincia": "HUANUCO",
+   "distrito": "YARUMAYO",
+   "localidades": [],
+   "lat": -9.96217,
+   "lon": -76.451126,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 1,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002605-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002675-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 302,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "12/05/2026",
+   "fecha_max": "30/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "100307",
+   "ubigeo_reniec": "090307",
+   "departamento": "HUANUCO",
+   "provincia": "DOS DE MAYO",
+   "distrito": "CHUQUIS",
+   "localidades": [],
+   "lat": -9.654033,
+   "lon": -76.628907,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 001899-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "10/08/2026",
+   "fecha_max": "10/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "101102",
+   "ubigeo_reniec": "091103",
+   "departamento": "HUANUCO",
+   "provincia": "YAROWILCA",
+   "distrito": "CAHUAC",
+   "localidades": [],
+   "lat": -9.86659,
+   "lon": -76.651285,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 001117-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "10/07/2026",
+   "fecha_max": "10/07/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "120804",
+   "ubigeo_reniec": "110604",
+   "departamento": "JUNIN",
+   "provincia": "YAULI",
+   "distrito": "MARCAPOMACOCHA",
+   "localidades": [],
+   "lat": -11.417203,
+   "lon": -76.252268,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002649-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "28/04/2026",
+   "fecha_max": "28/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "120805",
+   "ubigeo_reniec": "110605",
+   "departamento": "JUNIN",
+   "provincia": "YAULI",
+   "distrito": "MOROCOCHA",
+   "localidades": [],
+   "lat": -11.510162,
+   "lon": -76.125412,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 001533-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 5,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "15/07/2026",
+   "fecha_max": "15/07/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "130606",
+   "ubigeo_reniec": "120405",
+   "departamento": "LA LIBERTAD",
+   "provincia": "OTUZCO",
+   "distrito": "LA CUESTA",
+   "localidades": [],
+   "lat": -7.902035,
+   "lon": -78.665109,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "30/04/2026",
+   "fecha_max": "30/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "131005",
+   "ubigeo_reniec": "120704",
+   "departamento": "LA LIBERTAD",
+   "provincia": "SANTIAGO DE CHUCO",
+   "distrito": "MOLLEPATA",
+   "localidades": [],
+   "lat": -8.141829,
+   "lon": -77.937868,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 001696-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "07/07/2026",
+   "fecha_max": "07/07/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "150126",
+   "ubigeo_reniec": "140120",
+   "departamento": "LIMA",
+   "provincia": "LIMA",
+   "distrito": "PUNTA HERMOSA",
+   "localidades": [],
+   "lat": -12.26176,
+   "lon": -76.728918,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 1,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 002021-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002599-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "19/08/2026",
+   "fecha_max": "26/08/2026",
+   "canales": [
+    "Defensoria del Pueblo",
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "150132",
+   "ubigeo_reniec": "140137",
+   "departamento": "LIMA",
+   "provincia": "LIMA",
+   "distrito": "SAN JUAN DE LURIGANCHO",
+   "localidades": [],
+   "lat": -11.948751,
+   "lon": -76.978092,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "HOJA DE ENVIO D000082-2026-RENIEC/DRE-SDPEG"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "06/07/2026",
+   "fecha_max": "06/07/2026",
+   "canales": [
+    "Ministerio Publico"
+   ]
+  },
+  {
+   "ubigeo_inei": "150605",
+   "ubigeo_reniec": "140805",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "CHANCAY",
+   "localidades": [],
+   "lat": -11.499809,
+   "lon": -77.299945,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 2,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 002579-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002708-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "24/04/2026",
+   "fecha_max": "29/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "150607",
+   "ubigeo_reniec": "140807",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "LAMPIAN",
+   "localidades": [],
+   "lat": -11.242421,
+   "lon": -76.854346,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002082-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 17,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "24/04/2026",
+   "fecha_max": "24/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "150609",
+   "ubigeo_reniec": "140809",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "SAN MIGUEL DE ACOS",
+   "localidades": [],
+   "lat": -11.2941,
+   "lon": -76.764963,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 004518-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 128,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "29/05/2026",
+   "fecha_max": "29/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "150719",
+   "ubigeo_reniec": "140632",
+   "departamento": "LIMA",
+   "provincia": "HUAROCHIRI",
+   "distrito": "SAN JUAN DE IRIS",
+   "localidades": [],
+   "lat": -11.725279,
+   "lon": -76.46819,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 1,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002407-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002580-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "02/09/2026",
+   "fecha_max": "29/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151006",
+   "ubigeo_reniec": "140706",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "CACRA",
+   "localidades": [],
+   "lat": -12.763042,
+   "lon": -75.733122,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151008",
+   "ubigeo_reniec": "140733",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "CATAHUASI",
+   "localidades": [],
+   "lat": -12.740275,
+   "lon": -75.920615,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151009",
+   "ubigeo_reniec": "140710",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "CHOCOS",
+   "localidades": [],
+   "lat": -12.92716,
+   "lon": -75.91438,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151010",
+   "ubigeo_reniec": "140708",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "COCHAS",
+   "localidades": [],
+   "lat": -12.285198,
+   "lon": -76.19457,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151011",
+   "ubigeo_reniec": "140709",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "COLONIA",
+   "localidades": [],
+   "lat": -12.57527,
+   "lon": -75.856249,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151018",
+   "ubigeo_reniec": "140716",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "LARAOS",
+   "localidades": [
+    "SAN JUAN DE LANGAICO"
+   ],
+   "lat": -12.406392,
+   "lon": -75.671787,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 001771-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002419-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 285,
+   "ciudadanos_cobertura": 2,
+   "fecha_min": "02/09/2026",
+   "fecha_max": "21/07/2026",
+   "canales": [
+    "Defensoria del Pueblo",
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151028",
+   "ubigeo_reniec": "140724",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "TANTA",
+   "localidades": [],
+   "lat": -12.123981,
+   "lon": -76.01223,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151029",
+   "ubigeo_reniec": "140725",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "TAURIPAMPA",
+   "localidades": [],
+   "lat": -12.688838,
+   "lon": -76.183834,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 003866-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "08/05/2026",
+   "fecha_max": "08/05/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "151032",
+   "ubigeo_reniec": "140728",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "VIÑAC",
+   "localidades": [],
+   "lat": -12.89509,
+   "lon": -75.756236,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "27/04/2026",
+   "fecha_max": "27/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "160305",
+   "ubigeo_reniec": "150304",
+   "departamento": "LORETO",
+   "provincia": "LORETO",
+   "distrito": "URARINAS",
+   "localidades": [],
+   "lat": -4.290949,
+   "lon": -75.44671,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002363-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 1986,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "28/08/2026",
+   "fecha_max": "28/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "160403",
+   "ubigeo_reniec": "150603",
+   "departamento": "LORETO",
+   "provincia": "MARISCAL RAMON CASTILLA",
+   "distrito": "YAVARI",
+   "localidades": [
+    "SANTA ROSA"
+   ],
+   "lat": -4.583339,
+   "lon": -72.492759,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 002395-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 9,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "01/09/2026",
+   "fecha_max": "01/09/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "180302",
+   "ubigeo_reniec": "170302",
+   "departamento": "MOQUEGUA",
+   "provincia": "ILO",
+   "distrito": "EL ALGARROBAL",
+   "localidades": [],
+   "lat": -17.575142,
+   "lon": -71.149915,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 2,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 000177-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 001513-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "21/08/2026",
+   "fecha_max": "22/07/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "200406",
+   "ubigeo_reniec": "190405",
+   "departamento": "PIURA",
+   "provincia": "MORROPON",
+   "distrito": "SALITRAL",
+   "localidades": [],
+   "lat": -5.446214,
+   "lon": -79.846832,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 002585-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "14/09/2026",
+   "fecha_max": "14/09/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "230108",
+   "ubigeo_reniec": "220109",
+   "departamento": "TACNA",
+   "provincia": "TACNA",
+   "distrito": "POCOLLAY",
+   "localidades": [],
+   "lat": -18.00984,
+   "lon": -70.103861,
+   "total": 2,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 2,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "HOJA DE ENVIO-000110-2026-DRE-SDPEG",
+    "PROVEIDO N° 002104-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "14/08/2026",
+   "fecha_max": "18/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "230402",
+   "ubigeo_reniec": "220205",
+   "departamento": "TACNA",
+   "provincia": "TARATA",
+   "distrito": "HEROES ALBARRACIN",
+   "localidades": [],
+   "lat": -17.48817,
+   "lon": -70.209882,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO N° 000929-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "03/07/2026",
+   "fecha_max": "03/07/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "250307",
+   "ubigeo_reniec": "250206",
+   "departamento": "UCAYALI",
+   "provincia": "PADRE ABAD",
+   "distrito": "BOQUERON",
+   "localidades": [],
+   "lat": -9.071149,
+   "lon": -75.75942,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 1,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0
+   },
+   "dominante": "IMPUGNACION",
+   "documentos": [
+    "PROVEIDO N° 001775-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "22/07/2026",
+   "fecha_max": "22/07/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  }
+ ],
+ "casos": [
+  {
+   "item": 1,
+   "ubigeo_inei": "021016",
+   "departamento": "ANCASH",
+   "provincia": "HUARI",
+   "distrito": "UCO",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "04/05/2026",
+   "documento": "PROVEIDO N° 003251-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 388,
+   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION POR 388 CIUDADANOS QUE SE CONSTATO NO TENER VIVIENDA DENTRO DEL DISTRITO DE HUACACHI",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 2,
+   "ubigeo_inei": "021005",
+   "departamento": "ANCASH",
+   "provincia": "HUARI",
+   "distrito": "HUACACHI",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "04/05/2026",
+   "documento": "PROVEIDO N° 003687-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 506,
+   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION POR 506 CIUDADANOS QUE SE CONSTATO NO TENER VIVIENDA DENTRO DEL DISTRITO DE HUACACHI",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 3,
+   "ubigeo_inei": "020601",
+   "departamento": "ANCASH",
+   "provincia": "CARHUAZ",
+   "distrito": "CARHUAZ",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "03/06/2026",
+   "documento": "PROVEIDO N° 003908-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANOS DENUNCIAN CAMBIOS IRREGULARES DE DOMICILIO, SOLICITAN VERIFICACION, IMPUGNACION Y DEPURACION DEL PADRON ELECTORAL",
+   "metodo_match": "equivalencia_confirmada",
+   "match_confidence": "alta",
+   "observacion_match": "Regla de negocio confirmada por el usuario 17/09/2026"
+  },
+  {
+   "item": 4,
+   "ubigeo_inei": "051007",
+   "departamento": "AYACUCHO",
+   "provincia": "VICTOR FAJARDO",
+   "distrito": "COLCA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "26/04/2026",
+   "documento": "PROVEIDO N° 002116-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 240,
+   "observacion": "CIUDADANO SOLICITA TACHA MASIVA EXCEPCIONAL DE 240 CIUDADANOS AL PADRON ELECTORAL.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 5,
+   "ubigeo_inei": "090303",
+   "departamento": "HUANCAVELICA",
+   "provincia": "ANGARAES",
+   "distrito": "CALLANMARCA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "05/06/2026",
+   "documento": "PROVEIDO N° 004899-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "PRESIDENTE DE LA DIRECTIVA COMUNAL SOLICITA LA DEPURACION DEL PADRON ELECTORAL POR PRESENTAR CIUDADANOS QUE NO PERTENECEN AL DISTRITO",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 6,
+   "ubigeo_inei": "090303",
+   "departamento": "HUANCAVELICA",
+   "provincia": "ANGARAES",
+   "distrito": "CALLANMARCA",
+   "localidad_original": "",
+   "tipo": "PADRON",
+   "fecha": "19/06/2026",
+   "documento": "PROVEIDO N° 004722-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANOS SOLICITAN RELACION DEL PADRON ELECTORAL PARA IDENTIFICAR ELECTORES GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 7,
+   "ubigeo_inei": "090303",
+   "departamento": "HUANCAVELICA",
+   "provincia": "ANGARAES",
+   "distrito": "CALLANMARCA",
+   "localidad_original": "",
+   "tipo": "PADRON",
+   "fecha": "19/06/2026",
+   "documento": "PROVEIDO N° 004707-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANOS SOLICITAN PADRON ELECTORAL DEL DISTRITO DE CALLAMARCA CON EL FIN DE IDENTIFICAR A ELECTORES GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 8,
+   "ubigeo_inei": "150605",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "CHANCAY",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "29/04/2026",
+   "documento": "PROVEIDO N° 002579-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADADO DEL DISTRITO DE CHANCAY REQUIERE VERIFICACION DE DOMICILIO MASIVA, FISCALIZACION Y DEPURACION DEL PADRON ELECTORAL POR PRESUNCION DE EXIXTENCIA DE ELECTORES GOLONDRINOS, POR CAMBIOS MASIVOS DE DOMICILIO.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 9,
+   "ubigeo_inei": "150605",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "CHANCAY",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "24/04/2026",
+   "documento": "PROVEIDO N° 002708-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA VERIFICACION DE DOMICILIO MASIVA, FISCALIZACION Y DEPURACION DEL PADRON ELECTORAL.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 10,
+   "ubigeo_inei": "010105",
+   "departamento": "AMAZONAS",
+   "provincia": "CHACHAPOYAS",
+   "distrito": "CHILIQUIN",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "01/06/2026",
+   "documento": "PROVEIDO N° 004544-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 115,
+   "observacion": "CIUDADANO PRESENTA SOLICITUDES DE IMPUGNACION CON SUS RESPECTIVOS CERTIFICADOS DE DOMICILIO DONDE EL JUEZ DE PAZ ACREDITA QUE 115 CIUDADANOS NO RESIDEN EN EL DISTRITO",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 11,
+   "ubigeo_inei": "060702",
+   "departamento": "CAJAMARCA",
+   "provincia": "HUALGAYOC",
+   "distrito": "CHUGUR",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "28/04/2026",
+   "documento": "PROVEIDO N° 004803-2026/DRE/SDPEG/RENIEC",
+   "formato": "CARTA",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 105,
+   "observacion": "CIUDADANOS DEL DISTRITO DE CHUGUR PRESENTAN EXPEDIENTE CON 105 SOLICITUDES DE IMPUGNACION DE DOMICILIO",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 12,
+   "ubigeo_inei": "060702",
+   "departamento": "CAJAMARCA",
+   "provincia": "HUALGAYOC",
+   "distrito": "CHUGUR",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "24/04/2026",
+   "documento": "PROVEIDO N° 002647-2026/DRE/SDPEG/RENIEC",
+   "formato": "CARTA",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANOS SOLICITA IMPUGNACION DE DOMICILIO Y PRESENTYA 105 IMPUGNACIONES DEBIDAMENTE JUSTIFICADAS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 13,
+   "ubigeo_inei": "010603",
+   "departamento": "AMAZONAS",
+   "provincia": "RODRIGUEZ DE MENDOZA",
+   "distrito": "COCHAMAL",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "05/05/2026",
+   "documento": "PROVEIDO N° 002471-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 63,
+   "observacion": "CIUDADANO SOLICITA INSPECCION DOMICILIARIA Y FISCALIZACION DEL PADRON ELECTORAL POR PRESUNTOS GOLONDRINOS, PRESENTA RELACION DE 63 CIUDADANOS QUE NO TIENEN DOMICILIO EN EL DISTRITO.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 14,
+   "ubigeo_inei": "021405",
+   "departamento": "ANCASH",
+   "provincia": "OCROS",
+   "distrito": "COCHAS",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "16/06/2026",
+   "documento": "PROVEIDO N° 004519-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 500,
+   "observacion": "CIUDADANO SOLICITA FISCALIZACION DE DOMICILIO POR PRESUNTO GOLONDRINAJE DE 500 CIUDADANOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 15,
+   "ubigeo_inei": "151010",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "COCHAS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 16,
+   "ubigeo_inei": "021404",
+   "departamento": "ANCASH",
+   "provincia": "OCROS",
+   "distrito": "CARHUAPAMPA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "16/06/2026",
+   "documento": "PROVEIDO N° 004519-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA FISCALIZACION DE DOMICILIO POR PRESUNTO GOLONDRINAJE DE 500 CIUDADANOS",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Tipeo: falta una silaba"
+  },
+  {
+   "item": 17,
+   "ubigeo_inei": "130606",
+   "departamento": "LA LIBERTAD",
+   "provincia": "OTUZCO",
+   "distrito": "LA CUESTA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "30/04/2026",
+   "documento": "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION DE DOMICILIO POR INCREMENTO MASIVO DE ELECTORES",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 18,
+   "ubigeo_inei": "090310",
+   "departamento": "HUANCAVELICA",
+   "provincia": "ANGARAES",
+   "distrito": "SAN ANTONIO DE ANTAPARCO",
+   "localidad_original": "",
+   "tipo": "SUSPENSION DE DEPURACION",
+   "fecha": "22/05/2026",
+   "documento": "PROVEIDO N° 004227-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANOS SOLICITAN SUSPENSION DEL PROCESO DE DEPURACION DOMICILIARIA REALIZADA POR JNE POR PROTECCION DE DERECHOS DE LOS ELECTORES INSCRITOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 19,
+   "ubigeo_inei": "020104",
+   "departamento": "ANCASH",
+   "provincia": "HUARAZ",
+   "distrito": "HUANCHAY",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "05/05/2026",
+   "documento": "PROVEIDO N° 003744-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 107,
+   "observacion": "CIUDADANO PRESENTA LISTA DE 107 CIUDADANOS LOS CUALES FUERON CONSTATADOS QUE NO TIENEN VIVIENDA DENTRO DEL DISTRITO DE HUANCHAY, POR TAL MOTIVO SOLICITAN IMPUGNACION",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 20,
+   "ubigeo_inei": "150607",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "LAMPIAN",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "24/04/2026",
+   "documento": "PROVEIDO N° 002082-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 17,
+   "observacion": "CIUDADANOS PRESENTAN RELACION DE 17 CIUDADANOS POR PRESUNCION DE GOLONDRINAJE",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 21,
+   "ubigeo_inei": "120804",
+   "departamento": "JUNIN",
+   "provincia": "YAULI",
+   "distrito": "MARCAPOMACOCHA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "28/04/2026",
+   "documento": "PROVEIDO N° 002649-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO ALERTA ELECTORES GOLONDRINOS POST PUBLICACION DE LA LPI",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 22,
+   "ubigeo_inei": "021308",
+   "departamento": "ANCASH",
+   "provincia": "MARISCAL LUZURIAGA",
+   "distrito": "MUSGA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "04/06/2026",
+   "documento": "PROVEIDO N° 004653-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 109,
+   "observacion": "CIUDADANO SOLICITA INPUGNACION, FISCALIZACION Y VERIFICACION DE DOMICILIO POR PRESUNTO CAMBIOS IRREGULARES DE DOMICILIO  DE 109 CIUDADANOS CON FINES ELECTORALES",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 23,
+   "ubigeo_inei": "021308",
+   "departamento": "ANCASH",
+   "provincia": "MARISCAL LUZURIAGA",
+   "distrito": "MUSGA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "19/06/2026",
+   "documento": "PROVEIDO N° 004715-2026/DRE/SDPEG/RENIEC",
+   "formato": "No indicado",
+   "canal": "RENIEC",
+   "denunciante": "ONPE",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA INPUGNACION, FISCALIZACION Y VERIFICACION DE DOMICILIO POR PRESUNTO CAMBIOS IRREGULARES DE DOMICILIO  DE 109 CIUDADANOS CON FINES ELECTORALES",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 24,
+   "ubigeo_inei": "021308",
+   "departamento": "ANCASH",
+   "provincia": "MARISCAL LUZURIAGA",
+   "distrito": "MUSGA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "30/06/2026",
+   "documento": "PROVEIDO N° 004834-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA INPUGNACION, FISCALIZACION Y VERIFICACION DE DOMICILIO POR PRESUNTO CAMBIOS IRREGULARES DE DOMICILIO  DE 109 CIUDADANOS CON FINES ELECTORALES",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 25,
+   "ubigeo_inei": "021308",
+   "departamento": "ANCASH",
+   "provincia": "MARISCAL LUZURIAGA",
+   "distrito": "MUSGA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "24/06/2026",
+   "documento": "PROVEIDO N° 004885-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA INPUGNACION, FISCALIZACION Y VERIFICACION DE DOMICILIO POR PRESUNTO CAMBIOS IRREGULARES DE DOMICILIO  DE 109 CIUDADANOS CON FINES ELECTORALES",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 26,
+   "ubigeo_inei": "021011",
+   "departamento": "ANCASH",
+   "provincia": "HUARI",
+   "distrito": "PONTO",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "07/05/2026",
+   "documento": "PROVEIDO N° 003750-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO PRESENTA IMPUGNACION DE 343 CIUDADANOS QUE NO RESIDEN NI DOMICILIAN EN EL DISTRITO DE PONTO",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 27,
+   "ubigeo_inei": "040807",
+   "departamento": "AREQUIPA",
+   "provincia": "LA UNION",
+   "distrito": "QUECHUALLA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "23/06/2026",
+   "documento": "PROVEIDO N° 004780-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "MUNICIPALIDAD DE QUECHUALLA PRESENTA OFICIO SOLICITANDO VERIFICACION DE DOMICILIO POR PRESUNTOS VOTOS GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 28,
+   "ubigeo_inei": "040807",
+   "departamento": "AREQUIPA",
+   "provincia": "LA UNION",
+   "distrito": "QUECHUALLA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "16/06/2026",
+   "documento": "PROVEIDO N° 000950-2026/DRE/SDPEG/RENIEC",
+   "formato": "No indicado",
+   "canal": "RENIEC",
+   "denunciante": "No identificado",
+   "caracter": "Sin identificar",
+   "ciudadanos": null,
+   "observacion": "SOLICITUD PREVENTIVA DE VERIFICACION DE DOMICILIO Y FISCALIZACION DE ELECTORES IRREGULARES",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 29,
+   "ubigeo_inei": "151008",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "CATAHUASI",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 30,
+   "ubigeo_inei": "151011",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "COLONIA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 31,
+   "ubigeo_inei": "151028",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "TANTA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 32,
+   "ubigeo_inei": "151006",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "CACRA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 33,
+   "ubigeo_inei": "151009",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "CHOCOS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 34,
+   "ubigeo_inei": "151032",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "VIÑAC",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "27/04/2026",
+   "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA IMPUGNACION Y EXCLUSION DE ELECTORES GOLONDRINOS EN 7 DISTRITOS DE LA PROVINCIA DE YAUYOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 35,
+   "ubigeo_inei": "010118",
+   "departamento": "AMAZONAS",
+   "provincia": "CHACHAPOYAS",
+   "distrito": "SAN FRANCISCO DE DAGUAS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "20/04/2026",
+   "documento": "PROVEIDO N° 002999-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 61,
+   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION CON CONSTANCIA DE NO RESIDENCIA DE LISTA DE 61 CIUDADANOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 36,
+   "ubigeo_inei": "100110",
+   "departamento": "HUANUCO",
+   "provincia": "HUANUCO",
+   "distrito": "YARUMAYO",
+   "localidad_original": "",
+   "tipo": "PADRON",
+   "fecha": "12/05/2026",
+   "documento": "PROVEIDO N° 002675-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA PADRON ELECTORAL PARA DENUNCIAR POSTERIORMENTE POR PRESUNCION DE POBLADORES QUE NO RESIDEN",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 37,
+   "ubigeo_inei": "100110",
+   "departamento": "HUANUCO",
+   "provincia": "HUANUCO",
+   "distrito": "YARUMAYO",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "30/04/2026",
+   "documento": "PROVEIDO N° 002605-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 302,
+   "observacion": "ALCALDE DE CP 3 DE MAYO DE ANDAS CHICO / YARUMAYO SOLICITA IMPUGNACION DE DOMICILIO DE 302 CIUDADANOS QUE REALIZARON CAMBIO DE DOMILILIO POR PRESUNCION DE GOLONDRINAJE",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 38,
+   "ubigeo_inei": "150719",
+   "departamento": "LIMA",
+   "provincia": "HUAROCHIRI",
+   "distrito": "SAN JUAN DE IRIS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "29/04/2026",
+   "documento": "PROVEIDO N° 002580-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANOS SOLICITA LA DEPURACION DEL PADRON ELECTORAL Y ENVIA RELACION DE 62 PRESUNTOS GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 39,
+   "ubigeo_inei": "040119",
+   "departamento": "AREQUIPA",
+   "provincia": "AREQUIPA",
+   "distrito": "SAN JUAN DE TARUCANI",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "22/05/2026",
+   "documento": "PROVEIDO N° 003255-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 73,
+   "observacion": "PRESIDENTES Y AUTORIDADES DEL DISTRITO DE TARUCANI DENUNCIAN PRESUNTOS CASOS DE GOLONDRINAJE, ANEXANDO LISTA DE 73 CIUDADANOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 40,
+   "ubigeo_inei": "150609",
+   "departamento": "LIMA",
+   "provincia": "HUARAL",
+   "distrito": "SAN MIGUEL DE ACOS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "29/05/2026",
+   "documento": "PROVEIDO N° 004518-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 128,
+   "observacion": "CIUDADANO SOLICITA FISCALIZACION Y ACTUALIZACION DEL PADRON ELECTORAL POR PRESUNCION DE GOLONDRINAJE Y PRESENTA RELACION DE 128 CIUDADANOS QUE NO RESIDEN",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 41,
+   "ubigeo_inei": "151029",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "TAURIPAMPA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "08/05/2026",
+   "documento": "PROVEIDO N° 003866-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "DENUNCIA CONTRA ELECTORES GOLONDRINOS, PRESENTAN LISTA DE 81 CIUDADANOS POR PRESUNCION DE GOLONDRINAJE",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 42,
+   "ubigeo_inei": "040127",
+   "departamento": "AREQUIPA",
+   "provincia": "AREQUIPA",
+   "distrito": "YARABAMBA",
+   "localidad_original": "SAN ANTONIO DE YARABAMBA",
+   "tipo": "IMPUGNACION",
+   "fecha": "04/06/2026",
+   "documento": "PROVEIDO N° 003862-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA DEPURACION DE ELECTORES POR PRESUNCION DE VOTOS GOLONDRINOS POR REGISTRAR SU DIRECCION COMO SUYA",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Corrimiento de columnas; SAN ANTONIO DE YARABAMBA es la capital del distrito Yarabamba"
+  },
+  {
+   "item": 43,
+   "ubigeo_inei": "250307",
+   "departamento": "UCAYALI",
+   "provincia": "PADRE ABAD",
+   "distrito": "BOQUERON",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "22/07/2026",
+   "documento": "PROVEIDO N° 001775-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "PRESIDENTE DEL COMITÉ ELECTORAL DEL CP LA DIVISORIA SOLICITA FISCALIZACION Y RECTIFICACION DEL PADRON ELECTORAL POR PRESENTAR CASO DE CIUDADANO QUE NO ES ELECTOR REAL",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 44,
+   "ubigeo_inei": "101102",
+   "departamento": "HUANUCO",
+   "provincia": "YAROWILCA",
+   "distrito": "CAHUAC",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "10/07/2026",
+   "documento": "PROVEIDO N° 001117-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "PRESIDENTE DE LA COMUNIDAD CAMPESINA DEL DISTRITO SOLICITA INTERVENCION PARA ANULAR VOTOS GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 45,
+   "ubigeo_inei": "100307",
+   "departamento": "HUANUCO",
+   "provincia": "DOS DE MAYO",
+   "distrito": "CHUQUIS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "10/08/2026",
+   "documento": "PROVEIDO N° 001899-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "PRESIDENTE DE LA COMUNIDAD CAMPESINA DEL DISTRITO SOLICITA INTERVENCION PARA ANULAR VOTOS GOLONDRINOS",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Numeral en digito; INEI escribe DOS DE MAYO"
+  },
+  {
+   "item": 46,
+   "ubigeo_inei": "180302",
+   "departamento": "MOQUEGUA",
+   "provincia": "ILO",
+   "distrito": "EL ALGARROBAL",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "22/07/2026",
+   "documento": "PROVEIDO N° 001513-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "SOLICITUD DE NUEVA VERIFICACION DE DOMICILIO POR IRREGULARIDADES EN EL REGISTRO DE DOMICILIOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 47,
+   "ubigeo_inei": "230402",
+   "departamento": "TACNA",
+   "provincia": "TARATA",
+   "distrito": "HEROES ALBARRACIN",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "03/07/2026",
+   "documento": "PROVEIDO N° 000929-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "SOLICITAN VERIFICACION DE DOMICILIO",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "INEI escribe sin DE"
+  },
+  {
+   "item": 48,
+   "ubigeo_inei": "010307",
+   "departamento": "AMAZONAS",
+   "provincia": "BONGARA",
+   "distrito": "JAZAN",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "12/08/2026",
+   "documento": "PROVEIDO N° 001912-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "PRESENTAN SOLICITUD DE VERIFICACION Y DEPUERACION DEL PADRON ELECTORAL POR PRESUNTOS CAMBIOS IRREGULARES DE DOMICILIO ELECTORAL",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 49,
+   "ubigeo_inei": "131005",
+   "departamento": "LA LIBERTAD",
+   "provincia": "SANTIAGO DE CHUCO",
+   "distrito": "MOLLEPATA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "07/07/2026",
+   "documento": "PROVEIDO N° 001696-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "SOLICITAN RESTITUCION DE DOMICILIO ANTERIOR A CIUDADANOS POR PRESUNCION DE GOLONDRINAJE",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 50,
+   "ubigeo_inei": "120805",
+   "departamento": "JUNIN",
+   "provincia": "YAULI",
+   "distrito": "MOROCOCHA",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "15/07/2026",
+   "documento": "PROVEIDO N° 001533-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 5,
+   "observacion": "CIUDADANO PRESENTA IMPUGNACION DE DOMICILIODE 5 PRESUNTOS GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 51,
+   "ubigeo_inei": "150126",
+   "departamento": "LIMA",
+   "provincia": "LIMA",
+   "distrito": "PUNTA HERMOSA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "19/08/2026",
+   "documento": "PROVEIDO N° 002021-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "SOLICITUD DE VERIFICACION DOMICILIARIA EXTRAORDINARIA",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 52,
+   "ubigeo_inei": "151018",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "LARAOS",
+   "localidad_original": "SAN JUAN DE LANGAICO",
+   "tipo": "VERIFICACION",
+   "fecha": "21/07/2026",
+   "documento": "PROVEIDO N° 001771-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 125,
+   "observacion": "PRESIDENTE DE LA COMUNIDAD CAMPESINA DE LARAOS SOLICITUD DE VERIFICACION DOMICILIARIA EXTRAORDINARIA DE LISTA PRESENTADA CON 125 CIUDADANOS",
+   "metodo_match": "equivalencia_confirmada",
+   "match_confidence": "alta",
+   "observacion_match": "Anexo del distrito de Laraos; regla confirmada por el usuario 17/09/2026"
+  },
+  {
+   "item": 53,
+   "ubigeo_inei": "150132",
+   "departamento": "LIMA",
+   "provincia": "LIMA",
+   "distrito": "SAN JUAN DE LURIGANCHO",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "06/07/2026",
+   "documento": "HOJA DE ENVIO D000082-2026-RENIEC/DRE-SDPEG",
+   "formato": "OFICIO",
+   "canal": "Ministerio Publico",
+   "denunciante": "No identificado",
+   "caracter": "Sin identificar",
+   "ciudadanos": null,
+   "observacion": "MINISTERIO PUBLICO SOLICITA VERIFICAR DOMICILIO DE CIUDADANO POR ESTAR EN CONDICION DE INUBICABLE",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 54,
+   "ubigeo_inei": "021210",
+   "departamento": "ANCASH",
+   "provincia": "HUAYLAS",
+   "distrito": "YURACMARCA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "10/06/2026",
+   "documento": "PROVEIDO N° 000970-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "Ministerio Publico",
+   "denunciante": "No identificado",
+   "caracter": "Sin identificar",
+   "ciudadanos": null,
+   "observacion": "MINISTERIO PUBLICO SOLICITA ADOPTAR ACCIONES POR PRESUNTA TRASHUMANCIA ELECTORAL EN EL DISTRITO, POR DENUNCIA DE 448 CIUDADANOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 55,
+   "ubigeo_inei": "051006",
+   "departamento": "AYACUCHO",
+   "provincia": "VICTOR FAJARDO",
+   "distrito": "CAYARA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "24/08/2026",
+   "documento": "ACCESO A LA INFORMACION PUBLICA",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA MEDIANTE AIP COPIA DEL PADRON ELECTORAL DEL DISTRITO DE CAYARA PARA VERIFICAR Y DETECTAR POSIBLES VOTOS GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 56,
+   "ubigeo_inei": "180302",
+   "departamento": "MOQUEGUA",
+   "provincia": "ILO",
+   "distrito": "EL ALGARROBAL",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "21/08/2026",
+   "documento": "PROVEIDO N° 000177-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA EVALUACION, FISCALIZACION Y VERIFICACION DE DOMICILIO RESPECTO DE CAMBIOS DOMICILIARIOS EFECTUADOS ANTES DEL CIERRE DEL PADRON DE LAS ERM2026 / MISMA SOLICITUD CON PROVEIDO N° 002121-2026/DRE/SDPEG/RENIEC",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Departamento y provincia invertidos en la fuente"
+  },
+  {
+   "item": 57,
+   "ubigeo_inei": "060902",
+   "departamento": "CAJAMARCA",
+   "provincia": "SAN IGNACIO",
+   "distrito": "CHIRINOS",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "31/08/2026",
+   "documento": "PROVEIDO N° 002377-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 49,
+   "observacion": "CIUDADANO SOLICITA VERIFICACION E IMPUGNACION DE DOMICILIO DE GOLONDRINOS REGISTRADOS INDEBIDAMENTE EN EL CP PUERTO TAMBORAPA DISTRITO DE CHIRINOS, PRESENTA LISTA DE 49 POSIBLES GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 58,
+   "ubigeo_inei": "160403",
+   "departamento": "LORETO",
+   "provincia": "MARISCAL RAMON CASTILLA",
+   "distrito": "YAVARI",
+   "localidad_original": "SANTA ROSA",
+   "tipo": "IMPUGNACION",
+   "fecha": "01/09/2026",
+   "documento": "PROVEIDO N° 002395-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 9,
+   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION Y EXCLUSION DEL PADRON ELECTORAL AL JEFE DE LA OFICINA REGISTRAL DEL JNE",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "media",
+   "observacion_match": "Distrito creado en 2024 ausente del shapefile INEI; se ancla a su distrito matriz Yavari (capital Islandia) por contiguidad. Ubicacion aproximada. Confirmado por el usuario 17/09/2026"
+  },
+  {
+   "item": 59,
+   "ubigeo_inei": "151018",
+   "departamento": "LIMA",
+   "provincia": "YAUYOS",
+   "distrito": "LARAOS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "02/09/2026",
+   "documento": "PROVEIDO N° 002419-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "Defensoria del Pueblo",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": 160,
+   "observacion": "DEFENSORIA DEL PUEBLO SOLICITA INFORMACION RESPECTO A LA SOLICITUD DEL PRESIDENTE DELA COMUNIDAD CAMPESINA DE LARAOS SOBRE PRESUNTOS CASOS DE GOLONDRINA, PRESENTA LISTA.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 60,
+   "ubigeo_inei": "230108",
+   "departamento": "TACNA",
+   "provincia": "TACNA",
+   "distrito": "POCOLLAY",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "18/08/2026",
+   "documento": "HOJA DE ENVIO-000110-2026-DRE-SDPEG",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA FISCALIZACION Y VERIFIACION DE DATOS POR GOLONDRINAJE EN EL DISTRITO DE POCOLLAY, INDICA QUE SE HAN REGISTRADO MAS DE 2000 CAMBIOS DOMICILIARIOS HACIA EL DISTRITO EN EL 2025.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 61,
+   "ubigeo_inei": "230108",
+   "departamento": "TACNA",
+   "provincia": "TACNA",
+   "distrito": "POCOLLAY",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "14/08/2026",
+   "documento": "PROVEIDO N° 002104-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA FISCALIZACION Y VERIFIACION DE DATOS POR GOLONDRINAJE EN EL DISTRITO DE POCOLLAY, INDICA QUE SE HAN REGISTRADO MAS DE 2000 CAMBIOS DOMICILIARIOS HACIA EL DISTRITO EN EL 2025.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 62,
+   "ubigeo_inei": "150719",
+   "departamento": "LIMA",
+   "provincia": "HUAROCHIRI",
+   "distrito": "SAN JUAN DE IRIS",
+   "localidad_original": "",
+   "tipo": "PADRON",
+   "fecha": "02/09/2026",
+   "documento": "PROVEIDO N° 002407-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "COMUNIDAD CAMPESINA SAN JUAN DE IRIS SOLICITA PADRON DE ELECTORES A FIN DE VERIFICAR A POSIBLES GOLONDRINOS",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Tipeo: HUARICHIRI por HUAROCHIRI"
+  },
+  {
+   "item": 63,
+   "ubigeo_inei": "160305",
+   "departamento": "LORETO",
+   "provincia": "LORETO",
+   "distrito": "URARINAS",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "28/08/2026",
+   "documento": "PROVEIDO N° 002363-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 1986,
+   "observacion": "CIUDADANO PRESUNTA DENUNCIA POR PRESUNTA MODIFICACION ILICITA DE DOMICILIO POR VOTOS GOLONDRINOS",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 64,
+   "ubigeo_inei": "021308",
+   "departamento": "ANCASH",
+   "provincia": "MARISCAL LUZURIAGA",
+   "distrito": "MUSGA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "01/09/2026",
+   "documento": "PROVEIDO N° 002584-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO DENUNCIA PRESUNTO CAMBIO IRREGULAR DE DOMICILIO DE ELECTORES / INDICAN QUE SON 500 GOLONDRINOS APROXIMADAMENTE, NO PRESENTA LISTA",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 65,
+   "ubigeo_inei": "150126",
+   "departamento": "LIMA",
+   "provincia": "LIMA",
+   "distrito": "PUNTA HERMOSA",
+   "localidad_original": "",
+   "tipo": "PADRON",
+   "fecha": "26/08/2026",
+   "documento": "PROVEIDO N° 002599-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "Defensoria del Pueblo",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "DEFENSORIA DEL PUEBLO SOLICITA INFORMACION RELACIONADA AL PEDIDO SOBRE CAMBIOS DOMICILIARIOS EN EL DISTRITO DE PUNTA HERMOSA EN LOS PERIODOS 2024 Y 2025",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 66,
+   "ubigeo_inei": "200406",
+   "departamento": "PIURA",
+   "provincia": "MORROPON",
+   "distrito": "SALITRAL",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "fecha": "14/09/2026",
+   "documento": "PROVEIDO N° 002585-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "SOLICITA FISCALIZACION POSTERIOR POR INCREMENTO ATIPICO DE CAMBIO DE DOMICILIO EN EL DISTRITO DE SALITRAL",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 67,
+   "ubigeo_inei": "020514",
+   "departamento": "ANCASH",
+   "provincia": "BOLOGNESI",
+   "distrito": "SAN MIGUEL DE CORPANQUI",
+   "localidad_original": "",
+   "tipo": "IMPUGNACION",
+   "fecha": "07/09/2026",
+   "documento": "PROVEIDO N° 002586-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": 41,
+   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION DE DOMICILIO",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  }
+ ]
+}

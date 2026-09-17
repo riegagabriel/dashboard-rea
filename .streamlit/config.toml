@@ -1,0 +1,17 @@
+# Tema del tablero. Los mismos tokens que rea/estilo.py, para que el marco de
+# Streamlit no desentone con el contenido.
+[theme]
+base = "light"
+primaryColor = "#2a78d6"
+backgroundColor = "#f9f9f7"
+secondaryBackgroundColor = "#fcfcfb"
+textColor = "#0b0b0b"
+font = "sans serif"
+
+[server]
+# El paquete de geodata pesa ~3 MB; el limite por defecto (200 MB) sobra.
+maxUploadSize = 5
+enableStaticServing = false
+
+[browser]
+gatherUsageStats = false

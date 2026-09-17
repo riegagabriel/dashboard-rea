@@ -1,0 +1,6 @@
+streamlit>=1.40
+streamlit-folium>=0.24
+folium>=0.19
+branca>=0.7
+pandas>=2.0
+shapely>=2.0
