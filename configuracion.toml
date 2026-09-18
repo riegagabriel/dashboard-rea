@@ -37,7 +37,7 @@ subtitulo = "Subdirección de Procedimiento Electoral y Georreferenciación · D
 # Recuadro al pie de la página. Es cita LITERAL: no cambiar el texto entre «».
 nombre = "Registro de Alertas (REA)"
 texto = "Registro que contiene denuncias realizadas por ciudadanos, organizaciones políticas, autoridades, de la administración pública y asociaciones civiles referidas a cambios domiciliarios irregulares. En este registro se incluyen reportes o informes remitidos por entidades de la administración pública respecto a riesgos de índole electoral, social y económica que tengan un efecto directo sobre la trashumancia electoral."
-fuente = "RENIEC, *Verificación del Domicilio Declarado*, RE-002-DRE/001, Segunda Versión, numeral 6.9, p. 6."
+fuente = "RENIEC, *Verificación del Domicilio Declarado*, p. 6."
 
 
 [prototipos]
