@@ -33,20 +33,8 @@ def configurar(prototipo: str) -> None:
 
 def encabezado(meta: dict, prototipo: str) -> None:
     t = textos.cargar()
-    etiqueta = t.prototipo(prototipo)
-    izq, der = st.columns([7, 2])
-    with izq:
-        st.markdown(f'<p class="titulo-rea">{t.titulo}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="sub-rea">{t.subtitulo}</p>', unsafe_allow_html=True)
-    with der:
-        st.markdown(
-            f'<div style="text-align:right;padding-bottom:16px">'
-            f'<span class="corte-rea">Fecha de corte: <b>{meta["fecha_corte"]}</b>'
-            f'</span>'
-            + (f'<br><span class="corte-rea" style="margin-top:6px">'
-               f'Prototipo <b>{etiqueta}</b></span>' if etiqueta else '')
-            + '</div>',
-            unsafe_allow_html=True)
+    st.markdown(f'<p class="titulo-rea">{t.titulo}</p>', unsafe_allow_html=True)
+    st.markdown(f'<p class="sub-rea" style="padding-bottom:16px">{t.subtitulo}</p>', unsafe_allow_html=True)
 
 
 # --- Selector de mapa ----------------------------------------------------------
