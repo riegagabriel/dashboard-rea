@@ -93,7 +93,7 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
 
 /* Cinco cajas de cifras. HTML propio: st.metric recortaba las etiquetas
    ("Den...", "Ciud...") en columnas estrechas. */
-.kpis {{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px;
+.kpis {{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;
   margin-bottom:14px; }}
 .kpi {{ background:{T['superficie']}; border:1px solid {T['borde']};
   border-radius:8px; padding:11px 13px; display:flex; flex-direction:column;
