@@ -45,7 +45,7 @@ fuente = "RENIEC, *Verificación del Domicilio Declarado*, p. 6., REGLAMENTO RE-
 # Etiqueta del recuadro superior derecho, para saber qué versión se está viendo.
 # Si prefieres que no aparezca, deja las comillas vacías: b = ""
 b = "B · coropleta departamental"
-f = "F · mapa intercambiable"
+f = ""
 
 
 [mapa]
