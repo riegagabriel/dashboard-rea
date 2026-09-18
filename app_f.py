@@ -13,6 +13,13 @@ datos (medido: sobre #7a756a los cuatro colores caen por debajo de 2:1).
 
 Ejecutar en local:  streamlit run app_f.py
 """
+import sys
+
+# Streamlit Cloud reutiliza el proceso al actualizar el repo: sin esto, un rea/*.py
+# viejo en memoria convive con este archivo ya nuevo y falla el import.
+for _m in [m for m in sys.modules if m == "rea" or m.startswith("rea.")]:
+    del sys.modules[_m]
+
 from streamlit_folium import st_folium
 
 from rea import datos, pagina
