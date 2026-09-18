@@ -1,0 +1,58 @@
+# =============================================================================
+#  CONFIGURACIÓN DEL TABLERO — los textos se editan AQUÍ
+# =============================================================================
+#
+#  Este archivo controla lo que se LEE en las dos apps (prototipo B y F).
+#  Para cambiar un texto: edita lo que está entre comillas y guarda.
+#  Streamlit Cloud redespliega solo en uno o dos minutos.
+#
+#  No hace falta tocar ningún archivo .py.
+#
+#  Reglas mínimas:
+#    - El texto va siempre entre comillas "así".
+#    - Para NEGRITA escribe **así**. Para cursiva, *así*.
+#    - No borres los nombres de la izquierda (titulo =, subtitulo =, ...).
+#
+#  Los colores del mapa NO están aquí a propósito: están validados para que las
+#  cuatro categorías se distingan también con daltonismo. Ver README.
+# =============================================================================
+
+
+[encabezado]
+
+# Título principal. Aparece arriba de la página y en la pestaña del navegador.
+# "trashumancia" va sin la "n": así lo escribe el reglamento RE-002-DRE/001,
+# cuya cita aparece en la misma pantalla.
+titulo = "Denuncias registradas en el REA por casos de probable trashumancia electoral"
+
+# Línea bajo el título.
+subtitulo = "Subdirección de Procedimiento Electoral y Georreferenciación · Dirección de Registro Electoral · RENIEC"
+
+
+[nota_normativa]
+
+# Recuadro azul bajo el título. Explica para qué sirve el tablero.
+texto = "Los artículos **13.1** y **14.3** del mismo reglamento establecen que la SDPEG debe considerar «las circunscripciones con reiteradas denuncias en el REA» para determinar dónde aplicar la verificación domiciliaria. Este tablero operativiza ese criterio."
+
+
+[cita_reglamento]
+
+# Recuadro al pie de la página. Es cita LITERAL: no cambiar el texto entre «».
+nombre = "Registro de Alertas (REA)"
+texto = "Registro que contiene denuncias realizadas por ciudadanos, organizaciones políticas, autoridades, de la administración pública y asociaciones civiles referidas a cambios domiciliarios irregulares. En este registro se incluyen reportes o informes remitidos por entidades de la administración pública respecto a riesgos de índole electoral, social y económica que tengan un efecto directo sobre la trashumancia electoral."
+fuente = "RENIEC, *Verificación del Domicilio Declarado*, RE-002-DRE/001, Segunda Versión, numeral 6.9, p. 6."
+
+
+[prototipos]
+
+# Etiqueta del recuadro superior derecho, para saber qué versión se está viendo.
+# Si prefieres que no aparezca, deja las comillas vacías: b = ""
+b = "B · coropleta departamental"
+f = "F · híbrido con detalle distrital"
+
+
+[tabla]
+
+# Título y explicación de la tabla bajo el mapa.
+titulo = "Detalle por distrito"
+nota = "Ordenado por número de denuncias: las primeras filas son los lugares con mayor concentración. Incluye el desglose por tipo, el canal de ingreso y los ciudadanos listados."

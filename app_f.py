@@ -1,4 +1,6 @@
-"""Prototipo F - Hibrido: coropleta departamental en gris + burbujas distritales.
+"""TEXTOS Y TITULOS: se editan en configuracion.toml, no aqui.
+
+Prototipo F - Hibrido: coropleta departamental en gris + burbujas distritales.
 
 El gris responde CUANTO por departamento; el color de la burbuja, DONDE y DE
 QUE TIPO por distrito. Cada burbuja abre un popup con la observacion completa
@@ -14,13 +16,14 @@ Ejecutar en local:  streamlit run app_f.py
 from streamlit_folium import st_folium
 
 from rea import datos, pagina
+from rea.estilo import PROTOTIPO_F
 from rea.mapas import mapa_f
 
 pagina.configurar("F")
 d = datos.cargar()
 df = datos.casos_df()
 
-pagina.encabezado(d["meta"], "F · híbrido con detalle distrital")
+pagina.encabezado(d["meta"], PROTOTIPO_F)
 tipos, canales, deps = pagina.filtros(df)
 f = datos.filtrar(df, tipos, canales, deps)
 

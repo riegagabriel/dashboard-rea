@@ -11,6 +11,41 @@ registradas en el Registro de Alertas.
 
 ---
 
+## ✏️ Cómo cambiar los textos del tablero
+
+**Todos los textos se editan en un solo archivo: [`configuracion.toml`](configuracion.toml).**
+No hace falta tocar ningún archivo `.py`.
+
+| Qué quieres cambiar | Dónde, dentro de `configuracion.toml` |
+|---|---|
+| Título principal (y el de la pestaña del navegador) | `[encabezado]` → `titulo` |
+| Línea bajo el título | `[encabezado]` → `subtitulo` |
+| Recuadro azul que explica para qué sirve | `[nota_normativa]` → `texto` |
+| Cita del reglamento al pie | `[cita_reglamento]` |
+| Etiqueta «Prototipo B / F» arriba a la derecha | `[prototipos]` — déjala vacía `""` para ocultarla |
+| Título y explicación de la tabla | `[tabla]` |
+
+**Desde GitHub, sin instalar nada:**
+
+1. Abre `configuracion.toml` en el repositorio y pulsa el lápiz ✏️ (*Edit this file*).
+2. Cambia el texto entre comillas.
+3. Pulsa **Commit changes**.
+4. Streamlit Cloud redespliega **las dos apps** solas en uno o dos minutos.
+
+Para **negrita** escribe `**así**`; para cursiva, `*así*`.
+
+Si al recargar sigues viendo el texto viejo: en Streamlit Cloud, menú de la app →
+**Reboot app**.
+
+> `app_b.py` y `app_f.py` **no contienen textos**: solo deciden qué mapa dibujar.
+> Por eso no encontrarás el título dentro de ellos.
+
+**Lo que no está en ese archivo, a propósito:** los colores del mapa. Están
+validados para que las cuatro categorías se distingan también con daltonismo
+(ver *Decisiones de diseño*), y cambiarlos a ojo rompería esa garantía.
+
+---
+
 ## Sobre los datos publicados
 
 Este repositorio es **público** y **no contiene datos personales**.

@@ -50,29 +50,36 @@ T = {
 }
 FUENTE = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
 
-# --- Textos normativos -----------------------------------------------------
-# Se escribe "trashumancia", sin la "n": es la grafia del propio reglamento
-# RE-002-DRE/001 (3 apariciones) y la correcta segun la RAE. Como la cita del
-# numeral 6.9 aparece en la misma pantalla, deben coincidir.
-TITULO = "Denuncias registradas en el REA por casos de probable trashumancia electoral"
-SUBTITULO = ("Subdirección de Procedimiento Electoral y Georreferenciación · "
-             "Dirección de Registro Electoral · RENIEC")
+# --- Textos editables -----------------------------------------------------
+# Los textos NO se escriben aqui: se leen de configuracion.toml, en la raiz del
+# repositorio. Asi quien solo quiere cambiar una frase no tiene que abrir un
+# archivo lleno de CSS y codigos de color.
+import re as _re
+import tomllib as _tomllib
+from pathlib import Path as _Path
 
-CITA_REA = (
-    "<b>Registro de Alertas (REA).</b> «Registro que contiene denuncias realizadas por "
-    "ciudadanos, organizaciones políticas, autoridades, de la administración pública y "
-    "asociaciones civiles referidas a cambios domiciliarios irregulares. En este registro "
-    "se incluyen reportes o informes remitidos por entidades de la administración pública "
-    "respecto a riesgos de índole electoral, social y económica que tengan un efecto "
-    "directo sobre la trashumancia electoral.»  \n"
-    "<br>— RENIEC, <i>Verificación del Domicilio Declarado</i>, RE-002-DRE/001, "
-    "Segunda Versión, numeral 6.9, p. 6."
-)
-USO_NORMATIVO = (
-    "Los artículos <b>13.1</b> y <b>14.3</b> del mismo reglamento establecen que la SDPEG debe "
-    "considerar «las circunscripciones con reiteradas denuncias en el REA» para determinar "
-    "dónde aplicar la verificación domiciliaria. Este tablero operativiza ese criterio."
-)
+_CONFIG = _tomllib.loads(
+    (_Path(__file__).resolve().parent.parent / "configuracion.toml")
+    .read_text(encoding="utf-8"))
+
+
+def _md(texto: str) -> str:
+    """**negrita** -> <b>, *cursiva* -> <i>. Para que el TOML se escriba natural."""
+    texto = _re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", texto)
+    return _re.sub(r"\*(.+?)\*", r"<i>\1</i>", texto)
+
+
+TITULO = _CONFIG["encabezado"]["titulo"]
+SUBTITULO = _CONFIG["encabezado"]["subtitulo"]
+USO_NORMATIVO = _md(_CONFIG["nota_normativa"]["texto"])
+
+_c = _CONFIG["cita_reglamento"]
+CITA_REA = (f"<b>{_c['nombre']}.</b> «{_c['texto']}»<br>— {_md(_c['fuente'])}")
+
+PROTOTIPO_B = _CONFIG["prototipos"]["b"]
+PROTOTIPO_F = _CONFIG["prototipos"]["f"]
+TABLA_TITULO = _CONFIG["tabla"]["titulo"]
+TABLA_NOTA = _CONFIG["tabla"]["nota"]
 
 # --- CSS -------------------------------------------------------------------
 # La leyenda va a 15 px por pedido expreso: era el punto mas criticado de la

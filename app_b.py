@@ -1,4 +1,6 @@
-"""Prototipo B - Coropleta departamental.
+"""TEXTOS Y TITULOS: se editan en configuracion.toml, no aqui.
+
+Prototipo B - Coropleta departamental.
 
 La magnitud por departamento se lee de un vistazo a escala nacional, con el
 numero impreso sobre cada uno. Al acercar aparecen los limites provinciales y
@@ -9,13 +11,14 @@ Ejecutar en local:  streamlit run app_b.py
 from streamlit_folium import st_folium
 
 from rea import datos, pagina
+from rea.estilo import PROTOTIPO_B
 from rea.mapas import mapa_b
 
 pagina.configurar("B")
 d = datos.cargar()
 df = datos.casos_df()
 
-pagina.encabezado(d["meta"], "B · coropleta departamental")
+pagina.encabezado(d["meta"], PROTOTIPO_B)
 tipos, canales, deps = pagina.filtros(df)
 f = datos.filtrar(df, tipos, canales, deps)
 

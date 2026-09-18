@@ -10,7 +10,7 @@ import streamlit as st
 
 from . import datos
 from .estilo import (CITA_REA, CSS, ETIQUETA_CATEGORIA, ORDEN_CATEGORIAS,
-                     SUBTITULO, TITULO, USO_NORMATIVO)
+                     SUBTITULO, TABLA_NOTA, TABLA_TITULO, TITULO, USO_NORMATIVO)
 
 
 def configurar(prototipo: str) -> None:
@@ -29,8 +29,10 @@ def encabezado(meta: dict, prototipo: str) -> None:
         st.markdown(
             f'<div style="text-align:right">'
             f'<span class="corte-rea">Fecha de corte: <b>{meta["fecha_corte"]}</b>'
-            f'</span><br><span class="corte-rea" style="margin-top:6px">'
-            f'Prototipo <b>{prototipo}</b></span></div>',
+            f'</span>'
+            + (f'<br><span class="corte-rea" style="margin-top:6px">'
+               f'Prototipo <b>{prototipo}</b></span>' if prototipo else '')
+            + '</div>',
             unsafe_allow_html=True)
     st.markdown(f'<div class="aviso-norma">{USO_NORMATIVO}</div>',
                 unsafe_allow_html=True)
@@ -82,12 +84,10 @@ def tablas(f: pd.DataFrame) -> None:
     columnas traen la tipologia, el canal y los ciudadanos listados. Una tabla
     que se lee entera pesa mas que cinco que obligan a saltar entre cuadros.
     """
-    st.markdown("### Detalle por distrito")
+    st.markdown(f"### {TABLA_TITULO}")
     lst = f["ciudadanos"].notna().sum()
     st.markdown(
-        f'<div class="nota-tabla">Ordenado por número de denuncias: las primeras '
-        f'filas son los lugares con mayor concentración. Incluye el desglose por '
-        f'tipo, el canal de ingreso y los ciudadanos listados, que constan en '
+        f'<div class="nota-tabla">{TABLA_NOTA} Los ciudadanos listados constan en '
         f'{lst} de {len(f)} denuncias.</div>', unsafe_allow_html=True)
     _tabla(datos.tabla_resumen(f), altura=460)
 
