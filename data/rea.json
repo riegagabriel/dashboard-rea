@@ -1,7 +1,7 @@
 {
  "meta": {
   "fecha_corte": "14/09/2026",
-  "generado": "17/09/2026 17:22",
+  "generado": "18/09/2026 17:15",
   "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_CRC_Q20260914.xlsx",
   "geodata": "Shapefile distrital INEI (1891 distritos, EPSG:4326)",
   "nota_ubigeo": "El codigo territorial es UBIGEO INEI, el que corresponde a la geometria. NO es el ubigeo RENIEC: difieren en el 94,1 % de los distritos.",
@@ -1528,7 +1528,7 @@
    "denunciante": "Denuncia individual",
    "caracter": "Individual",
    "ciudadanos": 388,
-   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION POR 388 CIUDADANOS QUE SE CONSTATO NO TENER VIVIENDA DENTRO DEL DISTRITO DE HUACACHI",
+   "observacion": "CIUDADANO PRESENTA SOLICITUD DE IMPUGNACION POR 388 CIUDADANOS QUE SE CONSTATO NO TENER VIVIENDA DENTRO DEL DISTRITO DE UCO",
    "metodo_match": "exacto",
    "match_confidence": "alta",
    "observacion_match": "Coincidencia exacta con el shapefile INEI"
