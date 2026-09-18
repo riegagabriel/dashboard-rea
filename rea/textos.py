@@ -60,9 +60,9 @@ POR_DEFECTO: dict = {
         "tooltip_denuncias": "Denuncias",
     },
     "indicadores": {
-        "denuncias": {"etiqueta": "Denuncias", "nota": "de {total} en el registro"},
+        "denuncias": {"etiqueta": "Denuncias", "nota": "de {total} en el REA"},
         "documentos": {"etiqueta": "Documentos", "nota": "proveídos y alertas"},
-        "distritos": {"etiqueta": "Distritos", "nota": "con al menos una denuncia"},
+        "distritos": {"etiqueta": "Distritos", "nota": "con al menos una denuncia en el REA"},
         "departamentos": {"etiqueta": "Departamentos", "nota": "de 25 a nivel nacional"},
         "ciudadanos": {"etiqueta": "Ciudadanos listados",
                        "nota": "consta en {cobertura} de {n} denuncias"},
@@ -70,8 +70,7 @@ POR_DEFECTO: dict = {
     "graficos": {
         "departamento": {
             "titulo": "Denuncias por departamento",
-            "subtitulo": ("Barras apiladas por tipo: el color es el mismo que el de las "
-                          "burbujas del mapa."),
+            "subtitulo": ("Barras apiladas por tipo de denuncia."),
         },
         "canal": {
             "titulo": "Canal de ingreso",
