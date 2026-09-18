@@ -66,8 +66,8 @@ def barras_departamento(d: pd.DataFrame, t: Textos) -> alt.Chart:
                                       range=[CATEGORIAS[c] for c in presentes]),
                       legend=alt.Legend(orient="bottom", columns=2, symbolType="square")),
                   order=alt.Order("orden_tipo:Q"),
-                  tooltip=[alt.Tooltip("departamento:N", title=t["filtros"]["departamento"]),
-                           alt.Tooltip("tipo_etq:N", title=t["filtros"]["tipo"]),
+                  tooltip=[alt.Tooltip("departamento:N", title=t.etiqueta_columna("departamento")),
+                           alt.Tooltip("tipo_etq:N", title=t.etiqueta_columna("tipo")),
                            alt.Tooltip("n:Q", title=t.indicador("denuncias")[0])]))
     totales = (alt.Chart(d.drop_duplicates("departamento"))
                .mark_text(align="left", dx=5, fontSize=12, fontWeight=700, color=T["tinta"])
@@ -87,7 +87,7 @@ def dona_canal(c: pd.DataFrame, t: Textos) -> alt.Chart:
                                                     range=[colores[k] for k in d["canal"]]),
                                     sort=list(d["canal_etq"])),
                     order=alt.Order("n:Q", sort="descending"),
-                    tooltip=[alt.Tooltip("canal_etq:N", title=t["filtros"]["canal"]),
+                    tooltip=[alt.Tooltip("canal_etq:N", title=t.etiqueta_columna("canal")),
                              alt.Tooltip("n:Q", title=t.indicador("denuncias")[0]),
                              alt.Tooltip("pct:Q", title="%", format=".0f")]))
     total = alt.Chart(pd.DataFrame({"t": [str(int(d["n"].sum()))]})).mark_text(

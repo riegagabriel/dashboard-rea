@@ -25,12 +25,6 @@ POR_DEFECTO: dict = {
         "subtitulo": ("Subdirección de Procedimiento Electoral y Georreferenciación · "
                       "Dirección de Registro Electoral · RENIEC"),
     },
-    "nota_normativa": {
-        "texto": ("Los artículos **13.1** y **14.3** del mismo reglamento establecen que la "
-                  "SDPEG debe considerar «las circunscripciones con reiteradas denuncias en el "
-                  "REA» para determinar dónde aplicar la verificación domiciliaria. Este tablero "
-                  "operativiza ese criterio."),
-    },
     "cita_reglamento": {
         "nombre": "Registro de Alertas (REA)",
         "texto": ("Registro que contiene denuncias realizadas por ciudadanos, organizaciones "
@@ -45,14 +39,6 @@ POR_DEFECTO: dict = {
     "prototipos": {
         "b": "B · coropleta departamental",
         "f": "F · híbrido con detalle distrital",
-    },
-    "filtros": {
-        "tipo": "Tipo de denuncia",
-        "canal": "Canal de ingreso",
-        "departamento": "Departamento",
-        "fecha": "Fecha de ingreso",
-        "sin_resultados": ("Ninguna denuncia cumple los filtros activos. "
-                           "Amplíe la selección."),
     },
     "indicadores": {
         "denuncias": {"etiqueta": "Denuncias", "nota": "de {total} en el registro"},
@@ -275,9 +261,6 @@ class Textos:
     def altura_tarjetas(self) -> int:
         return self._d["ajustes"]["altura_tarjetas"]
 
-    def nota_normativa(self) -> str:
-        return _md(self._d["nota_normativa"]["texto"])
-
     def cita(self) -> str:
         c = self._d["cita_reglamento"]
         return f"<b>{c['nombre']}.</b> «{c['texto']}»<br>— {_md(c['fuente'])}"
@@ -285,8 +268,9 @@ class Textos:
     def prototipo(self, k: str) -> str:
         return self._d["prototipos"].get(k.lower(), "")
 
-    def filtro(self, k: str) -> str:
-        return self._d["filtros"][k]
+    def etiqueta_columna(self, id_col: str) -> str:
+        """Nombre de una columna aunque este oculta en la tabla (lo usan los tooltips)."""
+        return self._d["columnas"].get(id_col, NOMBRES_COLUMNA[id_col])
 
     def indicador(self, k: str, **valores) -> tuple[str, str]:
         i = self._d["indicadores"][k]

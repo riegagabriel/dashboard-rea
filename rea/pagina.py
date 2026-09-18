@@ -1,4 +1,4 @@
-"""Armazon comun de las dos apps: encabezado, filtros, mapa 50/50, graficos y tabla.
+"""Armazon comun de las dos apps: encabezado, mapa 50/50, graficos y tabla.
 
 app_b.py y app_f.py solo cambian el mapa (la funcion que le pasan a tablero()).
 Todo lo demas vive aqui para que los dos prototipos no puedan divergir cuando
@@ -37,40 +37,13 @@ def encabezado(meta: dict, prototipo: str) -> None:
         st.markdown(f'<p class="sub-rea">{t.subtitulo}</p>', unsafe_allow_html=True)
     with der:
         st.markdown(
-            f'<div style="text-align:right">'
+            f'<div style="text-align:right;padding-bottom:16px">'
             f'<span class="corte-rea">Fecha de corte: <b>{meta["fecha_corte"]}</b>'
             f'</span>'
             + (f'<br><span class="corte-rea" style="margin-top:6px">'
                f'Prototipo <b>{etiqueta}</b></span>' if etiqueta else '')
             + '</div>',
             unsafe_allow_html=True)
-    st.markdown(f'<div class="aviso-norma">{t.nota_normativa()}</div>',
-                unsafe_allow_html=True)
-
-
-# --- Filtros globales ---------------------------------------------------------
-def filtros(df: pd.DataFrame) -> pd.DataFrame:
-    """Fila de filtros sobre el mapa. Afectan a todo lo que hay debajo."""
-    t = textos.cargar()
-    c1, c2, c3, c4 = st.columns(4)
-    with c1:
-        ids_tipo = [c for c in CATEGORIAS if c in set(df["tipo"])]
-        sel_t = st.multiselect(t.filtro("tipo"), ids_tipo, default=ids_tipo,
-                               format_func=t.tipo)
-    with c2:
-        canales = sorted(df["canal"].unique())
-        sel_c = st.multiselect(t.filtro("canal"), canales, default=canales,
-                               format_func=t.canal)
-    with c3:
-        sel_d = st.multiselect(t.filtro("departamento"),
-                               sorted(df["departamento"].unique()), default=[])
-    with c4:
-        dmin, dmax = df["fecha_dt"].min().date(), df["fecha_dt"].max().date()
-        rango = st.date_input(t.filtro("fecha"), value=(dmin, dmax),
-                              min_value=dmin, max_value=dmax, format="DD/MM/YYYY")
-    # Mientras se elige el rango solo hay una fecha: no se filtra hasta tener las dos.
-    completo = tuple(rango) if isinstance(rango, (tuple, list)) and len(rango) == 2 else None
-    return datos.filtrar(df, sel_t or ids_tipo, sel_c or canales, sel_d, completo)
 
 
 # --- Panel derecho ----------------------------------------------------------
@@ -231,19 +204,15 @@ def pie() -> None:
 
 # --- Pagina completa ----------------------------------------------------------
 def tablero(df: pd.DataFrame, dibujar_mapa: Callable[[pd.DataFrame, int], None]) -> None:
-    """Filtros arriba; mapa al 50 % a la izquierda; cifras y graficos a la derecha;
-    tabla debajo a todo el ancho. `dibujar_mapa(f, altura)` es lo unico que cambia
-    entre el prototipo B y el F."""
+    """Mapa al 50 % a la izquierda; cifras y graficos a la derecha; tabla debajo a todo
+    el ancho. `dibujar_mapa(df, altura)` es lo unico que cambia entre el prototipo B y
+    el F. No hay filtros globales: la unica busqueda es la de la tabla."""
     t = textos.cargar()
-    f = filtros(df)
-    if f.empty:
-        st.warning(t.filtro("sin_resultados"))
-    else:
-        izq, der = st.columns(2, gap="medium")
-        with izq:
-            dibujar_mapa(f, t.altura_mapa)
-        with der:
-            panel_derecho(f, len(df))
-        tabla(f)
-        reservado(f)
+    izq, der = st.columns(2, gap="medium")
+    with izq:
+        dibujar_mapa(df, t.altura_mapa)
+    with der:
+        panel_derecho(df, len(df))
+    tabla(df)
+    reservado(df)
     pie()

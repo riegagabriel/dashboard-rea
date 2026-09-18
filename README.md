@@ -20,10 +20,8 @@ solo eligen el mapa.
 | Qué quieres cambiar | Sección de `configuracion.toml` |
 |---|---|
 | Título (y el de la pestaña del navegador) y subtítulo | `[encabezado]` |
-| Recuadro azul que explica para qué sirve | `[nota_normativa]` |
 | Cita del reglamento al pie | `[cita_reglamento]` |
 | Etiqueta «Prototipo B / F» (vacía `""` la oculta) | `[prototipos]` |
-| Rótulos de los filtros de arriba del mapa | `[filtros]` |
 | Las cinco cajas de cifras | `[indicadores.denuncias]`, `[indicadores.documentos]`… |
 | Títulos y subtítulos de los tres gráficos | `[graficos.departamento]`, `[graficos.canal]`, `[graficos.tiempo]` |
 | Título, nota y filtros de la tabla | `[tabla]`, `[tabla.filtros]` |
@@ -112,7 +110,7 @@ no pueden divergir cuando llegue una actualización de la base.
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│ Título · fecha de corte · filtros (tipo, canal, depto., fecha) │
+│ Título · fecha de corte                                    │
 ├─────────────────────────┬──────────────────────────────────┤
 │ MAPA (50 % de la        │ 5 cajas de cifras                │
 │ pantalla)               ├─────────────────────┬────────────┤
@@ -125,13 +123,13 @@ no pueden divergir cuando llegue una actualización de la base.
 └────────────────────────────────────────────────────────────┘
 ```
 
-- Los **filtros de arriba** (tipo, canal, departamento y rango de fecha de ingreso) afectan
-  **a todo a la vez**: mapa, cifras, gráficos y tabla.
+- **No hay filtros generales**: el mapa, las cifras y los gráficos muestran siempre todas las
+  denuncias del corte.
 - Los **tres filtros de la tabla** (departamento, provincia, distrito) afectan solo a la tabla,
   y van en cascada. `Cochas` existe en dos provincias, así que el distrito se identifica
   siempre por el par provincia-distrito.
 - La línea de tiempo usa la columna «INGRESO A RENIEC», por semana (lunes a domingo). Las
-  semanas sin denuncias valen cero y el eje no cambia al filtrar.
+  semanas sin denuncias valen cero, no se omiten.
 - Límites **provinciales y distritales que aparecen al acercar** el zoom del mapa.
 - Por debajo de ~1000 px de ancho, el mapa y los gráficos se apilan.
 - Nota al pie con la cita literal del Reglamento.

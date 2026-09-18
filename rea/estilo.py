@@ -114,8 +114,7 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
 .lg-canal b {{ margin-left:auto; padding-left:10px; color:{T['tinta2']};
   font-variant-numeric:tabular-nums; }}
 
-[data-testid="stSelectbox"] label p, [data-testid="stMultiSelect"] label p,
-[data-testid="stDateInput"] label p {{ font-size:0.8rem; color:{T['tinta2']}; }}
+[data-testid="stSelectbox"] label p {{ font-size:0.8rem; color:{T['tinta2']}; }}
 
 /* Debajo de ~1000 px el mapa y la columna de graficos se apilan. Streamlit solo
    apila a 640 px, y entre 640 y 1000 quedarian demasiado estrechos. */

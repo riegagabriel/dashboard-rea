@@ -3,7 +3,7 @@
 # =============================================================================
 #
 #  Este archivo controla lo que se LEE en las dos apps (prototipo B y F):
-#  títulos, nombres de filtros, de gráficos y de columnas de la tabla.
+#  títulos, nombres de gráficos, filtros de la tabla y columnas de la tabla.
 #  Para cambiar un texto: edita lo que está entre comillas y guarda.
 #  Streamlit Cloud lo toma en la siguiente carga de la página.
 #
@@ -32,12 +32,6 @@ titulo = "Denuncias registradas en el REA por casos de probable trashumancia ele
 subtitulo = "Subdirección de Procedimiento Electoral y Georreferenciación · Dirección de Registro Electoral · RENIEC"
 
 
-[nota_normativa]
-
-# Recuadro azul bajo el título. Explica para qué sirve el tablero.
-texto = "Los artículos **13.1** y **14.3** del mismo reglamento establecen que la SDPEG debe considerar «las circunscripciones con reiteradas denuncias en el REA» para determinar dónde aplicar la verificación domiciliaria. Este tablero operativiza ese criterio."
-
-
 [cita_reglamento]
 
 # Recuadro al pie de la página. Es cita LITERAL: no cambiar el texto entre «».
@@ -54,19 +48,6 @@ b = "B · coropleta departamental"
 f = "F · híbrido con detalle distrital"
 
 
-[filtros]
-
-# Rótulos de la fila de filtros que está sobre el mapa. Estos filtros
-# afectan a TODO: mapa, cifras, gráficos y tabla.
-tipo = "Tipo de denuncia"
-canal = "Canal de ingreso"
-departamento = "Departamento"
-fecha = "Fecha de ingreso"
-
-# Mensaje cuando los filtros no dejan ninguna denuncia.
-sin_resultados = "Ninguna denuncia cumple los filtros activos. Amplíe la selección."
-
-
 [indicadores]
 
 # Las cinco cajas de cifras. Cada una tiene su nombre (etiqueta) y una nota
@@ -74,7 +55,7 @@ sin_resultados = "Ninguna denuncia cumple los filtros activos. Amplíe la selecc
 # por la cifra real:
 #     {total}      total de denuncias del registro
 #     {cobertura}  denuncias que traen listado de ciudadanos
-#     {n}          denuncias que se muestran con los filtros actuales
+#     {n}          total de denuncias mostradas (todas las del registro)
 # Si borras o escribes mal una llave, se muestra tal cual; no pasa nada grave.
 
 [indicadores.denuncias]
@@ -137,7 +118,7 @@ nota = "Una fila por denuncia, de la más reciente a la más antigua. Haz clic e
 # Aviso bajo los tres filtros propios de la tabla.
 aviso_filtros = "Estos filtros solo cambian la tabla; el mapa y los gráficos no se modifican."
 
-# Conteo bajo la tabla. {n} = filas mostradas, {total} = denuncias con los filtros globales.
+# Conteo bajo la tabla. {n} = filas mostradas, {total} = denuncias del registro.
 conteo = "Se muestran {n} de {total} denuncias."
 
 # Mensaje cuando los filtros de la tabla no dejan ninguna fila.

@@ -1,4 +1,4 @@
-"""Carga de datos, filtros, KPIs y agregaciones para el tablero. Compartido por B y F.
+"""Carga de datos, KPIs, agregaciones y filtros de la tabla. Compartido por B y F.
 
 Nada de aqui pone texto visible: los nombres de tipos, canales y columnas se
 aplican al dibujar (rea/textos.py), porque casos_df() esta en cache y un cambio
@@ -7,7 +7,6 @@ en configuracion.toml no debe quedar congelado en ella.
 from __future__ import annotations
 
 import json
-from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -42,18 +41,6 @@ def casos_df() -> pd.DataFrame:
     df["fecha_dt"] = fecha
     df["semana"] = fecha.dt.to_period("W-SUN").dt.start_time   # el lunes de cada semana
     return df
-
-
-def filtrar(df: pd.DataFrame, tipos: list[str], canales: list[str],
-            deps: list[str], rango: tuple[date, date] | None = None) -> pd.DataFrame:
-    f = df[df["tipo"].isin(tipos) & df["canal"].isin(canales)]
-    if deps:
-        f = f[f["departamento"].isin(deps)]
-    if rango is not None:
-        ini, fin = rango
-        dia = f["fecha_dt"].dt.date
-        f = f[(dia >= ini) & (dia <= fin)]
-    return f
 
 
 # --- Indicadores ------------------------------------------------------------
@@ -102,8 +89,7 @@ def por_canal(f: pd.DataFrame) -> pd.DataFrame:
 
 
 def semanas_corte() -> pd.DatetimeIndex:
-    """Todas las semanas del corte completo. El eje de la linea de tiempo no debe
-    saltar cuando se filtra: por eso no sale de los datos ya filtrados."""
+    """Todas las semanas del corte, de la primera a la ultima, incluidas las vacias."""
     df = casos_df()
     return pd.date_range(df["semana"].min(), df["semana"].max(), freq="7D")
 
