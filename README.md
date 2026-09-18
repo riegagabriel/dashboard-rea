@@ -23,6 +23,7 @@ solo eligen el mapa.
 | Cita del reglamento al pie | `[cita_reglamento]` |
 | Etiqueta «Prototipo B / F» (hoy la cabecera ya no la muestra) | `[prototipos]` |
 | Las cuatro cajas de cifras | `[indicadores.denuncias]`, `[indicadores.distritos]`… |
+| El desglose de ciudadanos por tipo (texto «sin dato» y recuadro de cobertura) | `[indicadores.ciudadanos]` → `sin_dato`, `cobertura_tipo` |
 | Títulos y subtítulos de los tres gráficos | `[graficos.departamento]`, `[graficos.canal]`, `[graficos.tiempo]` |
 | Título, nota y filtros de la tabla | `[tabla]`, `[tabla.filtros]` |
 | **Nombre, orden y visibilidad de las columnas de la tabla** | `[tabla.columnas]` |
@@ -204,6 +205,10 @@ marcadores azules pondría magnitud e identidad en la misma familia de color. Y 
 debajo de 2:1 de contraste, mientras que sobre `#e0dcd0` azul, verde y violeta quedan en
 3,2 / 3,6 / 6,2. Con provincias, 27 de las 33 que tienen denuncias tienen solo 1 o 2:
 una escala de tonos casi no graduaría, y la magnitud la llevan el número y la burbuja.
+
+**«Ciudadanos listados» trae su desglose por tipo.** Solo 21 de las 67 denuncias traen la cifra, y Padrón y Suspensión de depuración no traen ninguna: se muestran como «sin dato», nunca como 0. Cada barra lleva en su recuadro la cobertura del tipo («consta en 17 de 39 denuncias»). Una sola denuncia (Urarinas, Loreto: 1 986) pesa el 39 % del total.
+
+**Las cajas de cifras se adaptan al ancho de su contenedor** (consulta de contenedor de CSS). Con 600 px o más van cuatro en una fila, con la de ciudadanos al doble de ancho; con menos, las tres simples ocupan una fila y la de ciudadanos la suya; con menos de 400 px, una columna. Así ningún texto queda apretado ni cortado.
 
 **El mapa se guarda ya renderizado.** Renderizar dos veces el mismo objeto de folium da HTML
 distinto (la segunda vez agrega `addTo(map)` sueltos y el mapa llega sin marcadores). Por eso

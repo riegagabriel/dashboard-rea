@@ -6,6 +6,7 @@ llegue una actualizacion de la base. Los textos se leen de configuracion.toml.
 """
 from __future__ import annotations
 
+from html import escape
 from pathlib import Path
 from typing import Callable
 
@@ -53,14 +54,52 @@ def selector_mapa(t: textos.Textos) -> str:
 
 
 # --- Panel derecho ----------------------------------------------------------
+def _miles(n: int) -> str:
+    return f"{n:,}".replace(",", " ")
+
+
+def _caja_ciudadanos(f: pd.DataFrame, etq: str, valor: str, nota: str,
+                     t: textos.Textos) -> str:
+    """Caja ancha: total de ciudadanos listados y una barra por tipo de denuncia.
+
+    Un tipo sin ninguna cifra no se muestra como 0 sino como 'sin dato'."""
+    cfg = t["indicadores"]["ciudadanos"]
+    filas = datos.ciudadanos_por_tipo(f)
+    mayor = max((x["ciudadanos"] or 0 for x in filas), default=0) or 1
+    html = ""
+    for x in filas:
+        color = CATEGORIAS[x["tipo"]]
+        cob = escape(textos.rellenar(cfg["cobertura_tipo"], con_dato=x["con_dato"],
+                                     denuncias=x["denuncias"]), quote=True)
+        if x["ciudadanos"] is None:       # sin dato: solo texto, sin barra
+            barra = ""
+            valor_tipo = f'<span class="dsg-v dsg-sd">{cfg["sin_dato"]}</span>'
+        else:
+            ancho = max(x["ciudadanos"] / mayor * 100, 2)
+            barra = (f'<span class="dsg-barra"><i style="width:{ancho:.1f}%;'
+                     f'background:{color}"></i></span>')
+            valor_tipo = f'<span class="dsg-v">{_miles(x["ciudadanos"])}</span>'
+        html += (f'<div class="dsg" title="{cob}"><div class="dsg-t"><span class="dsg-n">'
+                 f'<i class="dot" style="background:{color}"></i>'
+                 f'<span class="dsg-txt">{t.tipo(x["tipo"])}</span></span>{valor_tipo}</div>'
+                 f'{barra}</div>')
+    return (f'<div class="kpi kpi-ancho"><div class="kpi-cab"><div class="kpi-cab-t">'
+            f'<span class="kpi-e">{etq}</span><em>{nota}</em></div><b>{valor}</b></div>'
+            f'<div class="desglose">{html}</div></div>')
+
+
 def indicadores(f: pd.DataFrame, total: int) -> None:
     t = textos.cargar()
     cajas = ""
     for k, valor, vars_ in datos.kpis(f, total):
         etq, nota = t.indicador(k, **vars_)
-        cajas += (f'<div class="kpi"><span class="kpi-e">{etq}</span>'
-                  f'<b>{valor}</b><em>{nota}</em></div>')
-    st.markdown(f'<div class="kpis">{cajas}</div>', unsafe_allow_html=True)
+        if k == "ciudadanos":
+            cajas += _caja_ciudadanos(f, etq, valor, nota, t)
+        else:
+            cajas += (f'<div class="kpi"><span class="kpi-e">{etq}</span>'
+                      f'<b>{valor}</b><em>{nota}</em></div>')
+    st.markdown(f'<div class="kpis-wrap"><div class="kpis">{cajas}</div></div>',
+                unsafe_allow_html=True)
 
 
 def _cabecera(g: dict) -> None:

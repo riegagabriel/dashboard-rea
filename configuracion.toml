@@ -98,8 +98,17 @@ etiqueta = "Departamentos"
 nota = "de 25 a nivel nacional"
 
 [indicadores.ciudadanos]
+# Esta caja es más ancha: además del total trae una barra por tipo de denuncia.
 etiqueta = "Ciudadanos listados"
 nota = "consta en {cobertura} de {n} denuncias"
+
+# Lo que se escribe en la barra de un tipo que NO tiene ninguna cifra: no es cero,
+# es que no se registró. (Los nombres de los tipos se cambian en [tipos].)
+sin_dato = "sin dato"
+
+# Recuadro que aparece al pasar el ratón sobre la barra de un tipo.
+# {con_dato} = denuncias del tipo que traen la cifra, {denuncias} = denuncias del tipo.
+cobertura_tipo = "consta en {con_dato} de {denuncias} denuncias"
 
 
 [graficos.departamento]
@@ -215,7 +224,7 @@ defensoria_del_pueblo = "Defensoría del Pueblo"
 
 # Alto del mapa en píxeles (entre 400 y 2000). Si el mapa queda más corto o más
 # largo que la columna de gráficos de su derecha, ajusta este número.
-altura_mapa = 960
+altura_mapa = 1018
 
 # Alto de las tarjetas de "Denuncias por departamento" y "Canal de ingreso" (entre
 # 400 y 2000). Las dos miden lo mismo para que queden alineadas. Si hay muchos

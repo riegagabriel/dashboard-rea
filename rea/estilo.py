@@ -91,18 +91,52 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
   border:1px solid {T['borde']}; border-left:3px solid {T['acento']};
   border-radius:6px; padding:10px 14px; margin:14px 0 4px; }}
 
-/* Cinco cajas de cifras. HTML propio: st.metric recortaba las etiquetas
-   ("Den...", "Ciud...") en columnas estrechas. */
-.kpis {{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;
-  margin-bottom:14px; }}
+/* Cajas de cifras. HTML propio: st.metric recortaba las etiquetas
+   ("Den...", "Ciud...") en columnas estrechas. La ultima (ciudadanos listados) es mas
+   ancha porque trae el desglose por tipo. */
+.kpis-wrap {{ container-type:inline-size; margin-bottom:14px; }}
+.kpis {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,2fr);
+  gap:10px; }}
 .kpi {{ background:{T['superficie']}; border:1px solid {T['borde']};
   border-radius:8px; padding:11px 13px; display:flex; flex-direction:column;
-  min-width:0; }}
+  justify-content:space-between; min-width:0; }}
 .kpi-e {{ font-size:0.78rem; line-height:1.25; color:{T['tinta2']}; }}
 .kpi b {{ font-size:1.65rem; line-height:1.15; letter-spacing:-0.02em;
-  color:{T['tinta']}; margin:3px 0; }}
+  color:{T['tinta']}; margin:3px 0; white-space:nowrap; }}
 .kpi em {{ font-style:normal; font-size:0.72rem; line-height:1.3;
   color:{T['tinta3']}; }}
+
+/* Caja ancha: titulo y nota a la izquierda, total a la derecha, y debajo el
+   desglose por tipo. */
+.kpi-ancho {{ justify-content:flex-start; }}
+.kpi-cab {{ display:flex; justify-content:space-between; align-items:flex-start;
+  gap:8px; }}
+.kpi-cab-t {{ display:flex; flex-direction:column; gap:2px; min-width:0; }}
+.kpi-cab b {{ margin:0; }}
+.desglose {{ display:flex; flex-direction:column; gap:6px; margin-top:9px; }}
+.dsg {{ display:flex; flex-direction:column; gap:3px; font-size:0.78rem; }}
+.dsg-t {{ display:flex; align-items:center; justify-content:space-between; gap:8px; }}
+.dsg-n {{ display:flex; align-items:center; min-width:0; line-height:1.2;
+  color:{T['tinta2']}; }}
+.dsg-n .dot {{ width:10px; height:10px; border-radius:50%; flex:none;
+  margin-right:6px; }}
+.dsg-txt {{ overflow-wrap:anywhere; }}
+.dsg-barra {{ display:block; height:5px; border-radius:2px; background:#efeee9;
+  position:relative; }}
+.dsg-barra i {{ position:absolute; left:0; top:0; height:100%; border-radius:2px; }}
+.dsg-v {{ flex:none; font-weight:600; white-space:nowrap;
+  font-variant-numeric:tabular-nums; color:{T['tinta']}; }}
+.dsg-sd {{ font-weight:400; font-size:0.72rem; color:{T['tinta3']}; }}
+
+/* Si el contenedor de las cajas es angosto, las tres cajas simples pasan a una fila
+   y la de ciudadanos ocupa la suya: asi ningun texto queda apretado. */
+@container (max-width: 600px) {{
+  .kpis {{ grid-template-columns:repeat(3,minmax(0,1fr)); }}
+  .kpi-ancho {{ grid-column:1 / -1; }}
+}}
+@container (max-width: 400px) {{
+  .kpis {{ grid-template-columns:minmax(0,1fr); }}
+}}
 
 .card-t {{ font-size:0.98rem; font-weight:700; color:{T['tinta']}; margin:0; }}
 .card-s {{ font-size:0.78rem; color:{T['tinta3']}; margin:1px 0 6px;
@@ -121,7 +155,6 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
   [data-testid="stHorizontalBlock"] {{ flex-wrap:wrap !important; }}
   [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {{
     flex:1 1 100% !important; min-width:100% !important; }}
-  .kpis {{ grid-template-columns:repeat(2,minmax(0,1fr)); }}
 }}
 
 h3 {{ font-size:1.02rem !important; font-weight:700 !important; color:{T['tinta']};

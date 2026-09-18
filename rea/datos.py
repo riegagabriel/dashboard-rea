@@ -58,6 +58,21 @@ def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, dict]]:
     ]
 
 
+def ciudadanos_por_tipo(f: pd.DataFrame) -> list[dict]:
+    """Ciudadanos listados por tipo de denuncia, en el orden fijo de los tipos.
+
+    `ciudadanos` es None cuando NINGUNA denuncia del tipo trae la cifra: eso es
+    'sin dato', no cero. `con_dato` y `denuncias` dan la cobertura de cada tipo.
+    """
+    salida = []
+    for c in ORDEN_CATEGORIAS:
+        s = f[f["tipo"] == c]
+        cifras = s["ciudadanos"].dropna()
+        salida.append({"tipo": c, "denuncias": len(s), "con_dato": len(cifras),
+                       "ciudadanos": int(cifras.sum()) if len(cifras) else None})
+    return salida
+
+
 # --- Agregaciones para los graficos ------------------------------------------
 def por_departamento(f: pd.DataFrame) -> dict[str, int]:
     return f.groupby("departamento").size().to_dict()

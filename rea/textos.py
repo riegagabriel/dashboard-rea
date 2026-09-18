@@ -64,7 +64,9 @@ POR_DEFECTO: dict = {
         "distritos": {"etiqueta": "Distritos", "nota": "con al menos una denuncia en el REA"},
         "departamentos": {"etiqueta": "Departamentos", "nota": "de 25 a nivel nacional"},
         "ciudadanos": {"etiqueta": "Ciudadanos listados",
-                       "nota": "consta en {cobertura} de {n} denuncias"},
+                       "nota": "consta en {cobertura} de {n} denuncias",
+                       "sin_dato": "sin dato",
+                       "cobertura_tipo": "consta en {con_dato} de {denuncias} denuncias"},
     },
     "graficos": {
         "departamento": {
@@ -112,7 +114,7 @@ POR_DEFECTO: dict = {
         "defensoria_del_pueblo": "Defensoría del Pueblo",
     },
     "ajustes": {
-        "altura_mapa": 960,
+        "altura_mapa": 1018,
         "altura_tarjetas": 540,
     },
 }
