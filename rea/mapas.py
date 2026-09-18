@@ -61,11 +61,13 @@ def _base() -> folium.Map:
     # Sin teselas: la coropleta es la superficie. Un basemap competiria con ella
     # y anadiria una dependencia de red que el entregable no necesita.
     # Peru ocupa unos 490 px de ancho a zoom 5.75; con el mapa al 50 % de la
-    # pantalla llena el recuadro. El centro va corrido hacia el sur-oeste para que
-    # el pais quede arriba a la derecha y la leyenda (abajo a la izquierda) caiga
+    # pantalla llena el recuadro y de alto necesita ~715 px: el mapa mide unos 750
+    # porque debajo va el recuadro de tipos, asi que el centro no puede bajar mas de
+    # -9.6 sin cortar la punta norte. El centro va corrido hacia el oeste para que
+    # el pais quede a la derecha y la leyenda (abajo a la izquierda) caiga
     # sobre el oceano y no tape la costa. zoomSnap 0.25 es lo que permite un zoom
     # fraccionario: con el valor por defecto (1) Leaflet lo redondea a 6.
-    m = folium.Map(location=[-10.9, -76.7], zoom_start=5.75, tiles=None,
+    m = folium.Map(location=[-9.6, -76.7], zoom_start=5.75, tiles=None,
                    control_scale=False, zoom_control=True,
                    min_zoom=4, max_bounds=True, zoomSnap=0.25)
     m.get_root().header.add_child(folium.Element(CSS_MAPA))

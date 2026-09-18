@@ -17,6 +17,7 @@ from . import datos, graficos, textos
 from .estilo import CATEGORIAS, CSS, T
 
 
+ALTO_LEYENDA = 214   # px que ocupan el recuadro de tipos y su separacion; se resta al mapa
 ALTO_SELECTOR = 52   # px que ocupa el selector de mapa: el mapa se reduce en esa cantidad
 
 
@@ -99,6 +100,18 @@ def indicadores(f: pd.DataFrame, total: int) -> None:
             cajas += (f'<div class="kpi"><span class="kpi-e">{etq}</span>'
                       f'<b>{valor}</b><em>{nota}</em></div>')
     st.markdown(f'<div class="kpis-wrap"><div class="kpis">{cajas}</div></div>',
+                unsafe_allow_html=True)
+
+
+def leyenda_tipos(ley: dict) -> None:
+    """Explica cada tipo de denuncia, con el color con que se dibuja en todo el tablero."""
+    color = {textos.clave(k): c for k, c in CATEGORIAS.items()}
+    items = "".join(
+        f'<div class="gl"><b><i style="background:{color.get(t, "#898781")}"></i>{nombre}</b>'
+        f'{texto}</div>' for t, nombre, texto in ley["items"])
+    fuente = f'<p class="glosa-f">{ley["fuente"]}</p>' if ley["fuente"] else ""
+    st.markdown(f'<div class="glosa-wrap"><div class="glosa"><p class="glosa-t">{ley["titulo"]}</p>'
+                f'<div class="glosa-g">{items}</div>{fuente}</div></div>',
                 unsafe_allow_html=True)
 
 
@@ -255,7 +268,10 @@ def tablero(df: pd.DataFrame, dibujar_mapa: Callable[[pd.DataFrame, int], None])
     t = textos.cargar()
     izq, der = st.columns(2, gap="medium")
     with izq:
-        dibujar_mapa(df, t.altura_mapa)
+        ley = t.leyenda_tipos()
+        dibujar_mapa(df, max(t.altura_mapa - (ALTO_LEYENDA if ley else 0), 400))
+        if ley:
+            leyenda_tipos(ley)
     with der:
         panel_derecho(df, len(df))
     tabla(df)

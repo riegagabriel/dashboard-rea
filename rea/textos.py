@@ -108,6 +108,21 @@ POR_DEFECTO: dict = {
         "padron": "Padrón",
         "suspension_de_depuracion": "Suspensión de depuración",
     },
+    "leyenda_tipos": {
+        "mostrar": True,
+        "titulo": "¿Qué es cada tipo de denuncia?",
+        "impugnacion": ("Denuncia formal, presentada en el formato administrativo de "
+                        "impugnación, contra ciudadanos señalados como posibles "
+                        "«transhumantes electorales»."),
+        "verificacion": ("Se detecta una variación importante en el número de pobladores o "
+                         "electores de una localidad y se solicita una verificación "
+                         "domiciliaria."),
+        "padron": ("Un ciudadano o institución solicita el padrón electoral, o revisarlo, "
+                   "para comprobar si determinadas personas viven o no en la localidad."),
+        "suspension_de_depuracion": ("Se solicita suspender la depuración porque se "
+                                     "advierte un error en el padrón enviado o notificado."),
+        "fuente": "",
+    },
     "canales": {
         "reniec": "RENIEC",
         "ministerio_publico": "Ministerio Público",
@@ -141,6 +156,9 @@ COLUMNAS_POR_DEFECTO = ("fecha", "departamento", "provincia", "distrito", "tipo"
                         "documento", "canal", "ciudadanos", "observacion")
 
 ALTURA_MIN, ALTURA_MAX = 400, 2000
+
+# Orden en que la leyenda de tipos los muestra (mismas claves que [tipos]).
+TIPOS_LEYENDA = ("impugnacion", "verificacion", "padron", "suspension_de_depuracion")
 
 
 def clave(texto: str) -> str:
@@ -182,6 +200,13 @@ def _combinar(defecto: dict, usuario: dict, ruta: str, avisos: list[str]) -> dic
             salida[k] = _combinar(base, valor or {}, f"{ruta}{k}.", avisos)
         elif k not in usuario:
             salida[k] = base
+        elif isinstance(base, bool):
+            if isinstance(valor, bool):
+                salida[k] = valor
+            else:
+                avisos.append(f"«{ruta}{k}» debe ser true o false (sin comillas); "
+                              f"se usa {str(base).lower()}.")
+                salida[k] = base
         elif isinstance(base, int):
             if (isinstance(valor, int) and not isinstance(valor, bool)
                     and ALTURA_MIN <= valor <= ALTURA_MAX):
@@ -304,6 +329,17 @@ class Textos:
 
     def columnas(self) -> dict[str, str]:
         return self._d["columnas"]
+
+    def leyenda_tipos(self) -> dict | None:
+        """Recuadro que explica cada tipo de denuncia. None si esta oculto
+        (`mostrar = false`) o si no queda ningun texto que mostrar."""
+        d = self._d["leyenda_tipos"]
+        if not d["mostrar"]:
+            return None
+        items = [(t, self.tipo(t), _md(d[t])) for t in TIPOS_LEYENDA if d[t].strip()]
+        if not items:
+            return None
+        return {"titulo": d["titulo"], "items": items, "fuente": _md(d["fuente"].strip())}
 
     def tipo(self, id_tipo: str) -> str:
         """Nombre mostrado de un tipo. Un tipo sin nombre configurado se muestra tal cual."""

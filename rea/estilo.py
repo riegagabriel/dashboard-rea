@@ -87,6 +87,19 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
   background:{T['superficie']}; border:1px solid {T['borde']}; border-radius:6px;
   padding:5px 12px; }}
 .corte-rea b {{ color:{T['tinta']}; }}
+/* Recuadro "que es cada tipo de denuncia", bajo el mapa. */
+.glosa-wrap {{ container-type:inline-size; }}
+.glosa {{ background:{T['superficie']}; border:1px solid {T['borde']};
+  border-radius:8px; padding:10px 14px 11px; }}
+.glosa-t {{ font-size:0.8rem; font-weight:700; color:{T['tinta']}; margin:0 0 7px; }}
+.glosa-g {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 18px; }}
+.gl {{ font-size:0.76rem; line-height:1.38; color:{T['tinta2']}; }}
+.gl b {{ display:flex; align-items:center; color:{T['tinta']}; font-size:0.78rem;
+  margin-bottom:1px; }}
+.gl b i {{ width:10px; height:10px; border-radius:50%; flex:none; margin-right:6px; }}
+.glosa-f {{ font-size:0.68rem; color:{T['tinta3']}; margin:8px 0 0; line-height:1.3; }}
+@container (max-width: 520px) {{ .glosa-g {{ grid-template-columns:minmax(0,1fr); }} }}
+
 .aviso-norma {{ font-size:0.86rem; color:{T['tinta2']}; background:{T['superficie']};
   border:1px solid {T['borde']}; border-left:3px solid {T['acento']};
   border-radius:6px; padding:10px 14px; margin:14px 0 4px; }}

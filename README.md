@@ -28,8 +28,9 @@ solo eligen el mapa.
 | Título, nota y filtros de la tabla | `[tabla]`, `[tabla.filtros]` |
 | **Nombre, orden y visibilidad de las columnas de la tabla** | `[tabla.columnas]` |
 | Nombre de cada tipo de denuncia / de cada canal | `[tipos]`, `[canales]` |
+| Recuadro «¿Qué es cada tipo de denuncia?» bajo el mapa (textos, título, línea de procedencia; `mostrar = false` lo oculta) | `[leyenda_tipos]` |
 | Selector de mapa, leyendas y recuadros del mapa | `[mapa]` |
-| Alto del mapa y de las tarjetas de gráficos | `[ajustes]` |
+| Alto de la columna del mapa (incluye el recuadro de tipos) y de las tarjetas de gráficos | `[ajustes]` |
 
 **Desde GitHub, sin instalar nada:**
 
@@ -194,6 +195,8 @@ y se vuelve a correr. No hay que tocar código.
 posibles de 4 colores, solo 26 pasan la prueba de separación para daltonismo en ese
 modo, y la combinación por defecto **falla**. La elegida da ΔE 13,0 en visión con
 deficiencia cromática y 16,3 en visión normal.
+
+**El recuadro de tipos resta alto al mapa.** Va debajo del mapa y mide unos 200 px; `rea/pagina.py` (`ALTO_LEYENDA`) se lo resta al mapa para que su columna termine a la altura de la de gráficos. Con textos mucho más largos o más cortos, la nota cambia de alto y las columnas se descuadran unos píxeles: se corrige con `altura_mapa`. El mapa es de zoom fijo (5,75) y centro `[-9,6, -76,7]`: con menos de ~750 px de alto o menos de ~620 px de ancho el país no entra entero.
 
 **Los colores están congelados por nombre de categoría** en `rea/estilo.py`. Si se
 asignaran por frecuencia, una actualización repintaría las categorías y rompería la
