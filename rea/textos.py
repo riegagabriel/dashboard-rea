@@ -120,7 +120,7 @@ POR_DEFECTO: dict = {
         "padron": ("Un ciudadano o institución solicita el padrón electoral, o revisarlo, "
                    "para comprobar si determinadas personas viven o no en la localidad."),
         "suspension_de_depuracion": ("Se solicita suspender la depuración porque se "
-                                     "advierte un error en el padrón enviado o notificado."),
+                                     "advierte un error en el proceso de Verificación anterior."),
         "fuente": "",
     },
     "canales": {
