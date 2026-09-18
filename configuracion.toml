@@ -87,15 +87,11 @@ tooltip_denuncias = "Denuncias"
 
 [indicadores.denuncias]
 etiqueta = "Denuncias"
-nota = "de {total} en el registro"
-
-[indicadores.documentos]
-etiqueta = "Documentos"
-nota = "proveídos y alertas"
+nota = "de {total} en el REA"
 
 [indicadores.distritos]
 etiqueta = "Distritos"
-nota = "con al menos una denuncia"
+nota = "con al menos una denuncia en el REA"
 
 [indicadores.departamentos]
 etiqueta = "Departamentos"
@@ -110,7 +106,7 @@ nota = "consta en {cobertura} de {n} denuncias"
 
 # Barras horizontales por departamento (apiladas por tipo de denuncia).
 titulo = "Denuncias por departamento"
-subtitulo = "Barras apiladas por tipo: el color es el mismo que el de las burbujas del mapa."
+subtitulo = "Barras apiladas por tipo de denuncia."
 
 
 [graficos.canal]

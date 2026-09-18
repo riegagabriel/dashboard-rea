@@ -61,7 +61,6 @@ POR_DEFECTO: dict = {
     },
     "indicadores": {
         "denuncias": {"etiqueta": "Denuncias", "nota": "de {total} en el REA"},
-        "documentos": {"etiqueta": "Documentos", "nota": "proveídos y alertas"},
         "distritos": {"etiqueta": "Distritos", "nota": "con al menos una denuncia en el REA"},
         "departamentos": {"etiqueta": "Departamentos", "nota": "de 25 a nivel nacional"},
         "ciudadanos": {"etiqueta": "Ciudadanos listados",

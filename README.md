@@ -21,8 +21,8 @@ solo eligen el mapa.
 |---|---|
 | Título (y el de la pestaña del navegador) y subtítulo | `[encabezado]` |
 | Cita del reglamento al pie | `[cita_reglamento]` |
-| Etiqueta «Prototipo B / F» (vacía `""` la oculta) | `[prototipos]` |
-| Las cinco cajas de cifras | `[indicadores.denuncias]`, `[indicadores.documentos]`… |
+| Etiqueta «Prototipo B / F» (hoy la cabecera ya no la muestra) | `[prototipos]` |
+| Las cuatro cajas de cifras | `[indicadores.denuncias]`, `[indicadores.distritos]`… |
 | Títulos y subtítulos de los tres gráficos | `[graficos.departamento]`, `[graficos.canal]`, `[graficos.tiempo]` |
 | Título, nota y filtros de la tabla | `[tabla]`, `[tabla.filtros]` |
 | **Nombre, orden y visibilidad de las columnas de la tabla** | `[tabla.columnas]` |
