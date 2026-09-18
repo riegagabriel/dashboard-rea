@@ -23,17 +23,10 @@
 # Título principal. Aparece arriba de la página y en la pestaña del navegador.
 # "trashumancia" va sin la "n": así lo escribe el reglamento RE-002-DRE/001,
 # cuya cita aparece en la misma pantalla.
-titulo = "Denuncias registradas en el REA por casos de probable trashumancia electoral"
+titulo = "Denuncias registradas en el REA por casos de probable Transhumancia electoral"
 
 # Línea bajo el título.
 subtitulo = "Subdirección de Procedimiento Electoral y Georreferenciación · Dirección de Registro Electoral · RENIEC"
-
-
-[nota_normativa]
-
-# Recuadro azul bajo el título. Explica para qué sirve el tablero.
-texto = "Los artículos **13.1** y **14.3** del mismo reglamento establecen que la SDPEG debe considerar «las circunscripciones con reiteradas denuncias en el REA» para determinar dónde aplicar la verificación domiciliaria. Este tablero operativiza ese criterio."
-
 
 [cita_reglamento]
 
@@ -47,12 +40,12 @@ fuente = "RENIEC, *Verificación del Domicilio Declarado*, RE-002-DRE/001, Segun
 
 # Etiqueta del recuadro superior derecho, para saber qué versión se está viendo.
 # Si prefieres que no aparezca, deja las comillas vacías: b = ""
-b = "B · coropleta departamental"
-f = "F · híbrido con detalle distrital"
+b = "B"
+f = "F"
 
 
 [tabla]
 
 # Título y explicación de la tabla bajo el mapa.
 titulo = "Detalle por distrito"
-nota = "Ordenado por número de denuncias: las primeras filas son los lugares con mayor concentración. Incluye el desglose por tipo, el canal de ingreso y los ciudadanos listados."
+nota = "Ordenado por número de denuncias."
