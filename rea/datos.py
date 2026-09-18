@@ -51,7 +51,6 @@ def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, dict]]:
     cob = len(ciud)
     return [
         ("denuncias", f"{len(f)}", {"total": total}),
-        ("documentos", f"{f['documento'].nunique()}", {}),
         ("distritos", f"{f['ubigeo_inei'].nunique()}", {}),
         ("departamentos", f"{f['departamento'].nunique()}", {}),
         ("ciudadanos", f"{int(ciud.sum()):,}".replace(",", " "),
