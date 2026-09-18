@@ -53,8 +53,8 @@ f = "F · mapa intercambiable"
 # Selector que hay sobre el mapa (solo en la app F): alterna entre la coropleta por
 # departamento (B) y el mapa por provincias y distritos (F).
 selector_titulo = "Tipo de mapa"
-selector_b = "B · coropleta por departamento"
-selector_f = "F · provincias y distritos"
+selector_b = "Mapa por departamento"
+selector_f = "Mapa a nivel de provincias y distritos"
 
 # Mapa con el que se abre la app: "b" o "f".
 inicial = "f"
@@ -126,7 +126,7 @@ centro = "denuncias"
 
 # Línea de tiempo por semana de ingreso a RENIEC.
 titulo = "Denuncias por fecha de ingreso a RENIEC"
-subtitulo = "Por semana (lunes a domingo). Las semanas sin denuncias se dibujan en cero, no se omiten."
+subtitulo = "Por semana"
 
 # Textos que aparecen al pasar el ratón sobre un punto.
 eje_semana = "Semana"
