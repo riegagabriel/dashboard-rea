@@ -224,7 +224,8 @@ titulo = "¿Qué es cada tipo de denuncia?"
 impugnacion = "Denuncia formal, presentada en el formato administrativo de impugnación, contra ciudadanos señalados como posibles «transhumantes electorales»."
 verificacion = "Se detecta una variación importante en el número de pobladores o electores de una localidad y se solicita una verificación domiciliaria."
 padron = "Un ciudadano o institución solicita el padrón electoral, o revisarlo, para comprobar si determinadas personas viven o no en la localidad."
-suspension_de_depuracion = "Se solicita suspender la depuración porque se advierte un error en el padrón enviado o notificado."
+suspension_de_depuracion = "Se solicita suspender la depuración porque se advierte un error en el proceso de Verificación anterior."
+
 
 # Línea pequeña al pie del recuadro (por ejemplo, de dónde salen las definiciones).
 # Vacía = no se muestra.
