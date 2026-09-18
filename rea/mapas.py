@@ -363,18 +363,19 @@ def mapa_f(conteo_prov: dict[tuple[str, str], int], territorios: list[dict],
 
 # --- Mapas ya renderizados ----------------------------------------------------------
 # Sin filtros generales, cada mapa es siempre el mismo. Se guarda su HTML, uno por modo;
-# la huella del configuracion.toml va en la llave para que un cambio de texto lo renueve.
+# la llave lleva la huella del configuracion.toml (cambio de texto) y la firma de data/
+# (base corregida o nueva): cualquiera de las dos renueva el mapa.
 # Se guarda el HTML y NO el objeto folium: renderizar dos veces el mismo objeto da HTML
 # distinto (la segunda vez agrega addTo(map) sueltos y el mapa llega sin marcadores).
 @st.cache_resource(show_spinner=False)
-def mapa_b_html(huella: str) -> str:
+def mapa_b_html(llave: str) -> str:
     df = datos.casos_df()
     return mapa_b(datos.por_departamento(df), df["tipo"].value_counts().to_dict(),
                   cargar_textos()).get_root().render()
 
 
 @st.cache_resource(show_spinner=False)
-def mapa_f_html(huella: str) -> str:
+def mapa_f_html(llave: str) -> str:
     df = datos.casos_df()
     return mapa_f(datos.por_provincia(df), datos.cargar()["territorios"],
                   datos.por_territorio(df), df["tipo"].value_counts().to_dict(),

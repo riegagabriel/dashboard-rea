@@ -6,6 +6,7 @@ en configuracion.toml no debe quedar congelado en ella.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -18,18 +19,38 @@ from .textos import clave
 DATA = Path(__file__).resolve().parent.parent / "data"
 
 
-@st.cache_data(show_spinner=False)
-def cargar() -> dict:
+def firma() -> str:
+    """Identifica la version de los archivos de data/ (nombre, fecha y tamano).
+
+    Va en la llave de todas las caches: Streamlit Cloud reutiliza el proceso al hacer
+    push y, sin esto, una base corregida seguiria mostrando los datos viejos hasta
+    reiniciar la app a mano. El parametro `version` de las funciones cacheadas NO puede
+    empezar con guion bajo: Streamlit ignora esos parametros al armar la llave."""
+    filas = ";".join(f"{p.name}:{p.stat().st_mtime_ns}:{p.stat().st_size}"
+                     for p in sorted(DATA.iterdir()))
+    return hashlib.sha1(filas.encode()).hexdigest()[:12]
+
+
+@st.cache_data(show_spinner=False, max_entries=3)
+def _cargar(version: str) -> dict:
     return json.loads((DATA / "rea.json").read_text(encoding="utf-8"))
 
 
-@st.cache_data(show_spinner=False)
-def geojson(nombre: str) -> dict:
+def cargar() -> dict:
+    return _cargar(firma())
+
+
+@st.cache_data(show_spinner=False, max_entries=12)
+def _geojson(nombre: str, version: str) -> dict:
     return json.loads((DATA / f"{nombre}.geojson").read_text(encoding="utf-8"))
 
 
-@st.cache_data(show_spinner=False)
-def casos_df() -> pd.DataFrame:
+def geojson(nombre: str) -> dict:
+    return _geojson(nombre, firma())
+
+
+@st.cache_data(show_spinner=False, max_entries=3)
+def _casos_df(version: str) -> pd.DataFrame:
     df = pd.DataFrame(cargar()["casos"])
     for c in ("departamento", "provincia", "distrito"):
         df[c] = df[c].str.title()
@@ -42,6 +63,10 @@ def casos_df() -> pd.DataFrame:
     df["fecha_dt"] = fecha
     df["semana"] = fecha.dt.to_period("W-SUN").dt.start_time   # el lunes de cada semana
     return df
+
+
+def casos_df() -> pd.DataFrame:
+    return _casos_df(firma())
 
 
 # --- Indicadores ------------------------------------------------------------
@@ -85,8 +110,12 @@ def por_provincia(f: pd.DataFrame) -> dict[tuple[str, str], int]:
     return {(clave(d), clave(p)): int(n) for (d, p), n in g.items()}
 
 
-@st.cache_data(show_spinner=False)
 def centros_provincia() -> dict[tuple[str, str], dict]:
+    return _centros_provincia(firma())
+
+
+@st.cache_data(show_spinner=False, max_entries=3)
+def _centros_provincia(version: str) -> dict[tuple[str, str], dict]:
     """Un punto dentro de cada provincia, para imprimir su numero y su nombre."""
     from shapely.geometry import shape
     out = {}

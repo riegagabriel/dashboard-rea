@@ -181,6 +181,8 @@ python scripts/03_preparar_web.py          # regenera data/ de este repo
 # luego: commit y push
 ```
 
+Las cachés de la app llevan una *firma* de los archivos de `data/` (`datos.firma()`), así que un `push` con datos nuevos o corregidos se ve en las dos apps sin reiniciarlas. (Antes, Streamlit Cloud seguía mostrando los datos viejos porque reutiliza el proceso.)
+
 El paso 2 imprime un reporte de validación que compara contra el corte anterior
 (altas, bajas y variación por categoría). Si aparecen territorios sin ubicar, se
 añade una línea a `data/interim/equivalencias_territoriales.csv` del proyecto local

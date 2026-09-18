@@ -27,7 +27,7 @@ def mapa(df, altura):
     t = textos.cargar()
     modo = pagina.selector_mapa(t)
     alto = altura - pagina.ALTO_SELECTOR
-    html = (mapas.mapa_b_html if modo == "b" else mapas.mapa_f_html)(t.huella)
+    html = (mapas.mapa_b_html if modo == "b" else mapas.mapa_f_html)(t.huella + datos.firma())
     # El mapa no devuelve nada a Streamlit, asi que basta un iframe con el HTML ya
     # renderizado (st_folium volveria a renderizar el objeto en cada ejecucion).
     componentes.html(html, height=alto, scrolling=False)
