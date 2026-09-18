@@ -14,35 +14,68 @@ registradas en el Registro de Alertas.
 ## ✏️ Cómo cambiar los textos del tablero
 
 **Todos los textos se editan en un solo archivo: [`configuracion.toml`](configuracion.toml).**
-No hace falta tocar ningún archivo `.py`.
+No hace falta tocar ningún archivo `.py`. `app_b.py` y `app_f.py` no contienen textos:
+solo eligen el mapa.
 
-| Qué quieres cambiar | Dónde, dentro de `configuracion.toml` |
+| Qué quieres cambiar | Sección de `configuracion.toml` |
 |---|---|
-| Título principal (y el de la pestaña del navegador) | `[encabezado]` → `titulo` |
-| Línea bajo el título | `[encabezado]` → `subtitulo` |
-| Recuadro azul que explica para qué sirve | `[nota_normativa]` → `texto` |
+| Título (y el de la pestaña del navegador) y subtítulo | `[encabezado]` |
+| Recuadro azul que explica para qué sirve | `[nota_normativa]` |
 | Cita del reglamento al pie | `[cita_reglamento]` |
-| Etiqueta «Prototipo B / F» arriba a la derecha | `[prototipos]` — déjala vacía `""` para ocultarla |
-| Título y explicación de la tabla | `[tabla]` |
+| Etiqueta «Prototipo B / F» (vacía `""` la oculta) | `[prototipos]` |
+| Rótulos de los filtros de arriba del mapa | `[filtros]` |
+| Las cinco cajas de cifras | `[indicadores.denuncias]`, `[indicadores.documentos]`… |
+| Títulos y subtítulos de los tres gráficos | `[graficos.departamento]`, `[graficos.canal]`, `[graficos.tiempo]` |
+| Título, nota y filtros de la tabla | `[tabla]`, `[tabla.filtros]` |
+| **Nombre, orden y visibilidad de las columnas de la tabla** | `[tabla.columnas]` |
+| Nombre de cada tipo de denuncia / de cada canal | `[tipos]`, `[canales]` |
+| Alto del mapa y de las tarjetas de gráficos | `[ajustes]` |
 
 **Desde GitHub, sin instalar nada:**
 
 1. Abre `configuracion.toml` en el repositorio y pulsa el lápiz ✏️ (*Edit this file*).
 2. Cambia el texto entre comillas.
 3. Pulsa **Commit changes**.
-4. Streamlit Cloud redespliega **las dos apps** solas en uno o dos minutos.
+4. Las **dos apps** toman el cambio en la siguiente carga de la página (no hace falta reiniciarlas).
 
 Para **negrita** escribe `**así**`; para cursiva, `*así*`.
 
-Si al recargar sigues viendo el texto viejo: en Streamlit Cloud, menú de la app →
-**Reboot app**.
+### Columnas de la tabla
 
-> `app_b.py` y `app_f.py` **no contienen textos**: solo deciden qué mapa dibujar.
-> Por eso no encontrarás el título dentro de ellos.
+Cada línea de `[tabla.columnas]` es `id_interno = "Nombre que se muestra"`:
 
-**Lo que no está en ese archivo, a propósito:** los colores del mapa. Están
-validados para que las cuatro categorías se distingan también con daltonismo
-(ver *Decisiones de diseño*), y cambiarlos a ojo rompería esa garantía.
+```toml
+[tabla.columnas]
+fecha        = "Fecha de ingreso"
+departamento = "Departamento"
+distrito     = "Distrito"
+observacion  = "Observación"
+```
+
+- **Renombrar:** cambia lo que está entre comillas.
+- **Reordenar:** cambia las líneas de lugar.
+- **Ocultar:** borra la línea (o antepón `#`).
+- **Mostrar más:** añade una línea con un id válido. Ids disponibles: `item`, `fecha`,
+  `departamento`, `provincia`, `distrito`, `ubigeo_inei`, `tipo`, `documento`, `formato`,
+  `canal`, `denunciante`, `caracter`, `ciudadanos`, `observacion`.
+- El **id de la izquierda no se renombra**: es el que conecta con los datos.
+
+### Si te equivocas
+
+La app **no se cae**. Muestra un recuadro amarillo arriba con lo que hay que corregir
+(por ejemplo, «`tabla.columnas.distritos` no es una columna válida, ¿quisiste decir
+`distrito`?») y mientras tanto usa el texto original. Un error de sintaxis, como una
+comilla sin cerrar, se muestra como un aviso rojo con el número de línea. Las marcas
+como `{total}` que se escriban mal se muestran tal cual, sin romper nada.
+
+### Lo que NO está en ese archivo, a propósito
+
+| Qué | Dónde | Por qué |
+|---|---|---|
+| Colores de los 4 tipos de denuncia | `rea/estilo.py` → `CATEGORIAS` | Validados por cómputo para daltonismo; cambiarlos a ojo rompe la garantía |
+| Colores de los canales | `rea/estilo.py` → `CANALES` | Ídem, validados en modo «todos los pares» |
+| Rampa gris del mapa F | `rea/estilo.py` → `CLASES_GRIS` | Medida contra los marcadores |
+| Orden y tamaño de los bloques de la página | `rea/pagina.py` | Es estructura, no texto |
 
 ---
 
@@ -67,23 +100,40 @@ público no existe.
 
 ## Las dos apps
 
-| Entrada | Prototipo | Qué muestra |
+| Entrada | Prototipo | Qué muestra el mapa |
 |---|---|---|
 | `app_b.py` | **B** · coropleta departamental | Magnitud por departamento en rampa azul, con el número impreso sobre cada uno. Lectura inmediata a escala nacional. |
 | `app_f.py` | **F** · híbrido | Coropleta departamental en gris + una burbuja por distrito, coloreada por tipo de denuncia. Cada burbuja abre un popup con la observación completa de cada denuncia. |
 
-Ambas comparten el mismo motor (`rea/`), así que no pueden divergir cuando llegue
-una actualización de la base.
+Ambas comparten **toda la página** (`rea/pagina.py`) y solo difieren en el mapa, así que
+no pueden divergir cuando llegue una actualización de la base.
 
-### Lo que traen las dos
+### La página
 
-- Filtros de tipo de denuncia, canal de ingreso y departamento, que afectan **a la vez**
-  al mapa, a los indicadores y a todas las tablas.
-- Cinco indicadores: denuncias, documentos, distritos, departamentos y ciudadanos listados.
-- **Una tabla de detalle por distrito**, ordenada por número de denuncias: sus primeras
-  filas son el ranking de los lugares más afectados, y sus columnas traen el desglose
-  por tipo, el canal de ingreso y los ciudadanos listados.
-- Límites **provinciales y distritales que aparecen al acercar** el zoom.
+```
+┌────────────────────────────────────────────────────────────┐
+│ Título · fecha de corte · filtros (tipo, canal, depto., fecha) │
+├─────────────────────────┬──────────────────────────────────┤
+│ MAPA (50 % de la        │ 5 cajas de cifras                │
+│ pantalla)               ├─────────────────────┬────────────┤
+│                         │ Barras por depto.   │ Dona canal │
+│                         ├─────────────────────┴────────────┤
+│                         │ Línea de tiempo por semana       │
+├─────────────────────────┴──────────────────────────────────┤
+│ Tabla de denuncias (una fila por denuncia)                 │
+│ con filtros propios: Departamento · Provincia · Distrito   │
+└────────────────────────────────────────────────────────────┘
+```
+
+- Los **filtros de arriba** (tipo, canal, departamento y rango de fecha de ingreso) afectan
+  **a todo a la vez**: mapa, cifras, gráficos y tabla.
+- Los **tres filtros de la tabla** (departamento, provincia, distrito) afectan solo a la tabla,
+  y van en cascada. `Cochas` existe en dos provincias, así que el distrito se identifica
+  siempre por el par provincia-distrito.
+- La línea de tiempo usa la columna «INGRESO A RENIEC», por semana (lunes a domingo). Las
+  semanas sin denuncias valen cero y el eje no cambia al filtrar.
+- Límites **provinciales y distritales que aparecen al acercar** el zoom del mapa.
+- Por debajo de ~1000 px de ancho, el mapa y los gráficos se apilan.
 - Nota al pie con la cita literal del Reglamento.
 
 ---
@@ -148,8 +198,8 @@ sobre `#7a756a` los cuatro colores caen por debajo de 2:1 de contraste.
 
 **La tabla no es un extra.** La queja de fondo —«la imagen se ve muy pequeña»— no se
 arregla agrandando el mapa, sino haciendo que ninguna cifra dependa de leerlo. Y es
-una sola: una tabla que se lee entera pesa más que cinco que obligan a saltar entre
-cuadros.
+una sola, con una fila por denuncia: se lee entera y trae casi toda la información
+del Excel.
 
 **El mapa no usa teselas.** La coropleta es la superficie; un fondo cartográfico
 competiría con ella y añadiría una dependencia de red innecesaria.

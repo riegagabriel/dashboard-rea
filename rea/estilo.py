@@ -1,4 +1,4 @@
-"""Paleta, tokens visuales y textos normativos. Fuente unica para ambas apps."""
+"""Paleta y tokens visuales. Los textos viven en configuracion.toml (ver textos.py)."""
 from __future__ import annotations
 
 # --- Paleta categorica -----------------------------------------------------
@@ -21,12 +21,23 @@ CATEGORIAS = {
 }                                           # asignado a la categoria mas rara)
 ORDEN_CATEGORIAS = list(CATEGORIAS)
 
-ETIQUETA_CATEGORIA = {
-    "IMPUGNACION": "Impugnación",
-    "VERIFICACION": "Verificación",
-    "PADRON": "Padrón",
-    "SUSPENSION DE DEPURACION": "Suspensión de depuración",
+# --- Paleta del canal de ingreso (dona) --------------------------------------
+# Validada con dataviz/scripts/validate_palette.js --pairs all (una dona es
+# all-pairs: todas las porciones se tocan). De los 4 tonos que NO usan los tipos
+# de denuncia (azul, verde, violeta, magenta) solo esta terna pasa: lo demas
+# repite un tono de los tipos o falla la separacion (naranja/amarillo, naranja/rojo).
+#   CVD peor par  dE 6.9  (banda 6-8: legal con etiquetas directas, que la dona lleva)
+#   Vision normal dE 20.8 (piso >= 15)
+#   Contraste aguamarina 2.74:1 y amarillo 2.11:1 -> WARN cubierto por la leyenda
+#   con cantidades y porcentajes junto a la dona.
+# Clave = nombre del canal normalizado (rea/textos.py::clave).
+CANALES = {
+    "reniec": "#1baf7a",                # aguamarina: el canal dominante
+    "ministerio_publico": "#eda100",    # amarillo
+    "defensoria_del_pueblo": "#e34948",  # rojo
 }
+# Canales que aparezcan en una base futura y no tengan color asignado:
+CANAL_SIN_ASIGNAR = ["#898781", "#52514e", "#b9b5a8"]
 
 # --- Rampa secuencial (magnitud departamental, prototipo B) ----------------
 RAMPA_AZUL = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
@@ -49,37 +60,6 @@ T = {
     "borde": "rgba(11,11,11,0.10)", "acento": "#2a78d6",
 }
 FUENTE = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
-
-# --- Textos editables -----------------------------------------------------
-# Los textos NO se escriben aqui: se leen de configuracion.toml, en la raiz del
-# repositorio. Asi quien solo quiere cambiar una frase no tiene que abrir un
-# archivo lleno de CSS y codigos de color.
-import re as _re
-import tomllib as _tomllib
-from pathlib import Path as _Path
-
-_CONFIG = _tomllib.loads(
-    (_Path(__file__).resolve().parent.parent / "configuracion.toml")
-    .read_text(encoding="utf-8"))
-
-
-def _md(texto: str) -> str:
-    """**negrita** -> <b>, *cursiva* -> <i>. Para que el TOML se escriba natural."""
-    texto = _re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", texto)
-    return _re.sub(r"\*(.+?)\*", r"<i>\1</i>", texto)
-
-
-TITULO = _CONFIG["encabezado"]["titulo"]
-SUBTITULO = _CONFIG["encabezado"]["subtitulo"]
-USO_NORMATIVO = _md(_CONFIG["nota_normativa"]["texto"])
-
-_c = _CONFIG["cita_reglamento"]
-CITA_REA = (f"<b>{_c['nombre']}.</b> «{_c['texto']}»<br>— {_md(_c['fuente'])}")
-
-PROTOTIPO_B = _CONFIG["prototipos"]["b"]
-PROTOTIPO_F = _CONFIG["prototipos"]["f"]
-TABLA_TITULO = _CONFIG["tabla"]["titulo"]
-TABLA_NOTA = _CONFIG["tabla"]["nota"]
 
 # --- CSS -------------------------------------------------------------------
 # La leyenda va a 15 px por pedido expreso: era el punto mas criticado de la
@@ -112,11 +92,39 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
   border:1px solid {T['borde']}; border-left:3px solid {T['acento']};
   border-radius:6px; padding:10px 14px; margin:14px 0 4px; }}
 
-div[data-testid="stMetric"] {{ background:{T['superficie']};
-  border:1px solid {T['borde']}; border-radius:8px; padding:12px 15px; }}
-div[data-testid="stMetricValue"] {{ font-size:1.72rem; font-weight:700;
-  letter-spacing:-0.02em; color:{T['tinta']}; }}
-div[data-testid="stMetricLabel"] p {{ font-size:0.8rem; color:{T['tinta2']}; }}
+/* Cinco cajas de cifras. HTML propio: st.metric recortaba las etiquetas
+   ("Den...", "Ciud...") en columnas estrechas. */
+.kpis {{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px;
+  margin-bottom:14px; }}
+.kpi {{ background:{T['superficie']}; border:1px solid {T['borde']};
+  border-radius:8px; padding:11px 13px; display:flex; flex-direction:column;
+  min-width:0; }}
+.kpi-e {{ font-size:0.78rem; line-height:1.25; color:{T['tinta2']}; }}
+.kpi b {{ font-size:1.65rem; line-height:1.15; letter-spacing:-0.02em;
+  color:{T['tinta']}; margin:3px 0; }}
+.kpi em {{ font-style:normal; font-size:0.72rem; line-height:1.3;
+  color:{T['tinta3']}; }}
+
+.card-t {{ font-size:0.98rem; font-weight:700; color:{T['tinta']}; margin:0; }}
+.card-s {{ font-size:0.78rem; color:{T['tinta3']}; margin:1px 0 6px;
+  line-height:1.35; }}
+.lg-canal {{ display:flex; align-items:center; gap:8px; font-size:0.84rem;
+  color:{T['tinta']}; margin:5px 0; }}
+.lg-canal i {{ width:12px; height:12px; border-radius:3px; flex:none; }}
+.lg-canal b {{ margin-left:auto; padding-left:10px; color:{T['tinta2']};
+  font-variant-numeric:tabular-nums; }}
+
+[data-testid="stSelectbox"] label p, [data-testid="stMultiSelect"] label p,
+[data-testid="stDateInput"] label p {{ font-size:0.8rem; color:{T['tinta2']}; }}
+
+/* Debajo de ~1000 px el mapa y la columna de graficos se apilan. Streamlit solo
+   apila a 640 px, y entre 640 y 1000 quedarian demasiado estrechos. */
+@media (max-width: 1000px) {{
+  [data-testid="stHorizontalBlock"] {{ flex-wrap:wrap !important; }}
+  [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {{
+    flex:1 1 100% !important; min-width:100% !important; }}
+  .kpis {{ grid-template-columns:repeat(2,minmax(0,1fr)); }}
+}}
 
 h3 {{ font-size:1.02rem !important; font-weight:700 !important; color:{T['tinta']};
   margin-top:1.4rem !important; }}

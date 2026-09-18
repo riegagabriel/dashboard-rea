@@ -4,7 +4,7 @@ Prototipo F - Hibrido: coropleta departamental en gris + burbujas distritales.
 
 El gris responde CUANTO por departamento; el color de la burbuja, DONDE y DE
 QUE TIPO por distrito. Cada burbuja abre un popup con la observacion completa
-de cada denuncia.
+de cada denuncia. Mapa al 50 % de la pantalla; cifras, graficos y tabla en pagina.py.
 
 Por que el fondo es gris y no una rampa azul: una rampa azul bajo marcadores
 azules pondria magnitud e identidad en la misma familia de color. Y la rampa se
@@ -23,32 +23,19 @@ for _m in [m for m in sys.modules if m == "rea" or m.startswith("rea.")]:
 from streamlit_folium import st_folium
 
 from rea import datos, pagina
-from rea.estilo import PROTOTIPO_F
 from rea.mapas import mapa_f
 
-pagina.configurar("F")
-d = datos.cargar()
-df = datos.casos_df()
 
-pagina.encabezado(d["meta"], PROTOTIPO_F)
-tipos, canales, deps = pagina.filtros(df)
-f = datos.filtrar(df, tipos, canales, deps)
-
-pagina.indicadores(f, len(df))
-
-if f.empty:
-    import streamlit as st
-    st.warning("Ninguna denuncia cumple los filtros activos. "
-               "Amplíe la selección en el panel lateral.")
-else:
-    por_tipo = f["tipo"].value_counts().to_dict()
+def mapa(f, altura):
     activos = set(f["ubigeo_inei"])
     territorios = [t for t in d["territorios"] if t["ubigeo_inei"] in activos]
     st_folium(mapa_f(datos.por_departamento(f), territorios,
-                     datos.por_territorio(f), por_tipo),
-              use_container_width=True, height=640,
+                     datos.por_territorio(f), f["tipo"].value_counts().to_dict()),
+              use_container_width=True, height=altura,
               returned_objects=[], key="mapa_f")
-    pagina.tablas(f)
-    pagina.reservado(f)
 
-pagina.pie(d["meta"], f, len(df))
+
+pagina.configurar("F")
+d = datos.cargar()
+pagina.encabezado(d["meta"], "f")
+pagina.tablero(datos.casos_df(), mapa)

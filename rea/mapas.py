@@ -8,8 +8,9 @@ import pandas as pd
 from branca.element import MacroElement, Template
 
 from .datos import geojson
-from .estilo import (CATEGORIAS, CLASES_GRIS, CSS_MAPA, ETIQUETA_CATEGORIA,
-                     ORDEN_CATEGORIAS, RAMPA_AZUL, SIN_CASOS, T)
+from .estilo import (CATEGORIAS, CLASES_GRIS, CSS_MAPA, ORDEN_CATEGORIAS,
+                     RAMPA_AZUL, SIN_CASOS, T)
+from .textos import Textos, cargar as cargar_textos
 
 PERU = [[-18.6, -81.5], [0.2, -68.4]]
 ZOOM_PROVINCIA = 7   # a partir de aqui aparecen los limites provinciales
@@ -54,9 +55,14 @@ class LimitesPorZoom(MacroElement):
 def _base() -> folium.Map:
     # Sin teselas: la coropleta es la superficie. Un basemap competiria con ella
     # y anadiria una dependencia de red que el entregable no necesita.
-    m = folium.Map(location=[-9.4, -74.6], zoom_start=5, tiles=None,
+    # Peru ocupa unos 490 px de ancho a zoom 5.75; con el mapa al 50 % de la
+    # pantalla llena el recuadro. El centro va corrido hacia el sur-oeste para que
+    # el pais quede arriba a la derecha y la leyenda (abajo a la izquierda) caiga
+    # sobre el oceano y no tape la costa. zoomSnap 0.25 es lo que permite un zoom
+    # fraccionario: con el valor por defecto (1) Leaflet lo redondea a 6.
+    m = folium.Map(location=[-10.9, -76.7], zoom_start=5.75, tiles=None,
                    control_scale=False, zoom_control=True,
-                   min_zoom=4, max_bounds=True)
+                   min_zoom=4, max_bounds=True, zoomSnap=0.25)
     m.get_root().header.add_child(folium.Element(CSS_MAPA))
     return m
 
@@ -167,7 +173,7 @@ def _svg_burbuja(cuenta: dict[str, int], total: int, r: float) -> str:
     return "".join(piezas)
 
 
-def _popup(terr: dict, filas: list[dict]) -> str:
+def _popup(terr: dict, filas: list[dict], tx: Textos) -> str:
     """Contenido del popup: es lo que responde 'de que trata la denuncia'."""
     n = len(filas)
     cuenta: dict[str, int] = {}
@@ -175,7 +181,7 @@ def _popup(terr: dict, filas: list[dict]) -> str:
         cuenta[f["tipo"]] = cuenta.get(f["tipo"], 0) + 1
     chips = " ".join(
         f'<span class="pop-tag" style="background:{CATEGORIAS[c]}">'
-        f'{ETIQUETA_CATEGORIA[c]} {v}</span>'
+        f'{tx.tipo(c)} {v}</span>'
         for c, v in sorted(cuenta.items(), key=lambda x: ORDEN_CATEGORIAS.index(x[0])))
 
     loc = ""
@@ -193,9 +199,9 @@ def _popup(terr: dict, filas: list[dict]) -> str:
         detalle += (
             f'<div class="pop-sec">'
             f'<span class="pop-tag" style="background:{CATEGORIAS[f["tipo"]]}">'
-            f'{ETIQUETA_CATEGORIA[f["tipo"]]}</span>'
+            f'{tx.tipo(f["tipo"])}</span>'
             f'<div class="pop-meta">{f["fecha"]} · {f["documento"]} · '
-            f'canal {f["canal"]}{ciu}</div>'
+            f'canal {tx.canal(f["canal"])}{ciu}</div>'
             f'<p class="pop-obs">{f["observacion"]}</p></div>')
 
     return (
@@ -208,7 +214,7 @@ def _popup(terr: dict, filas: list[dict]) -> str:
 
 
 def _burbujas(m: folium.Map, territorios: list[dict],
-              agrupado: dict[str, list[dict]]) -> None:
+              agrupado: dict[str, list[dict]], tx: Textos) -> None:
     grupo = folium.FeatureGroup(name="Distritos con denuncias", show=True)
     for t in territorios:
         filas = agrupado.get(t["ubigeo_inei"])
@@ -230,7 +236,7 @@ def _burbujas(m: folium.Map, territorios: list[dict],
             tooltip=folium.Tooltip(
                 f'<b>{t["distrito"].title()}</b><br>{n} denuncia{"s" if n > 1 else ""}'
                 f'<br><i>clic para ver el detalle</i>', class_name="tt"),
-            popup=folium.Popup(_popup(t, filas), max_width=380),
+            popup=folium.Popup(_popup(t, filas, tx), max_width=380),
         ).add_to(grupo)
     grupo.add_to(m)
 
@@ -265,17 +271,18 @@ def mapa_b(conteo_dep: dict[str, int], por_tipo: dict[str, int]) -> folium.Map:
 def mapa_f(conteo_dep: dict[str, int], territorios: list[dict],
            agrupado: dict[str, list[dict]], por_tipo: dict[str, int]) -> folium.Map:
     """Prototipo F: coropleta departamental en gris + burbujas distritales."""
+    tx = cargar_textos()
     m = _base()
     info = _departamentos(m, conteo_dep, "gris")
     _contexto(m)
-    _burbujas(m, territorios, agrupado)
+    _burbujas(m, territorios, agrupado, tx)
     grises = "".join(
         f'<div class="f"><span class="sw" style="background:{color}"></span>'
         f'<span>{etq}</span><span class="c">{info["por_clase"].get(etq, 0)}</span></div>'
         for _, _, color, etq in CLASES_GRIS)
     tipos = "".join(
         f'<div class="f"><span class="pt" style="background:{CATEGORIAS[c]}"></span>'
-        f'<span>{ETIQUETA_CATEGORIA[c]}</span>'
+        f'<span>{tx.tipo(c)}</span>'
         f'<span class="c">{por_tipo.get(c, 0)}</span></div>'
         for c in ORDEN_CATEGORIAS)
     _leyenda(m,

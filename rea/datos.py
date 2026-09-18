@@ -1,18 +1,19 @@
-"""Carga de datos, KPIs y la tabla resumen. Compartido por B y F.
+"""Carga de datos, filtros, KPIs y agregaciones para el tablero. Compartido por B y F.
 
-tabla_resumen() es la que usa el tablero. Las demas (ranking, tipologia,
-canal, departamentos, listados) quedan disponibles por si se vuelve a
-necesitar alguna suelta, pero no se muestran.
+Nada de aqui pone texto visible: los nombres de tipos, canales y columnas se
+aplican al dibujar (rea/textos.py), porque casos_df() esta en cache y un cambio
+en configuracion.toml no debe quedar congelado en ella.
 """
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-from .estilo import ETIQUETA_CATEGORIA, ORDEN_CATEGORIAS
+from .estilo import ORDEN_CATEGORIAS
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 
@@ -30,134 +31,47 @@ def geojson(nombre: str) -> dict:
 @st.cache_data(show_spinner=False)
 def casos_df() -> pd.DataFrame:
     df = pd.DataFrame(cargar()["casos"])
-    df["tipo_etq"] = df["tipo"].map(ETIQUETA_CATEGORIA)
     for c in ("departamento", "provincia", "distrito"):
         df[c] = df[c].str.title()
+    # Una fecha ilegible detiene la carga con mensaje: contarla mal en silencio
+    # movería denuncias de semana sin que nadie lo note.
+    fecha = pd.to_datetime(df["fecha"], format="%d/%m/%Y", errors="coerce")
+    if fecha.isna().any():
+        malas = df.loc[fecha.isna(), ["item", "fecha"]].to_dict("records")
+        raise ValueError(f"Fecha de ingreso ilegible en {len(malas)} denuncia(s): {malas[:5]}")
+    df["fecha_dt"] = fecha
+    df["semana"] = fecha.dt.to_period("W-SUN").dt.start_time   # el lunes de cada semana
     return df
 
 
 def filtrar(df: pd.DataFrame, tipos: list[str], canales: list[str],
-            deps: list[str]) -> pd.DataFrame:
+            deps: list[str], rango: tuple[date, date] | None = None) -> pd.DataFrame:
     f = df[df["tipo"].isin(tipos) & df["canal"].isin(canales)]
     if deps:
         f = f[f["departamento"].isin(deps)]
+    if rango is not None:
+        ini, fin = rango
+        dia = f["fecha_dt"].dt.date
+        f = f[(dia >= ini) & (dia <= fin)]
     return f
 
 
-# --- KPIs -------------------------------------------------------------------
-def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, str]]:
+# --- Indicadores ------------------------------------------------------------
+def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, dict]]:
+    """(clave, valor, variables para la nota). El texto vive en configuracion.toml."""
     ciud = f["ciudadanos"].dropna()
     cob = len(ciud)
     return [
-        ("Denuncias", f"{len(f)}", f"de {total} en el registro"),
-        ("Documentos", f"{f['documento'].nunique()}", "proveídos y alertas"),
-        ("Distritos", f"{f['ubigeo_inei'].nunique()}", "con al menos una denuncia"),
-        ("Departamentos", f"{f['departamento'].nunique()}", "de 25 a nivel nacional"),
-        ("Ciudadanos listados", f"{int(ciud.sum()):,}".replace(",", " "),
-         f"consta en {cob} de {len(f)} denuncias"),
+        ("denuncias", f"{len(f)}", {"total": total}),
+        ("documentos", f"{f['documento'].nunique()}", {}),
+        ("distritos", f"{f['ubigeo_inei'].nunique()}", {}),
+        ("departamentos", f"{f['departamento'].nunique()}", {}),
+        ("ciudadanos", f"{int(ciud.sum()):,}".replace(",", " "),
+         {"cobertura": cob, "n": len(f)}),
     ]
 
 
-# --- Tablas resumen ---------------------------------------------------------
-def tabla_resumen(f: pd.DataFrame) -> pd.DataFrame:
-    """Tabla unica del tablero.
-
-    Ordenada por numero de denuncias, de modo que sus primeras filas SON el
-    ranking de los lugares mas afectados, y las columnas siguientes traen la
-    tipologia, el canal de ingreso y los ciudadanos listados. Reune en un solo
-    cuadro lo que antes estaba repartido en cinco.
-    """
-    g = (f.groupby(["ubigeo_inei", "distrito", "provincia", "departamento"])
-           .agg(Denuncias=("item", "size"),
-                Ciudadanos=("ciudadanos", lambda x: int(x.dropna().sum())),
-                Canal=("canal", lambda x: " · ".join(sorted(set(x)))))
-           .reset_index())
-    piv = f.pivot_table(index="ubigeo_inei", columns="tipo_etq",
-                        aggfunc="size", fill_value=0)
-    g = g.merge(piv, on="ubigeo_inei", how="left").fillna(0)
-    tipos = [ETIQUETA_CATEGORIA[c] for c in ORDEN_CATEGORIAS
-             if ETIQUETA_CATEGORIA[c] in g.columns]
-    for c in tipos:
-        g[c] = g[c].astype(int)
-    g = g.sort_values(["Denuncias", "departamento"], ascending=[False, True])
-    g = g.rename(columns={"distrito": "Distrito", "provincia": "Provincia",
-                          "departamento": "Departamento",
-                          "ubigeo_inei": "Ubigeo INEI",
-                          "Ciudadanos": "Ciudadanos listados"})
-    cols = (["Distrito", "Provincia", "Departamento", "Ubigeo INEI", "Denuncias"]
-            + tipos + ["Canal", "Ciudadanos listados"])
-    return g[cols].reset_index(drop=True)
-
-
-def tabla_ranking(f: pd.DataFrame, n: int = 5) -> pd.DataFrame:
-    """Los n lugares con mas denuncias, con su desglose por tipo."""
-    g = (f.groupby(["distrito", "provincia", "departamento", "ubigeo_inei"])
-           .size().reset_index(name="Denuncias"))
-    piv = (f.pivot_table(index="ubigeo_inei", columns="tipo_etq",
-                         aggfunc="size", fill_value=0))
-    g = g.merge(piv, on="ubigeo_inei", how="left").fillna(0)
-    g = g.sort_values("Denuncias", ascending=False).head(n)
-    cols = ["distrito", "provincia", "departamento", "ubigeo_inei", "Denuncias"]
-    extra = [ETIQUETA_CATEGORIA[c] for c in ORDEN_CATEGORIAS
-             if ETIQUETA_CATEGORIA[c] in g.columns]
-    g = g[cols + extra].rename(columns={
-        "distrito": "Distrito", "provincia": "Provincia",
-        "departamento": "Departamento", "ubigeo_inei": "Ubigeo INEI"})
-    for c in extra:
-        g[c] = g[c].astype(int)
-    return g.reset_index(drop=True)
-
-
-def tabla_departamentos(f: pd.DataFrame) -> pd.DataFrame:
-    """Ranking departamental completo: el top 5 distrital esconde el patron regional."""
-    g = f.groupby("departamento").agg(
-        Denuncias=("item", "size"),
-        Distritos=("ubigeo_inei", "nunique"),
-        Ciudadanos=("ciudadanos", lambda s: int(s.dropna().sum())),
-    ).reset_index().rename(columns={"departamento": "Departamento"})
-    g["% del total"] = (100 * g["Denuncias"] / max(len(f), 1)).round(1)
-    return g.sort_values("Denuncias", ascending=False).reset_index(drop=True)
-
-
-def tabla_tipologia(f: pd.DataFrame) -> pd.DataFrame:
-    filas = []
-    for c in ORDEN_CATEGORIAS:
-        sub = f[f["tipo"] == c]
-        filas.append({
-            "Tipo de denuncia": ETIQUETA_CATEGORIA[c],
-            "Denuncias": len(sub),
-            "% del total": round(100 * len(sub) / max(len(f), 1), 1),
-            "Distritos alcanzados": sub["ubigeo_inei"].nunique(),
-            "Departamentos": sub["departamento"].nunique(),
-        })
-    return pd.DataFrame(filas)
-
-
-def tabla_canal(f: pd.DataFrame) -> pd.DataFrame:
-    g = f.groupby("canal").agg(
-        Denuncias=("item", "size"),
-        Distritos=("ubigeo_inei", "nunique"),
-    ).reset_index().rename(columns={"canal": "Canal de ingreso"})
-    g["% del total"] = (100 * g["Denuncias"] / max(len(f), 1)).round(1)
-    return g.sort_values("Denuncias", ascending=False).reset_index(drop=True)
-
-
-def tabla_listados(f: pd.DataFrame) -> pd.DataFrame:
-    """Denuncias que adjuntaron un listado nominal de ciudadanos."""
-    con = f[f["ciudadanos"].notna()].copy()
-    if con.empty:
-        return pd.DataFrame(columns=["Distrito", "Provincia", "Departamento",
-                                     "Ciudadanos listados", "Tipo", "Documento"])
-    con = con.sort_values("ciudadanos", ascending=False)
-    g = con[["distrito", "provincia", "departamento", "ciudadanos",
-             "tipo_etq", "documento"]].rename(columns={
-        "distrito": "Distrito", "provincia": "Provincia",
-        "departamento": "Departamento", "ciudadanos": "Ciudadanos listados",
-        "tipo_etq": "Tipo", "documento": "Documento"})
-    g["Ciudadanos listados"] = g["Ciudadanos listados"].astype(int)
-    return g.reset_index(drop=True)
-
-
+# --- Agregaciones para los graficos ------------------------------------------
 def por_departamento(f: pd.DataFrame) -> dict[str, int]:
     return f.groupby("departamento").size().to_dict()
 
@@ -167,3 +81,75 @@ def por_territorio(f: pd.DataFrame) -> dict[str, list[dict]]:
     for u, g in f.groupby("ubigeo_inei"):
         salida[u] = g.to_dict("records")
     return salida
+
+
+def por_departamento_tipo(f: pd.DataFrame) -> pd.DataFrame:
+    """Denuncias por departamento y tipo, con el total; el mayor departamento primero."""
+    g = f.groupby(["departamento", "tipo"]).size().reset_index(name="n")
+    g = g.merge(g.groupby("departamento")["n"].sum().rename("total"),
+                on="departamento")
+    g["orden_tipo"] = g["tipo"].map({c: i for i, c in enumerate(ORDEN_CATEGORIAS)})
+    return (g.sort_values(["total", "departamento", "orden_tipo"],
+                          ascending=[False, True, True])
+             .reset_index(drop=True))
+
+
+def por_canal(f: pd.DataFrame) -> pd.DataFrame:
+    g = (f.groupby("canal").size().reset_index(name="n")
+          .sort_values(["n", "canal"], ascending=[False, True]))
+    g["pct"] = 100 * g["n"] / g["n"].sum()
+    return g.reset_index(drop=True)
+
+
+def semanas_corte() -> pd.DatetimeIndex:
+    """Todas las semanas del corte completo. El eje de la linea de tiempo no debe
+    saltar cuando se filtra: por eso no sale de los datos ya filtrados."""
+    df = casos_df()
+    return pd.date_range(df["semana"].min(), df["semana"].max(), freq="7D")
+
+
+def serie_semanal(f: pd.DataFrame) -> pd.DataFrame:
+    """Denuncias por semana de ingreso; las semanas vacias valen 0, no se omiten."""
+    cuenta = f.groupby("semana").size().reindex(semanas_corte(), fill_value=0)
+    s = cuenta.rename_axis("semana").reset_index(name="n")
+    s["fin"] = s["semana"] + pd.Timedelta(days=6)
+    return s
+
+
+# --- Tabla de detalle ---------------------------------------------------------
+def tabla_denuncias(f: pd.DataFrame, columnas: list[str]) -> pd.DataFrame:
+    """Una fila por denuncia, la mas reciente primero, con las columnas pedidas."""
+    t = f.sort_values(["fecha_dt", "item"], ascending=[False, True]).copy()
+    t["fecha"] = t["fecha_dt"]
+    t["ciudadanos"] = t["ciudadanos"].astype("Int64")
+    return t[columnas].reset_index(drop=True)
+
+
+def opciones_territorio(f: pd.DataFrame, dep: str | None, prov: str | None
+                        ) -> tuple[list[str], list[str], list[tuple[str, str, str]]]:
+    """Opciones en cascada para las tres barras de filtro de la tabla.
+
+    Devuelve (departamentos, provincias del departamento, distritos de la provincia)
+    con cada distrito como (etiqueta, provincia, distrito). Hay nombres de distrito
+    repetidos en provincias distintas (Cochas): en ese caso la etiqueta lleva la
+    provincia, y el filtro real usa siempre el par (provincia, distrito).
+    """
+    deps = sorted(f["departamento"].unique())
+    sub = f[f["departamento"] == dep] if dep else f
+    provs = sorted(sub["provincia"].unique())
+    sub = sub[sub["provincia"] == prov] if prov else sub
+    pares = sorted(set(zip(sub["provincia"], sub["distrito"])), key=lambda p: (p[1], p[0]))
+    nombres = [d for _, d in pares]
+    dists = [((d if nombres.count(d) == 1 else f"{d} ({p})"), p, d) for p, d in pares]
+    return deps, provs, dists
+
+
+def filtrar_tabla(f: pd.DataFrame, dep: str | None, prov: str | None,
+                  par: tuple[str, str] | None) -> pd.DataFrame:
+    if dep:
+        f = f[f["departamento"] == dep]
+    if prov:
+        f = f[f["provincia"] == prov]
+    if par:
+        f = f[(f["provincia"] == par[0]) & (f["distrito"] == par[1])]
+    return f

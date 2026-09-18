@@ -2,19 +2,22 @@
 #  CONFIGURACIÓN DEL TABLERO — los textos se editan AQUÍ
 # =============================================================================
 #
-#  Este archivo controla lo que se LEE en las dos apps (prototipo B y F).
+#  Este archivo controla lo que se LEE en las dos apps (prototipo B y F):
+#  títulos, nombres de filtros, de gráficos y de columnas de la tabla.
 #  Para cambiar un texto: edita lo que está entre comillas y guarda.
-#  Streamlit Cloud redespliega solo en uno o dos minutos.
+#  Streamlit Cloud lo toma en la siguiente carga de la página.
 #
 #  No hace falta tocar ningún archivo .py.
 #
 #  Reglas mínimas:
 #    - El texto va siempre entre comillas "así".
 #    - Para NEGRITA escribe **así**. Para cursiva, *así*.
-#    - No borres los nombres de la izquierda (titulo =, subtitulo =, ...).
+#    - No borres ni cambies los nombres de la izquierda (titulo =, subtitulo =...).
+#    - Si te equivocas, la app NO se cae: muestra un aviso amarillo arriba, con
+#      lo que hay que corregir, y usa el texto original mientras tanto.
 #
-#  Los colores del mapa NO están aquí a propósito: están validados para que las
-#  cuatro categorías se distingan también con daltonismo. Ver README.
+#  Los colores NO están aquí a propósito: están validados para que las
+#  categorías se distingan también con daltonismo. Ver README.
 # =============================================================================
 
 
@@ -51,8 +54,166 @@ b = "B · coropleta departamental"
 f = "F · híbrido con detalle distrital"
 
 
+[filtros]
+
+# Rótulos de la fila de filtros que está sobre el mapa. Estos filtros
+# afectan a TODO: mapa, cifras, gráficos y tabla.
+tipo = "Tipo de denuncia"
+canal = "Canal de ingreso"
+departamento = "Departamento"
+fecha = "Fecha de ingreso"
+
+# Mensaje cuando los filtros no dejan ninguna denuncia.
+sin_resultados = "Ninguna denuncia cumple los filtros activos. Amplíe la selección."
+
+
+[indicadores]
+
+# Las cinco cajas de cifras. Cada una tiene su nombre (etiqueta) y una nota
+# pequeña debajo. En las notas, lo que va entre llaves { } se reemplaza solo
+# por la cifra real:
+#     {total}      total de denuncias del registro
+#     {cobertura}  denuncias que traen listado de ciudadanos
+#     {n}          denuncias que se muestran con los filtros actuales
+# Si borras o escribes mal una llave, se muestra tal cual; no pasa nada grave.
+
+[indicadores.denuncias]
+etiqueta = "Denuncias"
+nota = "de {total} en el registro"
+
+[indicadores.documentos]
+etiqueta = "Documentos"
+nota = "proveídos y alertas"
+
+[indicadores.distritos]
+etiqueta = "Distritos"
+nota = "con al menos una denuncia"
+
+[indicadores.departamentos]
+etiqueta = "Departamentos"
+nota = "de 25 a nivel nacional"
+
+[indicadores.ciudadanos]
+etiqueta = "Ciudadanos listados"
+nota = "consta en {cobertura} de {n} denuncias"
+
+
+[graficos.departamento]
+
+# Barras horizontales por departamento (apiladas por tipo de denuncia).
+titulo = "Denuncias por departamento"
+subtitulo = "Barras apiladas por tipo: el color es el mismo que el de las burbujas del mapa."
+
+
+[graficos.canal]
+
+# Gráfico de dona con el canal por el que ingresó cada denuncia.
+# "centro" es la palabra pequeña que va debajo del total, en medio de la dona.
+titulo = "Canal de ingreso"
+subtitulo = "Institución por la que llegó la denuncia."
+centro = "denuncias"
+
+
+[graficos.tiempo]
+
+# Línea de tiempo por semana de ingreso a RENIEC.
+titulo = "Denuncias por fecha de ingreso a RENIEC"
+subtitulo = "Por semana (lunes a domingo). Las semanas sin denuncias se dibujan en cero, no se omiten."
+
+# Textos que aparecen al pasar el ratón sobre un punto.
+eje_semana = "Semana"
+eje_denuncias = "Denuncias"
+
+# Etiqueta del punto más alto. {n} = denuncias, {fecha} = día y mes de inicio.
+pico = "{n} · semana del {fecha}"
+
+
 [tabla]
 
-# Título y explicación de la tabla bajo el mapa.
-titulo = "Detalle por distrito"
-nota = "Ordenado por número de denuncias: las primeras filas son los lugares con mayor concentración. Incluye el desglose por tipo, el canal de ingreso y los ciudadanos listados."
+# Título y explicación de la tabla de abajo.
+titulo = "Detalle de denuncias"
+nota = "Una fila por denuncia, de la más reciente a la más antigua. Haz clic en el encabezado de una columna para ordenarla."
+
+# Aviso bajo los tres filtros propios de la tabla.
+aviso_filtros = "Estos filtros solo cambian la tabla; el mapa y los gráficos no se modifican."
+
+# Conteo bajo la tabla. {n} = filas mostradas, {total} = denuncias con los filtros globales.
+conteo = "Se muestran {n} de {total} denuncias."
+
+# Mensaje cuando los filtros de la tabla no dejan ninguna fila.
+sin_resultados = "Ninguna denuncia coincide con los filtros de la tabla."
+
+
+[tabla.filtros]
+
+# Rótulos de las tres barras de filtro que están sobre la tabla.
+departamento = "Departamento"
+provincia = "Provincia"
+distrito = "Distrito"
+todos = "Todos"
+
+
+[tabla.columnas]
+
+# COLUMNAS DE LA TABLA. Cada línea es:   id_interno = "Nombre que se muestra"
+#
+#   - CAMBIAR UN NOMBRE: edita lo que está entre comillas.
+#   - CAMBIAR EL ORDEN:  mueve las líneas de lugar (aparecen en este orden).
+#   - OCULTAR UNA COLUMNA: borra su línea, o ponle un # delante.
+#   - MOSTRAR UNA COLUMNA QUE NO ESTÁ: añade una línea con uno de estos ids
+#     (que ya vienen listos abajo, con # delante; quita el # para activarlos):
+#         item, fecha, departamento, provincia, distrito, ubigeo_inei, tipo,
+#         documento, formato, canal, denunciante, caracter, ciudadanos, observacion
+#
+#   El id de la izquierda NO se cambia: es el que conecta con los datos.
+#   Si escribes un id que no existe, verás un aviso con los ids válidos.
+
+fecha = "Fecha de ingreso"
+departamento = "Departamento"
+provincia = "Provincia"
+distrito = "Distrito"
+tipo = "Tipo"
+documento = "Documento"
+canal = "Canal"
+ciudadanos = "Ciudadanos"
+observacion = "Observación"
+
+# Columnas disponibles pero ocultas (quita el # para mostrarlas):
+# item = "Ítem"
+# ubigeo_inei = "Ubigeo INEI"
+# formato = "Formato"
+# denunciante = "Denunciante"
+# caracter = "Carácter"
+
+
+[tipos]
+
+# Nombre con el que se muestra cada tipo de denuncia (mapa, gráficos y tabla).
+# Solo se cambia el NOMBRE. El color de cada tipo está fijo a propósito.
+impugnacion = "Impugnación"
+verificacion = "Verificación"
+padron = "Padrón"
+suspension_de_depuracion = "Suspensión de depuración"
+
+
+[canales]
+
+# Nombre con el que se muestra cada canal de ingreso. La clave de la izquierda
+# es el nombre del canal en minúsculas, sin tildes y con guion bajo en vez de
+# espacios. Si en una base futura llega un canal nuevo, se agrega aquí una
+# línea; mientras no esté, se muestra tal como viene en el Excel.
+reniec = "RENIEC"
+ministerio_publico = "Ministerio Público"
+defensoria_del_pueblo = "Defensoría del Pueblo"
+
+
+[ajustes]
+
+# Alto del mapa en píxeles (entre 400 y 2000). Si el mapa queda más corto o más
+# largo que la columna de gráficos de su derecha, ajusta este número.
+altura_mapa = 940
+
+# Alto de las tarjetas de "Denuncias por departamento" y "Canal de ingreso" (entre
+# 400 y 2000). Las dos miden lo mismo para que queden alineadas. Si hay muchos
+# departamentos, la tarjeta se desplaza por dentro en vez de crecer.
+altura_tarjetas = 540
