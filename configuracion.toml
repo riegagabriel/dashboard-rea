@@ -45,7 +45,34 @@ fuente = "RENIEC, *Verificación del Domicilio Declarado*, p. 6."
 # Etiqueta del recuadro superior derecho, para saber qué versión se está viendo.
 # Si prefieres que no aparezca, deja las comillas vacías: b = ""
 b = "B · coropleta departamental"
-f = "F · híbrido con detalle distrital"
+f = "F · mapa intercambiable"
+
+
+[mapa]
+
+# Selector que hay sobre el mapa (solo en la app F): alterna entre la coropleta por
+# departamento (B) y el mapa por provincias y distritos (F).
+selector_titulo = "Tipo de mapa"
+selector_b = "B · coropleta por departamento"
+selector_f = "F · provincias y distritos"
+
+# Mapa con el que se abre la app: "b" o "f".
+inicial = "f"
+
+# Leyenda del mapa B (coropleta departamental).
+leyenda_b_titulo = "Denuncias por departamento"
+leyenda_b_sin_denuncias = "sin denuncias"
+leyenda_b_nota = "El número impreso es el total del departamento. Al acercar aparecen los límites provinciales y distritales."
+
+# Leyenda del mapa F: solo el tipo de denuncia.
+leyenda_f_titulo = "Distrito · tipo de denuncia"
+leyenda_f_nota = "El tamaño del círculo indica el número de denuncias del distrito; partido, que hay más de un tipo. El número sobre una provincia es su total. Clic en un círculo para ver de qué trata cada denuncia."
+
+# Texto de los recuadros que aparecen al pasar el ratón por el mapa.
+tooltip_departamento = "Departamento"
+tooltip_provincia = "Provincia"
+tooltip_distrito = "Distrito"
+tooltip_denuncias = "Denuncias"
 
 
 [indicadores]
@@ -192,7 +219,7 @@ defensoria_del_pueblo = "Defensoría del Pueblo"
 
 # Alto del mapa en píxeles (entre 400 y 2000). Si el mapa queda más corto o más
 # largo que la columna de gráficos de su derecha, ajusta este número.
-altura_mapa = 940
+altura_mapa = 960
 
 # Alto de las tarjetas de "Denuncias por departamento" y "Canal de ingreso" (entre
 # 400 y 2000). Las dos miden lo mismo para que queden alineadas. Si hay muchos

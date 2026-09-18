@@ -42,15 +42,14 @@ CANAL_SIN_ASIGNAR = ["#898781", "#52514e", "#b9b5a8"]
 # --- Rampa secuencial (magnitud departamental, prototipo B) ----------------
 RAMPA_AZUL = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
 
-# --- Rampa neutra acotada (prototipo F) ------------------------------------
-# El tope es #dcd8cd porque mas oscuro borra los marcadores justo donde hay mas
-# datos. Medido:  #dcd8cd -> azul/verde/violeta >=3:1 ;  #7a756a -> los cuatro < 2:1.
-CLASES_GRIS = [
-    (1, 1, "#f4f2ec", "1 caso"),
-    (2, 3, "#eae7dd", "2 a 3"),
-    (4, 11, "#e0dcd0", "4 a 11"),
-    (12, 10_000, "#dcd8cd", "12 o más"),
-]
+# --- Sombreado provincial (prototipo F) --------------------------------------
+# Una sola tinta: en 27 de las 33 provincias con denuncias hay 1 o 2, asi que una
+# escala de tonos casi no graduaria y obligaria a una leyenda. La magnitud la lleva
+# el numero impreso y la burbuja. Contraste (WCAG) de los marcadores sobre la tinta:
+#   azul 3.22 · verde 3.61 · violeta 6.24 · magenta 1.96 (el caso debil de siempre,
+#   cubierto por el anillo blanco de la burbuja).
+TINTA_PROVINCIA = "#e0dcd0"
+LIMITE_DEPARTAMENTO = "#a9a69c"     # tenue: los departamentos quedan de fondo
 SIN_CASOS = "#ffffff"
 
 # --- Tinta y superficie ----------------------------------------------------
@@ -159,6 +158,11 @@ CSS_MAPA = f"""
 .leyenda .nota {{ margin-top:9px; padding-top:8px; border-top:1px solid {T['linea']};
   color:{T['tinta3']}; font-size:12.5px; line-height:1.4; }}
 
+.nom-prov {{ background:none !important; border:none !important;
+  pointer-events:none; }}
+.nom-prov div {{ font-size:11px; font-weight:600; color:{T['tinta2']};
+  text-align:center; white-space:nowrap;
+  text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 3px #fff; }}
 .num-dep {{ background:none !important; border:none !important; font-weight:700;
   font-size:13px; color:{T['tinta']}; text-align:center; pointer-events:none;
   text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff,0 0 3px #fff; }}

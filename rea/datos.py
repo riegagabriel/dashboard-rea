@@ -13,6 +13,7 @@ import pandas as pd
 import streamlit as st
 
 from .estilo import ORDEN_CATEGORIAS
+from .textos import clave
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 
@@ -61,6 +62,27 @@ def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, dict]]:
 # --- Agregaciones para los graficos ------------------------------------------
 def por_departamento(f: pd.DataFrame) -> dict[str, int]:
     return f.groupby("departamento").size().to_dict()
+
+
+def por_provincia(f: pd.DataFrame) -> dict[tuple[str, str], int]:
+    """Denuncias por (departamento, provincia), con nombres normalizados (textos.clave)
+    para emparejarlas con provincias.geojson, que no trae codigos, solo nombres."""
+    g = f.groupby(["departamento", "provincia"]).size()
+    return {(clave(d), clave(p)): int(n) for (d, p), n in g.items()}
+
+
+@st.cache_data(show_spinner=False)
+def centros_provincia() -> dict[tuple[str, str], dict]:
+    """Un punto dentro de cada provincia, para imprimir su numero y su nombre."""
+    from shapely.geometry import shape
+    out = {}
+    for f in geojson("provincias")["features"]:
+        p = f["properties"]
+        pt = shape(f["geometry"]).representative_point()
+        out[(clave(p["DEPARTAMEN"]), clave(p["PROVINCIA"]))] = {
+            "lat": pt.y, "lon": pt.x,
+            "provincia": p["PROVINCIA"].title(), "departamento": p["DEPARTAMEN"].title()}
+    return out
 
 
 def por_territorio(f: pd.DataFrame) -> dict[str, list[dict]]:

@@ -1,43 +1,49 @@
-"""Construccion de los dos mapas Folium: prototipo B y prototipo F."""
+"""Construccion de los mapas Folium: coropleta departamental (B) y
+provincias + distritos con burbujas (F). La app F deja elegir entre los dos."""
 from __future__ import annotations
 
 import math
 
 import folium
 import pandas as pd
+import streamlit as st
 from branca.element import MacroElement, Template
+from shapely.geometry import shape
 
+from . import datos
 from .datos import geojson
-from .estilo import (CATEGORIAS, CLASES_GRIS, CSS_MAPA, ORDEN_CATEGORIAS,
-                     RAMPA_AZUL, SIN_CASOS, T)
-from .textos import Textos, cargar as cargar_textos
+from .estilo import (CATEGORIAS, CSS_MAPA, LIMITE_DEPARTAMENTO, ORDEN_CATEGORIAS,
+                     RAMPA_AZUL, SIN_CASOS, T, TINTA_PROVINCIA)
+from .textos import Textos, cargar as cargar_textos, clave
 
 PERU = [[-18.6, -81.5], [0.2, -68.4]]
-ZOOM_PROVINCIA = 7   # a partir de aqui aparecen los limites provinciales
-ZOOM_DISTRITO = 9    # a partir de aqui, los distritales
+ZOOM_PROVINCIA = 7      # B: a partir de aqui aparecen los limites provinciales
+ZOOM_DISTRITO = 9       # B: a partir de aqui, los distritales
+ZOOM_NOMBRES = 7        # F: nombres de provincia
+ZOOM_DISTRITO_F = 7.5   # F: limites distritales (2 clics desde el zoom inicial)
 
 
 class LimitesPorZoom(MacroElement):
-    """Muestra provincias y distritos solo al acercar.
+    """Muestra cada capa solo a partir de su zoom minimo.
 
     Se usa MacroElement y no un <script> suelto porque folium renderiza los
     macros DESPUES del mapa y de las capas: es el unico punto donde las
-    variables JS de ambos ya existen.
+    variables JS de ambos ya existen. `capas` es una lista de (capa, zoom_minimo).
     """
 
     _template = Template("""
         {% macro script(this, kwargs) %}
         (function(){
           var mapa = {{ this._parent.get_name() }};
-          var prov = {{ this.prov.get_name() }};
-          var dist = {{ this.dist.get_name() }};
-          mapa.removeLayer(prov); mapa.removeLayer(dist);
+          var capas = [{% for nombre, z in this.capas %}[{{ nombre }}, {{ z }}]{% if not loop.last %},{% endif %}{% endfor %}];
+          capas.forEach(function(c){ mapa.removeLayer(c[0]); });
           function ajustar(){
             var z = mapa.getZoom();
-            if (z >= {{ this.z_prov }}) { if (!mapa.hasLayer(prov)) mapa.addLayer(prov); }
-            else { if (mapa.hasLayer(prov)) mapa.removeLayer(prov); }
-            if (z >= {{ this.z_dist }}) { if (!mapa.hasLayer(dist)) mapa.addLayer(dist); }
-            else { if (mapa.hasLayer(dist)) mapa.removeLayer(dist); }
+            capas.forEach(function(c){
+              var visible = z >= c[1];
+              if (visible && !mapa.hasLayer(c[0])) mapa.addLayer(c[0]);
+              else if (!visible && mapa.hasLayer(c[0])) mapa.removeLayer(c[0]);
+            });
           }
           mapa.on('zoomend', ajustar);
           ajustar();
@@ -45,11 +51,10 @@ class LimitesPorZoom(MacroElement):
         {% endmacro %}
     """)
 
-    def __init__(self, prov, dist, z_prov=ZOOM_PROVINCIA, z_dist=ZOOM_DISTRITO):
+    def __init__(self, capas):
         super().__init__()
         self._name = "LimitesPorZoom"
-        self.prov, self.dist = prov, dist
-        self.z_prov, self.z_dist = z_prov, z_dist
+        self.capas = [(c.get_name(), z) for c, z in capas]
 
 
 def _base() -> folium.Map:
@@ -67,26 +72,6 @@ def _base() -> folium.Map:
     return m
 
 
-def _contexto(m: folium.Map) -> None:
-    prov = folium.GeoJson(
-        geojson("provincias"), name="Provincias",
-        style_function=lambda _: {"fillOpacity": 0, "color": "#a8a59c",
-                                  "weight": 0.6},
-        tooltip=folium.GeoJsonTooltip(fields=["PROVINCIA", "DEPARTAMEN"],
-                                      aliases=["Provincia", "Departamento"],
-                                      class_name="tt"))
-    prov.add_to(m)
-    dist = folium.GeoJson(
-        geojson("distritos_contexto"), name="Distritos",
-        style_function=lambda _: {"fillOpacity": 0, "color": "#bdbab1",
-                                  "weight": 0.45},
-        tooltip=folium.GeoJsonTooltip(fields=["DISTRITO", "PROVINCIA", "DEPARTAMEN"],
-                                      aliases=["Distrito", "Provincia", "Departamento"],
-                                      class_name="tt"))
-    dist.add_to(m)
-    m.add_child(LimitesPorZoom(prov, dist))
-
-
 def _color_azul(n: int, vmax: int) -> str:
     if n <= 0:
         return SIN_CASOS
@@ -94,30 +79,48 @@ def _color_azul(n: int, vmax: int) -> str:
     return RAMPA_AZUL[max(i, 0)]
 
 
-def _color_gris(n: int) -> str:
-    if n <= 0:
-        return SIN_CASOS
-    for lo, hi, color, _ in CLASES_GRIS:
-        if lo <= n <= hi:
-            return color
-    return CLASES_GRIS[-1][2]
+def _capa_distritos(m: folium.Map, tx: Textos, punteado: bool) -> folium.GeoJson:
+    mp = tx["mapa"]
+    estilo = {"fillOpacity": 0, "color": "#b5b1a6" if punteado else "#bdbab1",
+              "weight": 0.5 if punteado else 0.45}
+    if punteado:
+        estilo["dashArray"] = "2 2"
+    capa = folium.GeoJson(
+        geojson("distritos_contexto"), name="Distritos",
+        style_function=lambda _: estilo,
+        tooltip=folium.GeoJsonTooltip(
+            fields=["DISTRITO", "PROVINCIA", "DEPARTAMEN"],
+            aliases=[mp["tooltip_distrito"], mp["tooltip_provincia"], mp["tooltip_departamento"]],
+            class_name="tt"))
+    capa.add_to(m)
+    return capa
 
 
-def _departamentos(m: folium.Map, conteo: dict[str, int], modo: str) -> dict:
-    """Capa departamental. modo 'azul' (prototipo B) o 'gris' (prototipo F)."""
+def _contexto(m: folium.Map, tx: Textos) -> None:
+    """Prototipo B: limites provinciales y distritales que aparecen al acercar."""
+    mp = tx["mapa"]
+    prov = folium.GeoJson(
+        geojson("provincias"), name="Provincias",
+        style_function=lambda _: {"fillOpacity": 0, "color": "#a8a59c",
+                                  "weight": 0.6},
+        tooltip=folium.GeoJsonTooltip(
+            fields=["PROVINCIA", "DEPARTAMEN"],
+            aliases=[mp["tooltip_provincia"], mp["tooltip_departamento"]],
+            class_name="tt"))
+    prov.add_to(m)
+    dist = _capa_distritos(m, tx, punteado=False)
+    m.add_child(LimitesPorZoom([(prov, ZOOM_PROVINCIA), (dist, ZOOM_DISTRITO)]))
+
+
+def _departamentos(m: folium.Map, conteo: dict[str, int], tx: Textos) -> dict:
+    """Capa departamental del prototipo B: coropleta azul con el numero impreso."""
+    mp = tx["mapa"]
     gj = geojson("departamentos")
     vmax = max(conteo.values()) if conteo else 1
-    por_clase: dict[str, int] = {e: 0 for *_, e in CLASES_GRIS}
     for f in gj["features"]:
         n = int(conteo.get(f["properties"]["DEPARTAMEN"].title(), 0))
         f["properties"]["n"] = n
-        f["properties"]["color"] = (_color_azul(n, vmax) if modo == "azul"
-                                    else _color_gris(n))
-        if n > 0 and modo == "gris":
-            for lo, hi, _, etq in CLASES_GRIS:
-                if lo <= n <= hi:
-                    por_clase[etq] += 1
-                    break
+        f["properties"]["color"] = _color_azul(n, vmax)
 
     capa = folium.FeatureGroup(name="Departamentos", show=True)
     folium.GeoJson(
@@ -126,25 +129,83 @@ def _departamentos(m: folium.Map, conteo: dict[str, int], modo: str) -> dict:
                                   "fillOpacity": 1.0, "color": T["linea"],
                                   "weight": 0.9},
         highlight_function=lambda _: {"color": T["tinta2"], "weight": 2.2},
-        tooltip=folium.GeoJsonTooltip(fields=["DEPARTAMEN", "n"],
-                                      aliases=["Departamento", "Denuncias"],
-                                      class_name="tt"),
+        tooltip=folium.GeoJsonTooltip(
+            fields=["DEPARTAMEN", "n"],
+            aliases=[mp["tooltip_departamento"], mp["tooltip_denuncias"]],
+            class_name="tt"),
     ).add_to(capa)
 
     # El numero impreso: la magnitud no queda solo en el color.
     for f in gj["features"]:
         if f["properties"]["n"] <= 0:
             continue
-        from shapely.geometry import shape
-        p = shape(f["geometry"]).representative_point()
+        pt = shape(f["geometry"]).representative_point()
         folium.Marker(
-            [p.y, p.x],
+            [pt.y, pt.x],
             icon=folium.DivIcon(icon_size=(38, 18), icon_anchor=(19, 9),
                                 class_name="num-dep",
                                 html=f"<div>{f['properties']['n']}</div>"),
         ).add_to(capa)
     capa.add_to(m)
-    return {"vmax": vmax, "por_clase": por_clase}
+    return {"vmax": vmax}
+
+
+def _provincias(m: folium.Map, conteo: dict[tuple[str, str], int], tx: Textos) -> None:
+    """Prototipo F: una sola tinta en las provincias con denuncias; el tooltip da la cifra."""
+    mp = tx["mapa"]
+    gj = geojson("provincias")
+    for f in gj["features"]:
+        p = f["properties"]
+        p["n"] = int(conteo.get((clave(p["DEPARTAMEN"]), clave(p["PROVINCIA"])), 0))
+        p["rotulo"] = f'{p["PROVINCIA"].title()} ({p["DEPARTAMEN"].title()})'
+    folium.GeoJson(
+        gj, name="Provincias",
+        style_function=lambda f: {
+            "fillColor": TINTA_PROVINCIA if f["properties"]["n"] > 0 else SIN_CASOS,
+            "fillOpacity": 1.0, "color": "#c9c5ba", "weight": 0.6},
+        highlight_function=lambda _: {"color": T["tinta2"], "weight": 1.8},
+        tooltip=folium.GeoJsonTooltip(
+            fields=["rotulo", "n"],
+            aliases=[mp["tooltip_provincia"], mp["tooltip_denuncias"]],
+            class_name="tt"),
+    ).add_to(m)
+
+
+def _limites_departamentos(m: folium.Map) -> None:
+    """Contorno departamental tenue. interactive=False: no le quita el hover a las provincias."""
+    folium.GeoJson(
+        geojson("departamentos"), name="Limites departamentales",
+        style_function=lambda _: {"fillOpacity": 0, "color": LIMITE_DEPARTAMENTO,
+                                  "weight": 0.9, "opacity": 0.85},
+        interactive=False,
+    ).add_to(m)
+
+
+def _rotulos_provincia(m: folium.Map, conteo: dict[tuple[str, str], int]
+                       ) -> folium.FeatureGroup:
+    """Numero sobre las provincias con 2 o mas denuncias (siempre visible) y nombre de
+    todas las que tienen denuncias (solo al acercar). Devuelve la capa de nombres."""
+    centros = datos.centros_provincia()
+    numeros = folium.FeatureGroup(name="Totales por provincia", show=True)
+    nombres = folium.FeatureGroup(name="Nombres de provincia", show=True)
+    for k, n in conteo.items():
+        c = centros.get(k)
+        if c is None or n <= 0:
+            continue
+        if n >= 2:
+            folium.Marker(
+                [c["lat"], c["lon"]], z_index_offset=1000,
+                icon=folium.DivIcon(icon_size=(38, 18), icon_anchor=(19, 9),
+                                    class_name="num-dep", html=f"<div>{n}</div>"),
+            ).add_to(numeros)
+        folium.Marker(
+            [c["lat"], c["lon"]],
+            icon=folium.DivIcon(icon_size=(130, 16), icon_anchor=(65, 26),
+                                class_name="nom-prov", html=f"<div>{c['provincia']}</div>"),
+        ).add_to(nombres)
+    numeros.add_to(m)
+    nombres.add_to(m)
+    return nombres
 
 
 def _svg_burbuja(cuenta: dict[str, int], total: int, r: float) -> str:
@@ -245,11 +306,14 @@ def _leyenda(m: folium.Map, html: str) -> None:
     m.get_root().html.add_child(folium.Element(f'<div class="leyenda">{html}</div>'))
 
 
-def mapa_b(conteo_dep: dict[str, int], por_tipo: dict[str, int]) -> folium.Map:
+def mapa_b(conteo_dep: dict[str, int], por_tipo: dict[str, int],
+           tx: Textos | None = None) -> folium.Map:
     """Prototipo B: coropleta departamental."""
+    tx = tx or cargar_textos()
+    mp = tx["mapa"]
     m = _base()
-    info = _departamentos(m, conteo_dep, "azul")
-    _contexto(m)
+    info = _departamentos(m, conteo_dep, tx)
+    _contexto(m, tx)
     vmax = info["vmax"]
     pasos = ""
     for i, color in enumerate(RAMPA_AZUL):
@@ -260,36 +324,56 @@ def mapa_b(conteo_dep: dict[str, int], por_tipo: dict[str, int]) -> folium.Map:
         pasos += (f'<div class="f"><span class="sw" style="background:{color}"></span>'
                   f'<span>{lo if lo == hi else f"{lo} a {hi}"}</span></div>')
     _leyenda(m,
-             '<div class="t">Denuncias por departamento</div>' + pasos +
+             f'<div class="t">{mp["leyenda_b_titulo"]}</div>' + pasos +
              f'<div class="f"><span class="sw" style="background:{SIN_CASOS}"></span>'
-             f'<span>sin denuncias</span></div>'
-             '<div class="nota">El número impreso es el total del departamento. '
-             'Al acercar aparecen los límites provinciales y distritales.</div>')
+             f'<span>{mp["leyenda_b_sin_denuncias"]}</span></div>'
+             f'<div class="nota">{mp["leyenda_b_nota"]}</div>')
     return m
 
 
-def mapa_f(conteo_dep: dict[str, int], territorios: list[dict],
-           agrupado: dict[str, list[dict]], por_tipo: dict[str, int]) -> folium.Map:
-    """Prototipo F: coropleta departamental en gris + burbujas distritales."""
-    tx = cargar_textos()
+def mapa_f(conteo_prov: dict[tuple[str, str], int], territorios: list[dict],
+           agrupado: dict[str, list[dict]], por_tipo: dict[str, int],
+           tx: Textos | None = None) -> folium.Map:
+    """Prototipo F: provincias sombreadas, departamentos tenues y una burbuja por distrito.
+
+    La leyenda es solo la del tipo de denuncia: el sombreado es una sola tinta, asi que
+    no hay escala que explicar.
+    """
+    tx = tx or cargar_textos()
+    mp = tx["mapa"]
     m = _base()
-    info = _departamentos(m, conteo_dep, "gris")
-    _contexto(m)
+    _provincias(m, conteo_prov, tx)
+    _limites_departamentos(m)
+    distritos = _capa_distritos(m, tx, punteado=True)
+    nombres = _rotulos_provincia(m, conteo_prov)
     _burbujas(m, territorios, agrupado, tx)
-    grises = "".join(
-        f'<div class="f"><span class="sw" style="background:{color}"></span>'
-        f'<span>{etq}</span><span class="c">{info["por_clase"].get(etq, 0)}</span></div>'
-        for _, _, color, etq in CLASES_GRIS)
+    m.add_child(LimitesPorZoom([(nombres, ZOOM_NOMBRES), (distritos, ZOOM_DISTRITO_F)]))
     tipos = "".join(
         f'<div class="f"><span class="pt" style="background:{CATEGORIAS[c]}"></span>'
         f'<span>{tx.tipo(c)}</span>'
         f'<span class="c">{por_tipo.get(c, 0)}</span></div>'
         for c in ORDEN_CATEGORIAS)
     _leyenda(m,
-             '<div class="t">Departamento · denuncias</div>' + grises +
-             '<div class="sep"></div>'
-             '<div class="t">Distrito · tipo de denuncia</div>' + tipos +
-             '<div class="nota">El tamaño del círculo indica el número de denuncias '
-             'del distrito; partido, que hay más de un tipo. Clic para ver de qué '
-             'trata cada denuncia.</div>')
+             f'<div class="t">{mp["leyenda_f_titulo"]}</div>' + tipos +
+             f'<div class="nota">{mp["leyenda_f_nota"]}</div>')
     return m
+
+
+# --- Mapas ya renderizados ----------------------------------------------------------
+# Sin filtros generales, cada mapa es siempre el mismo. Se guarda su HTML, uno por modo;
+# la huella del configuracion.toml va en la llave para que un cambio de texto lo renueve.
+# Se guarda el HTML y NO el objeto folium: renderizar dos veces el mismo objeto da HTML
+# distinto (la segunda vez agrega addTo(map) sueltos y el mapa llega sin marcadores).
+@st.cache_resource(show_spinner=False)
+def mapa_b_html(huella: str) -> str:
+    df = datos.casos_df()
+    return mapa_b(datos.por_departamento(df), df["tipo"].value_counts().to_dict(),
+                  cargar_textos()).get_root().render()
+
+
+@st.cache_resource(show_spinner=False)
+def mapa_f_html(huella: str) -> str:
+    df = datos.casos_df()
+    return mapa_f(datos.por_provincia(df), datos.cargar()["territorios"],
+                  datos.por_territorio(df), df["tipo"].value_counts().to_dict(),
+                  cargar_textos()).get_root().render()

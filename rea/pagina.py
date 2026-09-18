@@ -16,6 +16,9 @@ from . import datos, graficos, textos
 from .estilo import CATEGORIAS, CSS, T
 
 
+ALTO_SELECTOR = 52   # px que ocupa el selector de mapa: el mapa se reduce en esa cantidad
+
+
 # --- Cabecera ---------------------------------------------------------------
 def configurar(prototipo: str) -> None:
     t = textos.cargar()
@@ -44,6 +47,21 @@ def encabezado(meta: dict, prototipo: str) -> None:
                f'Prototipo <b>{etiqueta}</b></span>' if etiqueta else '')
             + '</div>',
             unsafe_allow_html=True)
+
+
+# --- Selector de mapa ----------------------------------------------------------
+def selector_mapa(t: textos.Textos) -> str:
+    """'b' (coropleta departamental) o 'f' (provincias y distritos)."""
+    mp = t["mapa"]
+    etiquetas = {"b": mp["selector_b"], "f": mp["selector_f"]}
+    elegido = st.segmented_control(
+        mp["selector_titulo"], list(etiquetas), default=mp["inicial"],
+        format_func=etiquetas.get, selection_mode="single", key="modo_mapa",
+        label_visibility="collapsed")
+    if elegido is None:      # el control devuelve None si se deselecciona: se conserva el modo
+        elegido = st.session_state.get("modo_mapa_previo", mp["inicial"])
+    st.session_state["modo_mapa_previo"] = elegido
+    return elegido
 
 
 # --- Panel derecho ----------------------------------------------------------

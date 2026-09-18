@@ -27,6 +27,7 @@ solo eligen el mapa.
 | Título, nota y filtros de la tabla | `[tabla]`, `[tabla.filtros]` |
 | **Nombre, orden y visibilidad de las columnas de la tabla** | `[tabla.columnas]` |
 | Nombre de cada tipo de denuncia / de cada canal | `[tipos]`, `[canales]` |
+| Selector de mapa, leyendas y recuadros del mapa | `[mapa]` |
 | Alto del mapa y de las tarjetas de gráficos | `[ajustes]` |
 
 **Desde GitHub, sin instalar nada:**
@@ -72,7 +73,7 @@ como `{total}` que se escriban mal se muestran tal cual, sin romper nada.
 |---|---|---|
 | Colores de los 4 tipos de denuncia | `rea/estilo.py` → `CATEGORIAS` | Validados por cómputo para daltonismo; cambiarlos a ojo rompe la garantía |
 | Colores de los canales | `rea/estilo.py` → `CANALES` | Ídem, validados en modo «todos los pares» |
-| Rampa gris del mapa F | `rea/estilo.py` → `CLASES_GRIS` | Medida contra los marcadores |
+| Tinta de las provincias del mapa F | `rea/estilo.py` → `TINTA_PROVINCIA` | Medida contra los marcadores: azul, verde y violeta quedan sobre 3:1 |
 | Orden y tamaño de los bloques de la página | `rea/pagina.py` | Es estructura, no texto |
 
 ---
@@ -101,7 +102,15 @@ público no existe.
 | Entrada | Prototipo | Qué muestra el mapa |
 |---|---|---|
 | `app_b.py` | **B** · coropleta departamental | Magnitud por departamento en rampa azul, con el número impreso sobre cada uno. Lectura inmediata a escala nacional. |
-| `app_f.py` | **F** · híbrido | Coropleta departamental en gris + una burbuja por distrito, coloreada por tipo de denuncia. Cada burbuja abre un popup con la observación completa de cada denuncia. |
+| `app_f.py` | **F** · mapa intercambiable | Un **selector sobre el mapa** alterna entre dos vistas: la coropleta **B** (la misma de la app B) y el mapa **F**: provincias sombreadas, límites departamentales tenues y una burbuja por distrito, coloreada por tipo de denuncia. Cada burbuja abre un popup con la observación completa de cada denuncia. |
+
+**El mapa F, en detalle.**
+
+- Las provincias con denuncias llevan **una sola tinta**; las demás, blanco. El **número** de denuncias se imprime sobre las provincias con 2 o más, y al pasar el ratón sobre cualquiera se lee «Provincia · Denuncias».
+- **Al acercar:** desde el zoom 7 aparecen los nombres de las provincias con denuncias, y desde el 7,5 los límites de distrito (2 clics desde el inicio).
+- **La leyenda es solo la del tipo de denuncia.** Una sola tinta no lleva escala, así que no hay leyenda de sombreado.
+- **Por qué provincia y no departamento:** sombrear por departamento tiñe el 72 % del país y esconde que Yauyos concentra 10 de las 67 denuncias; por provincia se tiñe el 16 %.
+- **Sesgo conocido:** una provincia grande con una sola denuncia (Loreto, 68 700 km²) es la mayor mancha del mapa, y Mariscal Luzuriaga (5 denuncias, 667 km²) casi no se ve a escala nacional. Para eso están el número y la burbuja.
 
 Ambas comparten **toda la página** (`rea/pagina.py`) y solo difieren en el mapa, así que
 no pueden divergir cuando llegue una actualización de la base.
@@ -189,10 +198,17 @@ deficiencia cromática y 16,3 en visión normal.
 asignaran por frecuencia, una actualización repintaría las categorías y rompería la
 comparabilidad entre versiones del tablero.
 
-**El fondo del prototipo F es gris, no azul.** Una rampa azul bajo marcadores azules
-pondría magnitud e identidad en la misma familia de color. Y la rampa se corta en
-`#dcd8cd` porque más oscuro borra los marcadores justo donde hay más datos: medido,
-sobre `#7a756a` los cuatro colores caen por debajo de 2:1 de contraste.
+**El sombreado del mapa F es gris, no azul, y de una sola tinta.** Una rampa azul bajo
+marcadores azules pondría magnitud e identidad en la misma familia de color. Y la tinta
+(`#e0dcd0`) no puede ser más oscura: medido, sobre `#7a756a` los cuatro colores caen por
+debajo de 2:1 de contraste, mientras que sobre `#e0dcd0` azul, verde y violeta quedan en
+3,2 / 3,6 / 6,2. Con provincias, 27 de las 33 que tienen denuncias tienen solo 1 o 2:
+una escala de tonos casi no graduaría, y la magnitud la llevan el número y la burbuja.
+
+**El mapa se guarda ya renderizado.** Renderizar dos veces el mismo objeto de folium da HTML
+distinto (la segunda vez agrega `addTo(map)` sueltos y el mapa llega sin marcadores). Por eso
+`rea/mapas.py` guarda en caché el **HTML** de cada mapa, con la huella de `configuracion.toml`
+en la llave, y la app F lo sirve en un `iframe`. Un cambio de texto en el `.toml` renueva el mapa.
 
 **La tabla no es un extra.** La queja de fondo —«la imagen se ve muy pequeña»— no se
 arregla agrandando el mapa, sino haciendo que ninguna cifra dependa de leerlo. Y es

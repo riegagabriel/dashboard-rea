@@ -1,15 +1,13 @@
 """TEXTOS Y TITULOS: se editan en configuracion.toml, no aqui.
 
-Prototipo F - Hibrido: coropleta departamental en gris + burbujas distritales.
+Prototipo F - Mapa intercambiable. Un selector sobre el mapa alterna entre:
 
-El gris responde CUANTO por departamento; el color de la burbuja, DONDE y DE
-QUE TIPO por distrito. Cada burbuja abre un popup con la observacion completa
-de cada denuncia. Mapa al 50 % de la pantalla; cifras, graficos y tabla en pagina.py.
+  B  coropleta por departamento (la misma de la app B), con su leyenda.
+  F  provincias sombreadas en una sola tinta, limites departamentales tenues y una
+     burbuja por distrito, coloreada por tipo de denuncia. Al acercar aparecen los
+     nombres de provincia y los limites de distrito. Solo lleva leyenda de tipo.
 
-Por que el fondo es gris y no una rampa azul: una rampa azul bajo marcadores
-azules pondria magnitud e identidad en la misma familia de color. Y la rampa se
-corta en #dcd8cd porque mas oscuro borra los marcadores justo donde hay mas
-datos (medido: sobre #7a756a los cuatro colores caen por debajo de 2:1).
+Mapa al 50 % de la pantalla; cifras, graficos y tabla en pagina.py.
 
 Ejecutar en local:  streamlit run app_f.py
 """
@@ -20,19 +18,19 @@ import sys
 for _m in [m for m in sys.modules if m == "rea" or m.startswith("rea.")]:
     del sys.modules[_m]
 
-from streamlit_folium import st_folium
+import streamlit.components.v1 as componentes
 
-from rea import datos, pagina
-from rea.mapas import mapa_f
+from rea import datos, mapas, pagina, textos
 
 
-def mapa(f, altura):
-    activos = set(f["ubigeo_inei"])
-    territorios = [t for t in d["territorios"] if t["ubigeo_inei"] in activos]
-    st_folium(mapa_f(datos.por_departamento(f), territorios,
-                     datos.por_territorio(f), f["tipo"].value_counts().to_dict()),
-              use_container_width=True, height=altura,
-              returned_objects=[], key="mapa_f")
+def mapa(df, altura):
+    t = textos.cargar()
+    modo = pagina.selector_mapa(t)
+    alto = altura - pagina.ALTO_SELECTOR
+    html = (mapas.mapa_b_html if modo == "b" else mapas.mapa_f_html)(t.huella)
+    # El mapa no devuelve nada a Streamlit, asi que basta un iframe con el HTML ya
+    # renderizado (st_folium volveria a renderizar el objeto en cada ejecucion).
+    componentes.html(html, height=alto, scrolling=False)
 
 
 pagina.configurar("F")

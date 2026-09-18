@@ -10,6 +10,7 @@ en la siguiente carga sin reiniciar la app.
 from __future__ import annotations
 
 import difflib
+import hashlib
 import re
 import tomllib
 import unicodedata
@@ -38,7 +39,26 @@ POR_DEFECTO: dict = {
     },
     "prototipos": {
         "b": "B · coropleta departamental",
-        "f": "F · híbrido con detalle distrital",
+        "f": "F · mapa intercambiable",
+    },
+    "mapa": {
+        "selector_titulo": "Tipo de mapa",
+        "selector_b": "B · coropleta por departamento",
+        "selector_f": "F · provincias y distritos",
+        "inicial": "f",
+        "leyenda_b_titulo": "Denuncias por departamento",
+        "leyenda_b_sin_denuncias": "sin denuncias",
+        "leyenda_b_nota": ("El número impreso es el total del departamento. Al acercar "
+                           "aparecen los límites provinciales y distritales."),
+        "leyenda_f_titulo": "Distrito · tipo de denuncia",
+        "leyenda_f_nota": ("El tamaño del círculo indica el número de denuncias del "
+                           "distrito; partido, que hay más de un tipo. El número sobre una "
+                           "provincia es su total. Clic en un círculo para ver de qué trata "
+                           "cada denuncia."),
+        "tooltip_departamento": "Departamento",
+        "tooltip_provincia": "Provincia",
+        "tooltip_distrito": "Distrito",
+        "tooltip_denuncias": "Denuncias",
     },
     "indicadores": {
         "denuncias": {"etiqueta": "Denuncias", "nota": "de {total} en el registro"},
@@ -95,7 +115,7 @@ POR_DEFECTO: dict = {
         "defensoria_del_pueblo": "Defensoría del Pueblo",
     },
     "ajustes": {
-        "altura_mapa": 940,
+        "altura_mapa": 960,
         "altura_tarjetas": 540,
     },
 }
@@ -229,10 +249,11 @@ def _canales(usuario, defecto: dict, avisos: list[str]) -> dict[str, str]:
 
 
 class Textos:
-    def __init__(self, datos: dict, avisos: list[str], errores: list[str]):
+    def __init__(self, datos: dict, avisos: list[str], errores: list[str], huella: str = ""):
         self._d = datos
         self.avisos = avisos
         self.errores = errores
+        self.huella = huella   # cambia cuando cambia configuracion.toml: llave de cache de los mapas
 
     def __getitem__(self, seccion: str):
         return self._d[seccion]
@@ -297,8 +318,10 @@ def cargar() -> Textos:
     avisos: list[str] = []
     errores: list[str] = []
     usuario: dict = {}
+    crudo = ""
     try:
-        usuario = tomllib.loads(RUTA.read_text(encoding="utf-8"))
+        crudo = RUTA.read_text(encoding="utf-8")
+        usuario = tomllib.loads(crudo)
     except FileNotFoundError:
         errores.append("No se encontró configuracion.toml; se muestran los textos por defecto.")
     except (tomllib.TOMLDecodeError, UnicodeDecodeError) as e:
@@ -320,4 +343,11 @@ def cargar() -> Textos:
     datos = _combinar(base, usuario, "", avisos)
     datos["canales"] = _canales(canales_u, POR_DEFECTO["canales"], avisos)
     datos["columnas"] = _columnas(columnas_u, avisos)
-    return Textos(datos, avisos, errores)
+    inicial = datos["mapa"]["inicial"].strip().lower()
+    if inicial not in ("b", "f"):
+        avisos.append(f"«mapa.inicial» debe ser \"b\" o \"f\" (dice «{datos['mapa']['inicial']}»); "
+                      f"se usa \"f\".")
+        inicial = "f"
+    datos["mapa"]["inicial"] = inicial
+    huella = hashlib.sha1(crudo.encode("utf-8")).hexdigest()[:12]
+    return Textos(datos, avisos, errores, huella)
