@@ -108,7 +108,7 @@ sin_dato = "sin dato"
 
 # Recuadro que aparece al pasar el ratón sobre la barra de un tipo.
 # {con_dato} = denuncias del tipo que traen la cifra, {denuncias} = denuncias del tipo.
-cobertura_tipo = "consta en {con_dato} de {denuncias} denuncias"
+cobertura_tipo = "denuncias con cifra: {con_dato} de {denuncias}"
 
 
 [graficos.departamento]

@@ -66,7 +66,7 @@ POR_DEFECTO: dict = {
         "ciudadanos": {"etiqueta": "Ciudadanos listados",
                        "nota": "consta en {cobertura} de {n} denuncias",
                        "sin_dato": "sin dato",
-                       "cobertura_tipo": "consta en {con_dato} de {denuncias} denuncias"},
+                       "cobertura_tipo": "denuncias con cifra: {con_dato} de {denuncias}"},
     },
     "graficos": {
         "departamento": {
