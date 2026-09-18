@@ -51,7 +51,10 @@ T = {
 FUENTE = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
 
 # --- Textos normativos -----------------------------------------------------
-TITULO = "Denuncias registradas en el REA por casos de probable golondrinaje"
+# Se escribe "trashumancia", sin la "n": es la grafia del propio reglamento
+# RE-002-DRE/001 (3 apariciones) y la correcta segun la RAE. Como la cita del
+# numeral 6.9 aparece en la misma pantalla, deben coincidir.
+TITULO = "Denuncias registradas en el REA por casos de probable trashumancia electoral"
 SUBTITULO = ("Subdirección de Procedimiento Electoral y Georreferenciación · "
              "Dirección de Registro Electoral · RENIEC")
 

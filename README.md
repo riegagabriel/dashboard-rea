@@ -1,9 +1,9 @@
-# Denuncias registradas en el REA por casos de probable golondrinaje
+# Denuncias registradas en el REA por casos de probable trashumancia electoral
 
 Tablero interno de la Subdirección de Procedimiento Electoral y Georreferenciación
 (SDPEG) · Dirección de Registro Electoral · RENIEC.
 
-Sirve para saber **en qué zonas se concentran las denuncias de probable golondrinaje**
+Sirve para saber **en qué zonas se concentran las denuncias de probable trashumancia electoral**
 registradas en el Registro de Alertas.
 
 **Corte vigente:** 14 de setiembre de 2026 · 67 denuncias · 52 distritos ·
