@@ -34,8 +34,7 @@ POR_DEFECTO: dict = {
                   "reportes o informes remitidos por entidades de la administración pública "
                   "respecto a riesgos de índole electoral, social y económica que tengan un "
                   "efecto directo sobre la trashumancia electoral."),
-        "fuente": ("RENIEC, *Verificación del Domicilio Declarado*, RE-002-DRE/001, "
-                   "Segunda Versión, numeral 6.9, p. 6."),
+        "fuente": "RENIEC, *Verificación del Domicilio Declarado*, p. 6.",
     },
     "prototipos": {
         "b": "B · coropleta departamental",
