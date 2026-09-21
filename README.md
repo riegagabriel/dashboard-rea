@@ -29,6 +29,7 @@ solo eligen el mapa.
 | **Nombre, orden y visibilidad de las columnas de la tabla** | `[tabla.columnas]` |
 | Nombre de cada tipo de denuncia / de cada canal | `[tipos]`, `[canales]` |
 | Recuadro «¿Qué es cada tipo de denuncia?» bajo el mapa (textos, título, línea de procedencia; `mostrar = false` lo oculta) | `[leyenda_tipos]` |
+| Capa de verificación domiciliaria del mapa (casilla, leyenda, recuadros, cifras A/B/C; `mostrar = false` la oculta, `encendida` decide si abre marcada) | `[verificaciones]` |
 | Selector de mapa, leyendas y recuadros del mapa | `[mapa]` |
 | Alto de la columna del mapa (incluye el recuadro de tipos) y de las tarjetas de gráficos | `[ajustes]` |
 
@@ -145,6 +146,28 @@ no pueden divergir cuando llegue una actualización de la base.
 - Por debajo de ~1000 px de ancho, el mapa y los gráficos se apilan.
 - Nota al pie con la cita literal del Reglamento.
 
+### Capa de verificación domiciliaria
+
+El mapa puede marcar los **distritos donde RENIEC ya hizo verificación domiciliaria**,
+con una casilla para encenderla o apagarla. Para los distritos que tienen resolución,
+el recuadro muestra el número de la resolución, los domicilios verificados y las cifras
+por situación (artículo 17 del Reglamento de Verificación del Domicilio Declarado):
+**A** el titular reside en la dirección verificada, **B** no reside, **C** la dirección
+no existe. Trae además el enlace público a la resolución. Los distritos de los que solo
+consta que se verificó (sin resolución) llevan únicamente esa constancia.
+
+- **Textos, casilla y cifras:** sección `[verificaciones]` de `configuracion.toml`.
+  `mostrar = false` oculta toda la capa; `mostrar_resultados = false` deja solo «se hizo
+  verificación», sin cifras; `encendida` decide si la casilla abre marcada.
+- **De dónde salen los datos:** el proyecto local, con `scripts/04_procesar_verificaciones.py`
+  y `scripts/03_preparar_web.py`, que escriben `data/verificaciones.json` y
+  `data/verificaciones.geojson`. **El Excel de origen y las decisiones de depuración
+  viven fuera del repositorio.**
+- **Qué se publica:** solo distrito, resolución, cifras A/B/C y el enlace público a la
+  resolución. **No hay datos personales.**
+- Si los dos archivos no existen o no se pueden leer, la capa desaparece y el resto del
+  tablero funciona igual.
+
 ---
 
 ## Ejecutar en local
@@ -177,9 +200,13 @@ repositorio recibe solo el resultado ya validado.
 ```bash
 # en el proyecto local
 python scripts/02_procesamiento_rea.py     # procesa y valida el Excel nuevo
+python scripts/04_procesar_verificaciones.py   # procesa las verificaciones domiciliarias
 python scripts/03_preparar_web.py          # regenera data/ de este repo
 # luego: commit y push
 ```
+
+El script 04 va **antes** del 03 porque este último copia a `data/` sus resultados
+(`verificaciones.json` y `.geojson`). Solo hace falta correrlo cuando hay verificaciones nuevas.
 
 Las cachés de la app llevan una *firma* de los archivos de `data/` (`datos.firma()`), así que un `push` con datos nuevos o corregidos se ve en las dos apps sin reiniciarlas. (Antes, Streamlit Cloud seguía mostrando los datos viejos porque reutiliza el proceso.)
 

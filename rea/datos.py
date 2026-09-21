@@ -49,6 +49,48 @@ def geojson(nombre: str) -> dict:
     return _geojson(nombre, firma())
 
 
+# --- Verificacion domiciliaria (capa opcional del mapa) ------------------------
+# Los archivos los genera el proyecto local (scripts 04 y 03). Si faltan o estan
+# danados la app NO se cae: la capa simplemente no existe.
+@st.cache_data(show_spinner=False, max_entries=3)
+def _verificaciones(version: str) -> dict:
+    try:
+        d = json.loads((DATA / "verificaciones.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):     # sin archivo, ilegible o JSON mal formado
+        return {}
+    return d if isinstance(d, dict) else {}
+
+
+def verificaciones() -> dict:
+    """verificaciones.json completo ({meta, distritos}); {} si no existe o no se lee."""
+    return _verificaciones(firma())
+
+
+@st.cache_data(show_spinner=False, max_entries=3)
+def _verificaciones_por_ubigeo(version: str) -> dict[str, dict]:
+    return {str(r["ubigeo_inei"]): r
+            for r in _verificaciones(version).get("distritos", [])
+            if isinstance(r, dict) and r.get("ubigeo_inei")}
+
+
+def verificaciones_por_ubigeo() -> dict[str, dict]:
+    """ubigeo_inei -> registro del distrito verificado; {} si no hay datos."""
+    return _verificaciones_por_ubigeo(firma())
+
+
+@st.cache_data(show_spinner=False, max_entries=3)
+def _verificacion_geojson(version: str) -> dict | None:
+    try:
+        return json.loads((DATA / "verificaciones.geojson").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def verificacion_geojson() -> dict | None:
+    """verificaciones.geojson; None si no existe o no se lee."""
+    return _verificacion_geojson(firma())
+
+
 @st.cache_data(show_spinner=False, max_entries=3)
 def _casos_df(version: str) -> pd.DataFrame:
     df = pd.DataFrame(cargar()["casos"])

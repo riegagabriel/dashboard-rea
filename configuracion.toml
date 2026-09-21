@@ -232,6 +232,60 @@ suspension_de_depuracion = "Se solicita suspender la depuración porque se advie
 fuente = ""
 
 
+[verificaciones]
+
+# Capa del mapa que marca los distritos donde RENIEC ya hizo verificación domiciliaria.
+# Solo se publica el distrito, la resolución que lo respalda y las cifras por situación;
+# no hay nombres ni direcciones de ciudadanos.
+#
+# Las situaciones A, B y C son las del artículo 17 del Reglamento de Verificación del
+# Domicilio Declarado: A = el titular reside en la dirección verificada, B = el titular
+# no reside en ella, C = la dirección no existe.
+#
+# En los textos, lo que va entre llaves { } se reemplaza solo por la cifra real:
+#     {n}   cantidad de distritos (en leyenda_distrito) o de domicilios (en domicilios)
+
+# true = la capa existe; false = se oculta todo (casilla, marcas y leyenda).
+mostrar = true
+
+# true = la casilla aparece marcada al abrir el mapa; false = aparece desmarcada.
+encendida = true
+
+# true = el recuadro de los distritos con resolución trae las cifras (domicilios y
+# A/B/C); false = solo dice que se hizo la verificación.
+mostrar_resultados = true
+
+# Título del cuadro de la capa y texto de su casilla.
+titulo = "Verificación domiciliaria"
+casilla = "Mostrar distritos verificados"
+
+# Leyenda. {n} = cantidad de distritos verificados.
+leyenda_distrito = "Distrito con verificación ({n})"
+leyenda_con_denuncias = "Verificado y con denuncias"
+
+# Recuadro que aparece al pasar el ratón por un distrito verificado.
+tooltip = "Verificación domiciliaria realizada"
+
+# Recuadro que se abre con un clic. "etiqueta_popup" es el rótulo de la sección;
+# "puntual" es lo que se lee cuando del distrito solo consta que se hizo la verificación
+# (sin resolución ni cifras).
+etiqueta_popup = "Verificación domiciliaria"
+puntual = "Se realizó verificación domiciliaria en este distrito."
+
+# {n} = cantidad de domicilios verificados (con separador de miles).
+domicilios = "{n} domicilios verificados"
+situacion_a = "A · el titular reside"
+situacion_b = "B · el titular no reside"
+situacion_c = "C · la dirección no existe"
+
+# Enlace público a la resolución.
+ver_resolucion = "Ver la resolución ↗"
+
+# Línea pequeña al pie del cuadro de la capa (por ejemplo, de dónde salen los datos).
+# Vacía = no se muestra.
+fuente = ""
+
+
 [canales]
 
 # Nombre con el que se muestra cada canal de ingreso. La clave de la izquierda

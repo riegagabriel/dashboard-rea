@@ -204,6 +204,36 @@ CSS_MAPA = f"""
 .leyenda .nota {{ margin-top:9px; padding-top:8px; border-top:1px solid {T['linea']};
   color:{T['tinta3']}; font-size:12.5px; line-height:1.4; }}
 
+/* Capa de verificacion domiciliaria: cuadro de control (arriba a la derecha, para no
+   tapar la costa que ocupa la leyenda de abajo a la izquierda) y marcas. */
+.ctl-verif {{ position:absolute; right:12px; top:12px; z-index:650;
+  background:{T['superficie']}; border:1px solid {T['borde']}; border-radius:8px;
+  padding:12px 15px; font-size:15px; color:{T['tinta']}; line-height:1.5;
+  box-shadow:0 1px 4px rgba(11,11,11,0.10); max-width:270px; }}
+.ctl-verif .t {{ font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
+  color:{T['tinta3']}; font-weight:700; margin-bottom:6px; }}
+.ctl-verif .chk {{ display:flex; align-items:center; gap:8px; margin:2px 0 8px;
+  cursor:pointer; font-weight:600; }}
+.ctl-verif .chk input {{ width:16px; height:16px; margin:0; accent-color:#0b0b0b;
+  cursor:pointer; }}
+.ctl-verif .f {{ display:flex; align-items:center; gap:9px; margin:5px 0; }}
+.ctl-verif .ctl-fuente {{ margin-top:9px; padding-top:8px; border-top:1px solid {T['linea']};
+  color:{T['tinta3']}; font-size:12.5px; line-height:1.4; }}
+.vsq-l {{ width:12px; height:12px; background:#0b0b0b; flex:none; margin:0 3px;
+  box-shadow:0 0 0 1.5px #fff, 0 0 0 2.6px rgba(11,11,11,0.35); }}
+.vfr-l {{ width:18px; height:18px; border:2.4px solid #0b0b0b; position:relative; flex:none; }}
+.vfr-l i {{ position:absolute; inset:2px; border-radius:50%; background:#b5b1a6; }}
+.leaflet-pane > svg path.verif-poli {{ pointer-events:none !important; cursor:inherit; }}
+.pop-verif {{ background:#0b0b0b; }}
+.vbarra {{ display:flex; height:11px; border-radius:3px; overflow:hidden;
+  background:#efeee9; margin:7px 0 6px; }}
+.vbarra i {{ display:block; height:100%; border-right:1px solid #fff; }}
+.vfila {{ display:grid; grid-template-columns:10px 1fr auto; gap:7px; align-items:center;
+  font-size:12.5px; margin:2px 0; color:{T['tinta2']}; }}
+.vfila i {{ width:10px; height:10px; border-radius:2px; }}
+.vfila b {{ color:{T['tinta']}; font-variant-numeric:tabular-nums; }}
+.pop-enlace {{ display:inline-block; margin-top:7px; font-size:12.5px; }}
+
 .nom-prov {{ background:none !important; border:none !important;
   pointer-events:none; }}
 .nom-prov div {{ font-size:11px; font-weight:600; color:{T['tinta2']};
