@@ -91,7 +91,7 @@ class CapaVerificaciones(MacroElement):
             var raya = document.createElementNS(ns, 'line');
             raya.setAttribute('x1', '0'); raya.setAttribute('y1', '0');
             raya.setAttribute('x2', '0'); raya.setAttribute('y2', '6');
-            raya.setAttribute('stroke', '#0b0b0b'); raya.setAttribute('stroke-width', '1.1');
+            raya.setAttribute('stroke', '#e34948'); raya.setAttribute('stroke-width', '1.1');
             raya.setAttribute('stroke-opacity', '0.5');
             pat.appendChild(fondo); pat.appendChild(raya); defs.appendChild(pat);
             svg.insertBefore(defs, svg.firstChild);
@@ -131,13 +131,14 @@ def _base() -> folium.Map:
     # Sin teselas: la coropleta es la superficie. Un basemap competiria con ella
     # y anadiria una dependencia de red que el entregable no necesita.
     # Peru ocupa unos 490 px de ancho a zoom 5.75; con el mapa al 50 % de la
-    # pantalla llena el recuadro y de alto necesita ~715 px: el mapa mide unos 750
-    # porque debajo va el recuadro de tipos, asi que el centro no puede bajar mas de
-    # -9.6 sin cortar la punta norte. El centro va corrido hacia el oeste para que
-    # el pais quede a la derecha y la leyenda (abajo a la izquierda) caiga
-    # sobre el oceano y no tape la costa. zoomSnap 0.25 es lo que permite un zoom
-    # fraccionario: con el valor por defecto (1) Leaflet lo redondea a 6.
-    m = folium.Map(location=[-9.6, -76.7], zoom_start=5.75, tiles=None,
+    # pantalla llena el recuadro y de alto necesita ~715 px: el mapa mide unos 730
+    # porque debajo van el recuadro de tipos (5 definiciones desde el 21/09/2026)
+    # y, en F, el selector, asi que el centro no puede bajar mas de -9.5 sin cortar
+    # la punta norte. El centro va corrido hacia el oeste para que el pais quede a
+    # la derecha y la leyenda (abajo a la izquierda) caiga sobre el oceano y no
+    # tape la costa. zoomSnap 0.25 es lo que permite un zoom fraccionario: con el
+    # valor por defecto (1) Leaflet lo redondea a 6.
+    m = folium.Map(location=[-9.5, -76.7], zoom_start=5.75, tiles=None,
                    control_scale=False, zoom_control=True,
                    min_zoom=4, max_bounds=True, zoomSnap=0.25)
     m.get_root().header.add_child(folium.Element(CSS_MAPA))
@@ -366,10 +367,15 @@ def _popup(terr: dict, filas: list[dict], tx: Textos, verif: dict | None = None)
         v = f.get("ciudadanos")
         ciu = (f' · {int(v)} ciudadanos listados'
                if v is not None and pd.notna(v) else "")
+        # "Otros" lleva ademas el nombre real de la fuente (p. ej. "Transhumancia"):
+        # agrupar en Otros no debe esconder de que tipo de pedido se trata.
+        etiqueta = tx.tipo(f["tipo"])
+        if f["tipo"] == "OTROS" and f.get("tipo_original"):
+            etiqueta += f' · {f["tipo_original"]}'
         detalle += (
             f'<div class="pop-sec">'
             f'<span class="pop-tag" style="background:{CATEGORIAS[f["tipo"]]}">'
-            f'{tx.tipo(f["tipo"])}</span>'
+            f'{etiqueta}</span>'
             f'<div class="pop-meta">{f["fecha"]} · {f["documento"]} · '
             f'canal {tx.canal(f["canal"])}{ciu}</div>'
             f'<p class="pop-obs">{f["observacion"]}</p></div>')
@@ -464,7 +470,7 @@ def _verificaciones(m: folium.Map, tx: Textos, verif: dict[str, dict],
     if datos_geo:
         poli = folium.GeoJson(
             datos_geo, name="Contorno de distritos verificados", show=False,
-            style_function=lambda _: {"color": "#0b0b0b", "weight": 1.6, "fillColor": "url(#rayasVerif)",
+            style_function=lambda _: {"color": "#e34948", "weight": 1.6, "fillColor": "url(#rayasVerif)",
                                       "fillOpacity": 1, "className": "verif-poli"})
         poli.add_to(m)
     m.add_child(CapaVerificaciones(grupo, poli, ZOOM_VERIF, bool(cfg["encendida"])))

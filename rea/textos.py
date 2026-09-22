@@ -107,6 +107,7 @@ POR_DEFECTO: dict = {
         "verificacion": "Verificación",
         "padron": "Padrón",
         "suspension_de_depuracion": "Suspensión de depuración",
+        "otros": "Otros",
     },
     "leyenda_tipos": {
         "mostrar": True,
@@ -121,6 +122,9 @@ POR_DEFECTO: dict = {
                    "para comprobar si determinadas personas viven o no en la localidad."),
         "suspension_de_depuracion": ("Se solicita suspender la depuración porque se "
                                      "advierte un error en el proceso de Verificación anterior."),
+        "otros": ("Pedidos de información y remisiones de instituciones (JNE, Ministerio del "
+                  "Interior, Defensoría del Pueblo, entre otras) que no encajan en los cuatro "
+                  "tipos anteriores. El detalle de cada denuncia va en la tabla."),
         "fuente": "",
     },
     "verificaciones": {
@@ -147,7 +151,7 @@ POR_DEFECTO: dict = {
         "defensoria_del_pueblo": "Defensoría del Pueblo",
     },
     "ajustes": {
-        "altura_mapa": 1018,
+        "altura_mapa": 997,
         "altura_tarjetas": 540,
     },
 }
@@ -176,7 +180,7 @@ COLUMNAS_POR_DEFECTO = ("fecha", "departamento", "provincia", "distrito", "tipo"
 ALTURA_MIN, ALTURA_MAX = 400, 2000
 
 # Orden en que la leyenda de tipos los muestra (mismas claves que [tipos]).
-TIPOS_LEYENDA = ("impugnacion", "verificacion", "padron", "suspension_de_depuracion")
+TIPOS_LEYENDA = ("impugnacion", "verificacion", "padron", "suspension_de_depuracion", "otros")
 
 
 def clave(texto: str) -> str:

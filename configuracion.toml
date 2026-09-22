@@ -208,6 +208,11 @@ verificacion = "Verificación"
 padron = "Padrón"
 suspension_de_depuracion = "Suspensión de depuración"
 
+# Agrupa los tipos de denuncia que no son ninguno de los cuatro anteriores (p. ej.
+# pedidos de información de otras entidades). En la tabla, cada fila "Otros" sigue
+# mostrando el nombre real que trae la fuente (por ejemplo "Otros · Transhumancia").
+otros = "Otros"
+
 
 [leyenda_tipos]
 
@@ -225,6 +230,7 @@ impugnacion = "Denuncia formal, presentada en el formato administrativo de impug
 verificacion = "Se detecta una variación importante en el número de pobladores o electores de una localidad y se solicita una verificación domiciliaria."
 padron = "Un ciudadano o institución solicita el padrón electoral, o revisarlo, para comprobar si determinadas personas viven o no en la localidad."
 suspension_de_depuracion = "Se solicita suspender la depuración porque se advierte un error en el proceso de Verificación anterior."
+otros = "Pedidos de información y remisiones de instituciones (JNE, Ministerio del Interior, Defensoría del Pueblo, entre otras) que no encajan en los cuatro tipos anteriores. El detalle de cada denuncia va en la tabla."
 
 
 # Línea pequeña al pie del recuadro (por ejemplo, de dónde salen las definiciones).
@@ -302,7 +308,7 @@ defensoria_del_pueblo = "Defensoría del Pueblo"
 # Alto de la columna del mapa en píxeles (entre 400 y 2000): incluye el recuadro de
 # [leyenda_tipos] que va debajo. Si esa columna queda más corta o más larga que la de
 # gráficos de su derecha, ajusta este número.
-altura_mapa = 1018
+altura_mapa = 997
 
 # Alto de las tarjetas de "Denuncias por departamento" y "Canal de ingreso" (entre
 # 400 y 2000). Las dos miden lo mismo para que queden alineadas. Si hay muchos

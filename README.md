@@ -74,10 +74,22 @@ como `{total}` que se escriban mal se muestran tal cual, sin romper nada.
 
 | Qué | Dónde | Por qué |
 |---|---|---|
-| Colores de los 4 tipos de denuncia | `rea/estilo.py` → `CATEGORIAS` | Validados por cómputo para daltonismo; cambiarlos a ojo rompe la garantía |
+| Colores de los tipos de denuncia | `rea/estilo.py` → `CATEGORIAS` | Validados por cómputo para daltonismo; cambiarlos a ojo rompe la garantía |
 | Colores de los canales | `rea/estilo.py` → `CANALES` | Ídem, validados en modo «todos los pares» |
 | Tinta de las provincias del mapa F | `rea/estilo.py` → `TINTA_PROVINCIA` | Medida contra los marcadores: azul, verde y violeta quedan sobre 3:1 |
 | Orden y tamaño de los bloques de la página | `rea/pagina.py` | Es estructura, no texto |
+
+### El tipo «Otros» (21/09/2026)
+
+Un tipo de denuncia que la fuente trae y que no es Impugnación, Verificación, Padrón
+ni Suspensión de depuración se agrupa en **Otros** (gris, `rea/estilo.py` →
+`CATEGORIAS["OTROS"]`), sin inventarle un color propio. La tabla y los popups del mapa
+igual muestran el nombre real de la fuente junto al genérico (p. ej. «Otros ·
+Transhumancia»), tomado de la columna `CASOS` tal como llegó. Esto es a propósito: con
+un tipo nuevo de 1 o 2 casos no hay ninguna combinación de colores que pase el
+validador de daltonismo junto a los 4 ya validados (ver `dataviz` en las herramientas
+del proyecto). El nombre y la definición de «Otros» se editan igual que los demás, en
+`[tipos]` y `[leyenda_tipos]` de `configuracion.toml`.
 
 ---
 

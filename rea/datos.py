@@ -116,10 +116,14 @@ def kpis(f: pd.DataFrame, total: int) -> list[tuple[str, str, dict]]:
     """(clave, valor, variables para la nota). El texto vive en configuracion.toml."""
     ciud = f["ciudadanos"].dropna()
     cob = len(ciud)
+    # "Distritos"/"Departamentos" solo cuentan denuncias con territorio: una denuncia
+    # sin distrito (p. ej. el pedido del JNE, sin domicilio que ubicar) tiene
+    # ubigeo_inei/departamento = "" y nunique() la contaria como un valor mas.
+    con_territorio = f[f["ubigeo_inei"] != ""]
     return [
         ("denuncias", f"{len(f)}", {"total": total}),
-        ("distritos", f"{f['ubigeo_inei'].nunique()}", {}),
-        ("departamentos", f"{f['departamento'].nunique()}", {}),
+        ("distritos", f"{con_territorio['ubigeo_inei'].nunique()}", {}),
+        ("departamentos", f"{con_territorio['departamento'].nunique()}", {}),
         ("ciudadanos", f"{int(ciud.sum()):,}".replace(",", " "),
          {"cobertura": cob, "n": len(f)}),
     ]
@@ -142,13 +146,15 @@ def ciudadanos_por_tipo(f: pd.DataFrame) -> list[dict]:
 
 # --- Agregaciones para los graficos ------------------------------------------
 def por_departamento(f: pd.DataFrame) -> dict[str, int]:
-    return f.groupby("departamento").size().to_dict()
+    # Sin las denuncias sin territorio (ubigeo_inei == ""): sin eso, "departamento"
+    # vale "" en esa fila y aparece como una barra en blanco.
+    return f[f["ubigeo_inei"] != ""].groupby("departamento").size().to_dict()
 
 
 def por_provincia(f: pd.DataFrame) -> dict[tuple[str, str], int]:
     """Denuncias por (departamento, provincia), con nombres normalizados (textos.clave)
     para emparejarlas con provincias.geojson, que no trae codigos, solo nombres."""
-    g = f.groupby(["departamento", "provincia"]).size()
+    g = f[f["ubigeo_inei"] != ""].groupby(["departamento", "provincia"]).size()
     return {(clave(d), clave(p)): int(n) for (d, p), n in g.items()}
 
 
@@ -172,14 +178,14 @@ def _centros_provincia(version: str) -> dict[tuple[str, str], dict]:
 
 def por_territorio(f: pd.DataFrame) -> dict[str, list[dict]]:
     salida: dict[str, list[dict]] = {}
-    for u, g in f.groupby("ubigeo_inei"):
+    for u, g in f[f["ubigeo_inei"] != ""].groupby("ubigeo_inei"):
         salida[u] = g.to_dict("records")
     return salida
 
 
 def por_departamento_tipo(f: pd.DataFrame) -> pd.DataFrame:
     """Denuncias por departamento y tipo, con el total; el mayor departamento primero."""
-    g = f.groupby(["departamento", "tipo"]).size().reset_index(name="n")
+    g = f[f["ubigeo_inei"] != ""].groupby(["departamento", "tipo"]).size().reset_index(name="n")
     g = g.merge(g.groupby("departamento")["n"].sum().rename("total"),
                 on="departamento")
     g["orden_tipo"] = g["tipo"].map({c: i for i, c in enumerate(ORDEN_CATEGORIAS)})
@@ -211,11 +217,16 @@ def serie_semanal(f: pd.DataFrame) -> pd.DataFrame:
 
 # --- Tabla de detalle ---------------------------------------------------------
 def tabla_denuncias(f: pd.DataFrame, columnas: list[str]) -> pd.DataFrame:
-    """Una fila por denuncia, la mas reciente primero, con las columnas pedidas."""
+    """Una fila por denuncia, la mas reciente primero, con las columnas pedidas.
+
+    Ademas de `columnas`, siempre trae `tipo_original` si esta en los datos: la
+    usa pagina.py para mostrar, solo en las filas de tipo "Otros", el texto real
+    de la fuente (p. ej. "Transhumancia"), y la descarta antes de dibujar la tabla."""
     t = f.sort_values(["fecha_dt", "item"], ascending=[False, True]).copy()
     t["fecha"] = t["fecha_dt"]
     t["ciudadanos"] = t["ciudadanos"].astype("Int64")
-    return t[columnas].reset_index(drop=True)
+    extra = [c for c in ("tipo_original",) if c not in columnas and c in t.columns]
+    return t[columnas + extra].reset_index(drop=True)
 
 
 def opciones_territorio(f: pd.DataFrame, dep: str | None, prov: str | None
@@ -226,12 +237,16 @@ def opciones_territorio(f: pd.DataFrame, dep: str | None, prov: str | None
     con cada distrito como (etiqueta, provincia, distrito). Hay nombres de distrito
     repetidos en provincias distintas (Cochas): en ese caso la etiqueta lleva la
     provincia, y el filtro real usa siempre el par (provincia, distrito).
+
+    Una denuncia sin territorio no aporta ninguna opcion (pero sigue en la tabla
+    con "Todos"): "" no es un departamento que se pueda elegir en el filtro.
     """
-    deps = sorted(f["departamento"].unique())
+    deps = sorted(d for d in f["departamento"].unique() if d)
     sub = f[f["departamento"] == dep] if dep else f
-    provs = sorted(sub["provincia"].unique())
+    provs = sorted(p for p in sub["provincia"].unique() if p)
     sub = sub[sub["provincia"] == prov] if prov else sub
-    pares = sorted(set(zip(sub["provincia"], sub["distrito"])), key=lambda p: (p[1], p[0]))
+    pares = sorted({(p, d) for p, d in zip(sub["provincia"], sub["distrito"]) if p and d},
+                   key=lambda p: (p[1], p[0]))
     nombres = [d for _, d in pares]
     dists = [((d if nombres.count(d) == 1 else f"{d} ({p})"), p, d) for p, d in pares]
     return deps, provs, dists

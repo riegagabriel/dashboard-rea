@@ -107,7 +107,8 @@ def leyenda_tipos(ley: dict) -> None:
     """Explica cada tipo de denuncia, con el color con que se dibuja en todo el tablero."""
     color = {textos.clave(k): c for k, c in CATEGORIAS.items()}
     items = "".join(
-        f'<div class="gl"><b><i style="background:{color.get(t, "#898781")}"></i>{nombre}</b>'
+        f'<div class="gl{" ancho" if t == "otros" else ""}">'
+        f'<b><i style="background:{color.get(t, "#898781")}"></i>{nombre}</b>'
         f'{texto}</div>' for t, nombre, texto in ley["items"])
     fuente = f'<p class="glosa-f">{ley["fuente"]}</p>' if ley["fuente"] else ""
     st.markdown(f'<div class="glosa-wrap"><div class="glosa"><p class="glosa-t">{ley["titulo"]}</p>'
@@ -175,7 +176,9 @@ def _config_columnas(columnas: dict[str, str]) -> dict:
             cfg[i] = st.column_config.NumberColumn(nombre, format="%d")
         elif i == "observacion":
             cfg[i] = st.column_config.TextColumn(nombre, width="large")
-        elif i == "documento":
+        elif i in ("documento", "tipo"):
+            # "tipo" a "medium": las filas "Otros" muestran ademas el nombre real
+            # de la fuente (p. ej. "Otros · Prevención de golondrinaje").
             cfg[i] = st.column_config.TextColumn(nombre, width="medium")
         else:
             cfg[i] = st.column_config.TextColumn(nombre)
@@ -213,7 +216,14 @@ def tabla(f: pd.DataFrame) -> None:
     columnas = t.columnas()
     tab = datos.tabla_denuncias(g, list(columnas))
     if "tipo" in tab:
+        es_otros = tab["tipo"] == "OTROS"
         tab["tipo"] = tab["tipo"].map(t.tipo)
+        if "tipo_original" in tab.columns:
+            # Solo en las filas "Otros": el nombre real de la fuente, a la vista sin
+            # abrir cada fila (p. ej. "Otros · Transhumancia").
+            tab.loc[es_otros, "tipo"] = (tab.loc[es_otros, "tipo"] + " · "
+                                         + tab.loc[es_otros, "tipo_original"])
+            tab = tab.drop(columns=["tipo_original"])
     if "canal" in tab:
         tab["canal"] = tab["canal"].map(t.canal)
 
@@ -221,8 +231,9 @@ def tabla(f: pd.DataFrame) -> None:
     if "tipo" in tab:
         color = {t.tipo(c): hexa for c, hexa in CATEGORIAS.items()}
         estilo = estilo.map(
-            lambda v: (f"background-color:{color[v]};color:{_texto_sobre(color[v])};"
-                       f"font-weight:600") if v in color else "", subset=["tipo"])
+            lambda v: (f"background-color:{color[v.split(' · ')[0]]};"
+                       f"color:{_texto_sobre(color[v.split(' · ')[0]])};font-weight:600")
+            if v.split(" · ")[0] in color else "", subset=["tipo"])
     st.dataframe(estilo, hide_index=True, height=520,
                  column_config=_config_columnas(columnas), column_order=list(columnas))
     st.markdown(

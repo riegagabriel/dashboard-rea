@@ -1,8 +1,8 @@
 {
  "meta": {
-  "fecha_corte": "14/09/2026",
-  "generado": "18/09/2026 17:15",
-  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_CRC_Q20260914.xlsx",
+  "fecha_corte": "21/09/2026",
+  "generado": "22/09/2026 06:00",
+  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_GABI_Q20260921.xlsx",
   "geodata": "Shapefile distrital INEI (1891 distritos, EPSG:4326)",
   "nota_ubigeo": "El codigo territorial es UBIGEO INEI, el que corresponde a la geometria. NO es el ubigeo RENIEC: difieren en el 94,1 % de los distritos.",
   "titulo": "Denuncias registradas en el REA por casos de probable golondrinaje",
@@ -14,20 +14,21 @@
   "IMPUGNACION": "#2a78d6",
   "VERIFICACION": "#008300",
   "PADRON": "#4a3aa7",
-  "SUSPENSION DE DEPURACION": "#e87ba4"
+  "SUSPENSION DE DEPURACION": "#e87ba4",
+  "OTROS": "#52514e"
  },
  "kpis": {
-  "casos": 67,
-  "documentos": 60,
-  "distritos": 52,
-  "departamentos": 15,
+  "casos": 72,
+  "documentos": 64,
+  "distritos": 54,
+  "departamentos": 16,
   "ciudadanos": 5089,
   "ciudadanos_cobertura": 21,
-  "georreferenciado_pct": 100.0,
-  "sin_match": 0
+  "georreferenciado_pct": 98.6,
+  "sin_match": 1
  },
  "canales": {
-  "RENIEC": 63,
+  "RENIEC": 68,
   "Ministerio Publico": 2,
   "Defensoria del Pueblo": 2
  },
@@ -46,7 +47,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -74,7 +76,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -102,7 +105,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -130,7 +134,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -158,7 +163,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -186,7 +192,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -214,7 +221,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -242,7 +250,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -270,7 +279,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -298,7 +308,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -321,23 +332,27 @@
    "localidades": [],
    "lat": -8.767733,
    "lon": -77.725884,
-   "total": 1,
+   "total": 3,
    "por_tipo": {
     "IMPUGNACION": 0,
-    "VERIFICACION": 1,
+    "VERIFICACION": 2,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 1
    },
    "dominante": "VERIFICACION",
    "documentos": [
-    "PROVEIDO N° 000970-2026/DRE/SDPEG/RENIEC"
+    "PROVEIDO N° 000970-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002576-2026/DRE/SDPEG/RENIEC",
+    "PROVEIDO N° 002679-2026/DRE/SDPEG/RENIEC"
    ],
    "ciudadanos": null,
    "ciudadanos_cobertura": 0,
-   "fecha_min": "10/06/2026",
-   "fecha_max": "10/06/2026",
+   "fecha_min": "06/04/2026",
+   "fecha_max": "14/09/2026",
    "canales": [
-    "Ministerio Publico"
+    "Ministerio Publico",
+    "RENIEC"
    ]
   },
   {
@@ -354,7 +369,8 @@
     "IMPUGNACION": 4,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -386,7 +402,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -414,7 +431,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -442,7 +460,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -472,7 +491,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -500,7 +520,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 2,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -529,7 +550,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -557,7 +579,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -585,7 +608,8 @@
     "IMPUGNACION": 2,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -614,7 +638,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -624,6 +649,35 @@
    "ciudadanos_cobertura": 1,
    "fecha_min": "31/08/2026",
    "fecha_max": "31/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "080910",
+   "ubigeo_reniec": "070910",
+   "departamento": "CUSCO",
+   "provincia": "LA CONVENCION",
+   "distrito": "PICHARI",
+   "localidades": [],
+   "lat": -12.414185,
+   "lon": -73.780893,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 1
+   },
+   "dominante": "OTROS",
+   "documentos": [
+    "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "15/09/2026",
+   "fecha_max": "15/09/2026",
    "canales": [
     "RENIEC"
    ]
@@ -642,7 +696,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 2,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "PADRON",
    "documentos": [
@@ -672,7 +727,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 1
+    "SUSPENSION DE DEPURACION": 1,
+    "OTROS": 0
    },
    "dominante": "SUSPENSION DE DEPURACION",
    "documentos": [
@@ -700,7 +756,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 1,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -711,6 +768,35 @@
    "ciudadanos_cobertura": 1,
    "fecha_min": "12/05/2026",
    "fecha_max": "30/04/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "100113",
+   "ubigeo_reniec": "090113",
+   "departamento": "HUANUCO",
+   "provincia": "HUANUCO",
+   "distrito": "SAN PABLO DE PILLAO",
+   "localidades": [],
+   "lat": -9.695569,
+   "lon": -75.953929,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 1
+   },
+   "dominante": "OTROS",
+   "documentos": [
+    "PROVEIDO N° 002652-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "16/09/2026",
+   "fecha_max": "16/09/2026",
    "canales": [
     "RENIEC"
    ]
@@ -729,7 +815,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -757,7 +844,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -785,7 +873,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -813,7 +902,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -841,7 +931,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -869,7 +960,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -897,7 +989,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 1,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -927,7 +1020,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -955,7 +1049,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 2,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -984,7 +1079,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1012,7 +1108,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1040,7 +1137,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 1,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1069,7 +1167,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1097,7 +1196,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1125,7 +1225,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1153,7 +1254,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1181,7 +1283,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1211,7 +1314,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1241,7 +1345,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1269,7 +1374,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1297,7 +1403,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1325,7 +1432,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1355,7 +1463,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1383,7 +1492,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 2,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -1412,7 +1522,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -1440,7 +1551,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 2,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -1469,7 +1581,8 @@
     "IMPUGNACION": 0,
     "VERIFICACION": 1,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -1497,7 +1610,8 @@
     "IMPUGNACION": 1,
     "VERIFICACION": 0,
     "PADRON": 0,
-    "SUSPENSION DE DEPURACION": 0
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
    },
    "dominante": "IMPUGNACION",
    "documentos": [
@@ -1521,6 +1635,7 @@
    "distrito": "UCO",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "04/05/2026",
    "documento": "PROVEIDO N° 003251-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1541,6 +1656,7 @@
    "distrito": "HUACACHI",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "04/05/2026",
    "documento": "PROVEIDO N° 003687-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1561,6 +1677,7 @@
    "distrito": "CARHUAZ",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "03/06/2026",
    "documento": "PROVEIDO N° 003908-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1581,6 +1698,7 @@
    "distrito": "COLCA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "26/04/2026",
    "documento": "PROVEIDO N° 002116-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1601,6 +1719,7 @@
    "distrito": "CALLANMARCA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "05/06/2026",
    "documento": "PROVEIDO N° 004899-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1621,6 +1740,7 @@
    "distrito": "CALLANMARCA",
    "localidad_original": "",
    "tipo": "PADRON",
+   "tipo_original": "Padron",
    "fecha": "19/06/2026",
    "documento": "PROVEIDO N° 004722-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1641,6 +1761,7 @@
    "distrito": "CALLANMARCA",
    "localidad_original": "",
    "tipo": "PADRON",
+   "tipo_original": "Padron",
    "fecha": "19/06/2026",
    "documento": "PROVEIDO N° 004707-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1661,6 +1782,7 @@
    "distrito": "CHANCAY",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "29/04/2026",
    "documento": "PROVEIDO N° 002579-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1681,6 +1803,7 @@
    "distrito": "CHANCAY",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "24/04/2026",
    "documento": "PROVEIDO N° 002708-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1701,6 +1824,7 @@
    "distrito": "CHILIQUIN",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "01/06/2026",
    "documento": "PROVEIDO N° 004544-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1721,6 +1845,7 @@
    "distrito": "CHUGUR",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "28/04/2026",
    "documento": "PROVEIDO N° 004803-2026/DRE/SDPEG/RENIEC",
    "formato": "CARTA",
@@ -1741,6 +1866,7 @@
    "distrito": "CHUGUR",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "24/04/2026",
    "documento": "PROVEIDO N° 002647-2026/DRE/SDPEG/RENIEC",
    "formato": "CARTA",
@@ -1761,6 +1887,7 @@
    "distrito": "COCHAMAL",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "05/05/2026",
    "documento": "PROVEIDO N° 002471-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1781,6 +1908,7 @@
    "distrito": "COCHAS",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "16/06/2026",
    "documento": "PROVEIDO N° 004519-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1801,6 +1929,7 @@
    "distrito": "COCHAS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1821,6 +1950,7 @@
    "distrito": "CARHUAPAMPA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "16/06/2026",
    "documento": "PROVEIDO N° 004519-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1841,6 +1971,7 @@
    "distrito": "LA CUESTA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "30/04/2026",
    "documento": "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1861,6 +1992,7 @@
    "distrito": "SAN ANTONIO DE ANTAPARCO",
    "localidad_original": "",
    "tipo": "SUSPENSION DE DEPURACION",
+   "tipo_original": "Suspensión De Depuracion",
    "fecha": "22/05/2026",
    "documento": "PROVEIDO N° 004227-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1881,6 +2013,7 @@
    "distrito": "HUANCHAY",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "05/05/2026",
    "documento": "PROVEIDO N° 003744-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1901,6 +2034,7 @@
    "distrito": "LAMPIAN",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "24/04/2026",
    "documento": "PROVEIDO N° 002082-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1921,6 +2055,7 @@
    "distrito": "MARCAPOMACOCHA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "28/04/2026",
    "documento": "PROVEIDO N° 002649-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1941,6 +2076,7 @@
    "distrito": "MUSGA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "04/06/2026",
    "documento": "PROVEIDO N° 004653-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -1961,6 +2097,7 @@
    "distrito": "MUSGA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "19/06/2026",
    "documento": "PROVEIDO N° 004715-2026/DRE/SDPEG/RENIEC",
    "formato": "No indicado",
@@ -1981,6 +2118,7 @@
    "distrito": "MUSGA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "30/06/2026",
    "documento": "PROVEIDO N° 004834-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2001,6 +2139,7 @@
    "distrito": "MUSGA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "24/06/2026",
    "documento": "PROVEIDO N° 004885-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2021,6 +2160,7 @@
    "distrito": "PONTO",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "07/05/2026",
    "documento": "PROVEIDO N° 003750-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2041,6 +2181,7 @@
    "distrito": "QUECHUALLA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "23/06/2026",
    "documento": "PROVEIDO N° 004780-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2061,6 +2202,7 @@
    "distrito": "QUECHUALLA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "16/06/2026",
    "documento": "PROVEIDO N° 000950-2026/DRE/SDPEG/RENIEC",
    "formato": "No indicado",
@@ -2081,6 +2223,7 @@
    "distrito": "CATAHUASI",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2101,6 +2244,7 @@
    "distrito": "COLONIA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2121,6 +2265,7 @@
    "distrito": "TANTA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2141,6 +2286,7 @@
    "distrito": "CACRA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2161,6 +2307,7 @@
    "distrito": "CHOCOS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2181,6 +2328,7 @@
    "distrito": "VIÑAC",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "27/04/2026",
    "documento": "PROVEIDO N° 002880-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2201,6 +2349,7 @@
    "distrito": "SAN FRANCISCO DE DAGUAS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "20/04/2026",
    "documento": "PROVEIDO N° 002999-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2221,6 +2370,7 @@
    "distrito": "YARUMAYO",
    "localidad_original": "",
    "tipo": "PADRON",
+   "tipo_original": "Padron",
    "fecha": "12/05/2026",
    "documento": "PROVEIDO N° 002675-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2241,6 +2391,7 @@
    "distrito": "YARUMAYO",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "30/04/2026",
    "documento": "PROVEIDO N° 002605-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2261,6 +2412,7 @@
    "distrito": "SAN JUAN DE IRIS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "29/04/2026",
    "documento": "PROVEIDO N° 002580-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2281,6 +2433,7 @@
    "distrito": "SAN JUAN DE TARUCANI",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "22/05/2026",
    "documento": "PROVEIDO N° 003255-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2301,6 +2454,7 @@
    "distrito": "SAN MIGUEL DE ACOS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "29/05/2026",
    "documento": "PROVEIDO N° 004518-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2321,6 +2475,7 @@
    "distrito": "TAURIPAMPA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "08/05/2026",
    "documento": "PROVEIDO N° 003866-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2341,6 +2496,7 @@
    "distrito": "YARABAMBA",
    "localidad_original": "SAN ANTONIO DE YARABAMBA",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "04/06/2026",
    "documento": "PROVEIDO N° 003862-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2361,6 +2517,7 @@
    "distrito": "BOQUERON",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "22/07/2026",
    "documento": "PROVEIDO N° 001775-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2381,6 +2538,7 @@
    "distrito": "CAHUAC",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "10/07/2026",
    "documento": "PROVEIDO N° 001117-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2401,6 +2559,7 @@
    "distrito": "CHUQUIS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "10/08/2026",
    "documento": "PROVEIDO N° 001899-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2421,6 +2580,7 @@
    "distrito": "EL ALGARROBAL",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "22/07/2026",
    "documento": "PROVEIDO N° 001513-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2441,6 +2601,7 @@
    "distrito": "HEROES ALBARRACIN",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "03/07/2026",
    "documento": "PROVEIDO N° 000929-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2461,6 +2622,7 @@
    "distrito": "JAZAN",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "12/08/2026",
    "documento": "PROVEIDO N° 001912-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2481,6 +2643,7 @@
    "distrito": "MOLLEPATA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "07/07/2026",
    "documento": "PROVEIDO N° 001696-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2501,6 +2664,7 @@
    "distrito": "MOROCOCHA",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "15/07/2026",
    "documento": "PROVEIDO N° 001533-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2521,6 +2685,7 @@
    "distrito": "PUNTA HERMOSA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "19/08/2026",
    "documento": "PROVEIDO N° 002021-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2541,6 +2706,7 @@
    "distrito": "LARAOS",
    "localidad_original": "SAN JUAN DE LANGAICO",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "21/07/2026",
    "documento": "PROVEIDO N° 001771-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2561,6 +2727,7 @@
    "distrito": "SAN JUAN DE LURIGANCHO",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "06/07/2026",
    "documento": "HOJA DE ENVIO D000082-2026-RENIEC/DRE-SDPEG",
    "formato": "OFICIO",
@@ -2581,6 +2748,7 @@
    "distrito": "YURACMARCA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "10/06/2026",
    "documento": "PROVEIDO N° 000970-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2601,6 +2769,7 @@
    "distrito": "CAYARA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "24/08/2026",
    "documento": "ACCESO A LA INFORMACION PUBLICA",
    "formato": "SOLICITUD",
@@ -2621,6 +2790,7 @@
    "distrito": "EL ALGARROBAL",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "21/08/2026",
    "documento": "PROVEIDO N° 000177-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2641,6 +2811,7 @@
    "distrito": "CHIRINOS",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "31/08/2026",
    "documento": "PROVEIDO N° 002377-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2661,6 +2832,7 @@
    "distrito": "YAVARI",
    "localidad_original": "SANTA ROSA",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "01/09/2026",
    "documento": "PROVEIDO N° 002395-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2681,6 +2853,7 @@
    "distrito": "LARAOS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "02/09/2026",
    "documento": "PROVEIDO N° 002419-2026/DRE/SDPEG/RENIEC",
    "formato": "OFICIO",
@@ -2701,6 +2874,7 @@
    "distrito": "POCOLLAY",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "18/08/2026",
    "documento": "HOJA DE ENVIO-000110-2026-DRE-SDPEG",
    "formato": "SOLICITUD",
@@ -2721,6 +2895,7 @@
    "distrito": "POCOLLAY",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "14/08/2026",
    "documento": "PROVEIDO N° 002104-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2741,6 +2916,7 @@
    "distrito": "SAN JUAN DE IRIS",
    "localidad_original": "",
    "tipo": "PADRON",
+   "tipo_original": "Padron",
    "fecha": "02/09/2026",
    "documento": "PROVEIDO N° 002407-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2761,6 +2937,7 @@
    "distrito": "URARINAS",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "28/08/2026",
    "documento": "PROVEIDO N° 002363-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2781,6 +2958,7 @@
    "distrito": "MUSGA",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "01/09/2026",
    "documento": "PROVEIDO N° 002584-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2801,6 +2979,7 @@
    "distrito": "PUNTA HERMOSA",
    "localidad_original": "",
    "tipo": "PADRON",
+   "tipo_original": "Padron",
    "fecha": "26/08/2026",
    "documento": "PROVEIDO N° 002599-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2821,6 +3000,7 @@
    "distrito": "SALITRAL",
    "localidad_original": "",
    "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
    "fecha": "14/09/2026",
    "documento": "PROVEIDO N° 002585-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2841,6 +3021,7 @@
    "distrito": "SAN MIGUEL DE CORPANQUI",
    "localidad_original": "",
    "tipo": "IMPUGNACION",
+   "tipo_original": "Impugnacion",
    "fecha": "07/09/2026",
    "documento": "PROVEIDO N° 002586-2026/DRE/SDPEG/RENIEC",
    "formato": "SOLICITUD",
@@ -2852,6 +3033,111 @@
    "metodo_match": "exacto",
    "match_confidence": "alta",
    "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 68,
+   "ubigeo_inei": "021210",
+   "departamento": "ANCASH",
+   "provincia": "HUAYLAS",
+   "distrito": "YURACMARCA",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
+   "fecha": "06/04/2026",
+   "documento": "PROVEIDO N° 002576-2026/DRE/SDPEG/RENIEC",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "EN ACUERDO DE COMISION INTERINSTITUCIONAL PARA PREVENCION DE CONFLICTOS ELECTORALES SE PRESENTO EL CASO DONDE CIUDADANOS SOLICITAN VERIFICACION Y DEPURACION DE PADRON, PRESENTAN LISTA DE 444 CIUDADANOS POR PRESUNTO GOLONDRINAJE",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 69,
+   "ubigeo_inei": "",
+   "departamento": "",
+   "provincia": "",
+   "distrito": "",
+   "localidad_original": "",
+   "tipo": "OTROS",
+   "tipo_original": "Transhumancia",
+   "fecha": "16/09/2026",
+   "documento": "PROVEIDO N° 002657-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "JNE",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "JNE SOLICITA LA REMISION DE LOS DISTRITOS IDENTIFICADOS CON CASOS DE\nTRANSHUMANCIA Y ACCIONES TOMADAS; Y OTROS, EN EL MARCO DE LAS\nELECCIONES REGIONALES Y MUNICIPALES 2026",
+   "metodo_match": "sin_match",
+   "match_confidence": "nula",
+   "observacion_match": "Sin correspondencia; requiere revision humana"
+  },
+  {
+   "item": 70,
+   "ubigeo_inei": "100113",
+   "departamento": "HUANUCO",
+   "provincia": "HUANUCO",
+   "distrito": "SAN PABLO DE PILLAO",
+   "localidad_original": "",
+   "tipo": "OTROS",
+   "tipo_original": "Padron / Cambios Domiciliarios",
+   "fecha": "16/09/2026",
+   "documento": "PROVEIDO N° 002652-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "MINISTERIO DEL INTERIOR",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "MINISTERIO DEL INTERIOR/SUBPREFECTO DEL DISTRITO DE SAN PABLO DE PILLAO, PROVINCIA Y DEPARTAMENTO DE HUÁNUCO, SOLICITA INFORMACION ESTADISTICA SOBRE VARIACION DEL PADRON ELECTORAL Y CAMBIOS DE DOMICILIO REGISTRADOS EN EL DISTRITO DE SAN PABLO DE PILLAO.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 71,
+   "ubigeo_inei": "021210",
+   "departamento": "ANCASH",
+   "provincia": "HUAYLAS",
+   "distrito": "YURACMARCA",
+   "localidad_original": "",
+   "tipo": "OTROS",
+   "tipo_original": "Prevencion De Golondrinaje",
+   "fecha": "14/09/2026",
+   "documento": "PROVEIDO N° 002679-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "PRESIDENTE DEL COMITE DISTRITAL DE RONDAS URBANAS BENITO PONCE FLORES DEL DISTRITO DE YURACMARCA REMITE ADJUNTO DENUNCIA PENAL PREVENTIVO POR DELITO ELECTORAL EN MODALIDAD DE TRASHUMANCIA ELECTORAL VOTO GOLONDRINO",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 72,
+   "ubigeo_inei": "080910",
+   "departamento": "CUSCO",
+   "provincia": "LA CONVENCION",
+   "distrito": "PICHARI",
+   "localidad_original": "",
+   "tipo": "OTROS",
+   "tipo_original": "Informacion Por Restituciones",
+   "fecha": "15/09/2026",
+   "documento": "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "DEFENSORIA DEL PUEBLO",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "DEFENSORIA DEL PUEBLO SOLICITA INFORMACIÓN RESPECTO A LAS MÚLTIPLES SOLICITUDES DE INTERVENCIÓN PRESENTADAS POR CIUDADANOS DEL DISTRITO DE PICHARI, RELACIONADAS CON LA PRESUNTA AFECTACIÓN DE SU DERECHO DE PARTICIPACIÓN POLÍTICA, ESPECÍFICAMENTE DEL DERECHO AL VOTO. SE RESTITUYERON A 3337 CIUDADANOS DEL DISTRITO DE PICHARI.",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "INEI escribe CUSCO; la fuente trae CUZCO (item 72 de la base GABI Q20260921)"
   }
  ]
 }

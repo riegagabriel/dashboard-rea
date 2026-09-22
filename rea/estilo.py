@@ -13,12 +13,21 @@ from __future__ import annotations
 # El color sigue a la categoria POR SU NOMBRE. Nunca por frecuencia: si se
 # asignara por ranking, una actualizacion repintaria las categorias y romperia
 # la comparabilidad entre versiones del tablero.
+#
+# OTROS (21/09/2026, base con 4 tipos nuevos de 1 caso cada uno: no hay una
+# cuarteta de colores documentada que pase el validador junto a estos 4 - ver
+# DENUNCIAS_REA/bocetos/tipos_nuevos_v7.html). Van agrupados aqui, con su
+# nombre real conservado en tipo_original (rea/datos.py, casos_df). El gris
+# valida igual que sin el (mismo peor par); el unico check que "falla" es el
+# piso de croma, esperado en un gris de cola. SIEMPRE al final: nunca se le
+# asigna un tono cromatico nuevo por cada tipo raro que aparezca.
 CATEGORIAS = {
     "IMPUGNACION": "#2a78d6",               # azul
     "VERIFICACION": "#008300",              # verde
     "PADRON": "#4a3aa7",                    # violeta
     "SUSPENSION DE DEPURACION": "#e87ba4",  # magenta (el de menor contraste,
-}                                           # asignado a la categoria mas rara)
+    "OTROS": "#52514e",                     # gris     entre los 4 originales)
+}
 ORDEN_CATEGORIAS = list(CATEGORIAS)
 
 # --- Paleta del canal de ingreso (dona) --------------------------------------
@@ -94,6 +103,7 @@ html, body, [class*="css"] {{ font-family:{FUENTE}; }}
 .glosa-t {{ font-size:0.8rem; font-weight:700; color:{T['tinta']}; margin:0 0 7px; }}
 .glosa-g {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 18px; }}
 .gl {{ font-size:0.76rem; line-height:1.38; color:{T['tinta2']}; }}
+.gl.ancho {{ grid-column:1 / -1; }}
 .gl b {{ display:flex; align-items:center; color:{T['tinta']}; font-size:0.78rem;
   margin-bottom:1px; }}
 .gl b i {{ width:10px; height:10px; border-radius:50%; flex:none; margin-right:6px; }}
