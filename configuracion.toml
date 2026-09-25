@@ -301,6 +301,7 @@ fuente = ""
 reniec = "RENIEC"
 ministerio_publico = "Ministerio Público"
 defensoria_del_pueblo = "Defensoría del Pueblo"
+onpe = "ONPE"
 
 
 [ajustes]

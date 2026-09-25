@@ -1,8 +1,8 @@
 {
  "meta": {
-  "fecha_corte": "21/09/2026",
-  "generado": "22/09/2026 06:00",
-  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_GABI_Q20260921.xlsx",
+  "fecha_corte": "25/09/2026",
+  "generado": "25/09/2026 17:22",
+  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_25_09_26_Q20260925.xlsx",
   "geodata": "Shapefile distrital INEI (1891 distritos, EPSG:4326)",
   "nota_ubigeo": "El codigo territorial es UBIGEO INEI, el que corresponde a la geometria. NO es el ubigeo RENIEC: difieren en el 94,1 % de los distritos.",
   "titulo": "Denuncias registradas en el REA por casos de probable golondrinaje",
@@ -18,19 +18,20 @@
   "OTROS": "#52514e"
  },
  "kpis": {
-  "casos": 72,
-  "documentos": 64,
-  "distritos": 54,
-  "departamentos": 16,
+  "casos": 74,
+  "documentos": 65,
+  "distritos": 56,
+  "departamentos": 17,
   "ciudadanos": 5089,
   "ciudadanos_cobertura": 21,
   "georreferenciado_pct": 98.6,
   "sin_match": 1
  },
  "canales": {
-  "RENIEC": 68,
+  "RENIEC": 69,
   "Ministerio Publico": 2,
-  "Defensoria del Pueblo": 2
+  "Defensoria del Pueblo": 2,
+  "ONPE": 1
  },
  "territorios": [
   {
@@ -447,6 +448,35 @@
    ]
   },
   {
+   "ubigeo_inei": "030706",
+   "ubigeo_reniec": "030606",
+   "departamento": "APURIMAC",
+   "provincia": "GRAU",
+   "distrito": "MICAELA BASTIDAS",
+   "localidades": [],
+   "lat": -14.13533,
+   "lon": -72.59154,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 1,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 0
+   },
+   "dominante": "VERIFICACION",
+   "documentos": [
+    "PROVEIDO D002768-2026-RENIEC/DRE-SDPEG"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "21/09/2026",
+   "fecha_max": "21/09/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
    "ubigeo_inei": "040119",
    "ubigeo_reniec": "040116",
    "departamento": "AREQUIPA",
@@ -534,6 +564,35 @@
    "fecha_max": "23/06/2026",
    "canales": [
     "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "050604",
+   "ubigeo_reniec": "050504",
+   "departamento": "AYACUCHO",
+   "provincia": "LUCANAS",
+   "distrito": "CARMEN SALCEDO",
+   "localidades": [],
+   "lat": -14.45273,
+   "lon": -73.96431,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 1
+   },
+   "dominante": "OTROS",
+   "documentos": [
+    "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "18/09/2026",
+   "fecha_max": "18/09/2026",
+   "canales": [
+    "ONPE"
    ]
   },
   {
@@ -3138,6 +3197,48 @@
    "metodo_match": "equivalencia_documentada",
    "match_confidence": "alta",
    "observacion_match": "INEI escribe CUSCO; la fuente trae CUZCO (item 72 de la base GABI Q20260921)"
+  },
+  {
+   "item": 73,
+   "ubigeo_inei": "050604",
+   "departamento": "AYACUCHO",
+   "provincia": "LUCANAS",
+   "distrito": "CARMEN SALCEDO",
+   "localidad_original": "",
+   "tipo": "OTROS",
+   "tipo_original": "Prevencion De Golondrinaje",
+   "fecha": "18/09/2026",
+   "documento": "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "ONPE",
+   "denunciante": "Denuncia individual",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "ONPE traslada documento del ciudadano quien formula queja señalando que en cada elección los candidatos llevan votantes golondrinos en el distrito de Carmen Salcedo - Provincia de Lucanas - Ayacucho.",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Columnas invertidas en la fuente (distrito|provincia|departamento) - item 73"
+  },
+  {
+   "item": 74,
+   "ubigeo_inei": "030706",
+   "departamento": "APURIMAC",
+   "provincia": "GRAU",
+   "distrito": "MICAELA BASTIDAS",
+   "localidad_original": "",
+   "tipo": "VERIFICACION",
+   "tipo_original": "Verificacion",
+   "fecha": "21/09/2026",
+   "documento": "PROVEIDO D002768-2026-RENIEC/DRE-SDPEG",
+   "formato": "SOLICITUD",
+   "canal": "RENIEC",
+   "denunciante": "Denuncia individual",
+   "caracter": "Individual",
+   "ciudadanos": null,
+   "observacion": "CIUDADANO SOLICITA VERIFICACION,\nACTUALIZACION, DEPURACION Y RECTIFICACION DE LOS DOMICILIOS EN EL\nDISTRITO DE MICAELA BASTIDAS/GRAU/APURIMAC S/N",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Columnas invertidas en la fuente (distrito|provincia|departamento) - item 74"
   }
  ]
 }

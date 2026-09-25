@@ -229,6 +229,15 @@ y se vuelve a correr. No hay que tocar código.
 
 ---
 
+### Nombres de ciudadanos en las observaciones
+
+Desde la base del 25/09/2026 algunas observaciones traen el nombre completo del ciudadano
+(«ciudadano NOMBRE APELLIDOS quien formula queja…»). El tablero es público, así que el ETL local
+(`comun.depurar_nombres`, aplicado en `02_procesamiento_rea.py`) omite ese nombre en lo que se
+publica y cuenta las filas tocadas. La regla es estrecha (solo singular y solo si el nombre
+termina antes de un verbo); revisar el conteo de «DEPURACION» en el reporte de cada corte. Si una
+base nueva trae otra redacción, el nombre podría no detectarse: leer las observaciones nuevas.
+
 ## Decisiones de diseño que conviene no deshacer
 
 **La paleta está validada por cómputo, no elegida por gusto.** Un mapa es una forma

@@ -148,6 +148,7 @@ POR_DEFECTO: dict = {
     "canales": {
         "reniec": "RENIEC",
         "ministerio_publico": "Ministerio Público",
+        "onpe": "ONPE",
         "defensoria_del_pueblo": "Defensoría del Pueblo",
     },
     "ajustes": {
