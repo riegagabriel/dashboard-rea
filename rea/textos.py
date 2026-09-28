@@ -107,6 +107,7 @@ POR_DEFECTO: dict = {
         "verificacion": "Verificación",
         "padron": "Padrón",
         "suspension_de_depuracion": "Suspensión de depuración",
+        "golondrinaje_transhumancia": "Golondrinaje / transhumancia",
         "otros": "Otros",
     },
     "leyenda_tipos": {
@@ -122,8 +123,12 @@ POR_DEFECTO: dict = {
                    "para comprobar si determinadas personas viven o no en la localidad."),
         "suspension_de_depuracion": ("Se solicita suspender la depuración porque se "
                                      "advierte un error en el proceso de Verificación anterior."),
+        "golondrinaje_transhumancia": ("Se denuncia, o se pide prevenir o informar sobre, el "
+                                       "traslado masivo de domicilios para votar en un distrito "
+                                       "donde no se reside («electores golondrinos» o "
+                                       "trashumancia electoral)."),
         "otros": ("Pedidos de información y remisiones de instituciones (JNE, Ministerio del "
-                  "Interior, Defensoría del Pueblo, entre otras) que no encajan en los cuatro "
+                  "Interior, Defensoría del Pueblo, entre otras) que no encajan en los cinco "
                   "tipos anteriores. El detalle de cada denuncia va en la tabla."),
         "fuente": "",
     },
@@ -181,7 +186,8 @@ COLUMNAS_POR_DEFECTO = ("fecha", "departamento", "provincia", "distrito", "tipo"
 ALTURA_MIN, ALTURA_MAX = 400, 2000
 
 # Orden en que la leyenda de tipos los muestra (mismas claves que [tipos]).
-TIPOS_LEYENDA = ("impugnacion", "verificacion", "padron", "suspension_de_depuracion", "otros")
+TIPOS_LEYENDA = ("impugnacion", "verificacion", "padron", "suspension_de_depuracion",
+                 "golondrinaje_transhumancia", "otros")
 
 
 def clave(texto: str) -> str:

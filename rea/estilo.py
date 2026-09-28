@@ -26,7 +26,13 @@ CATEGORIAS = {
     "VERIFICACION": "#008300",              # verde
     "PADRON": "#4a3aa7",                    # violeta
     "SUSPENSION DE DEPURACION": "#e87ba4",  # magenta (el de menor contraste,
-    "OTROS": "#52514e",                     # gris     entre los 4 originales)
+                                            #          entre los 4 originales)
+    # 28/09/2026: azul+verde+violeta+magenta+aguamarina validado --pairs all (claro):
+    # CVD peor par dE 6.1 (WARN, legal con leyenda/tabla), vision normal dE 15.6.
+    # Un 6.o tono nuevo no cabe (falla contra verde/magenta). Mismo valor que en
+    # scripts/comun.py.
+    "GOLONDRINAJE_TRANSHUMANCIA": "#1baf7a",  # aguamarina
+    "OTROS": "#52514e",                     # gris
 }
 ORDEN_CATEGORIAS = list(CATEGORIAS)
 

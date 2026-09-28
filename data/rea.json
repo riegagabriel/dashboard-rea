@@ -1,8 +1,8 @@
 {
  "meta": {
   "fecha_corte": "28/09/2026",
-  "generado": "28/09/2026 11:48",
-  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_28_09_26_Q20260928.xlsx",
+  "generado": "28/09/2026 18:05",
+  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_28_09_26_V2_Q20260928.xlsx",
   "geodata": "Shapefile distrital INEI (1891 distritos, EPSG:4326)",
   "nota_ubigeo": "El codigo territorial es UBIGEO INEI, el que corresponde a la geometria. NO es el ubigeo RENIEC: difieren en el 94,1 % de los distritos.",
   "titulo": "Denuncias registradas en el REA por casos de probable golondrinaje",
@@ -15,20 +15,21 @@
   "VERIFICACION": "#008300",
   "PADRON": "#4a3aa7",
   "SUSPENSION DE DEPURACION": "#e87ba4",
+  "GOLONDRINAJE_TRANSHUMANCIA": "#1baf7a",
   "OTROS": "#52514e"
  },
  "kpis": {
-  "casos": 75,
-  "documentos": 66,
-  "distritos": 57,
+  "casos": 76,
+  "documentos": 67,
+  "distritos": 58,
   "departamentos": 17,
-  "ciudadanos": 5089,
-  "ciudadanos_cobertura": 21,
+  "ciudadanos": 5130,
+  "ciudadanos_cobertura": 22,
   "georreferenciado_pct": 98.7,
   "sin_match": 1
  },
  "canales": {
-  "RENIEC": 70,
+  "RENIEC": 71,
   "Ministerio Publico": 2,
   "Defensoria del Pueblo": 2,
   "ONPE": 1
@@ -49,6 +50,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -78,6 +80,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -107,6 +110,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -136,6 +140,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -165,6 +170,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -194,6 +200,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -223,6 +230,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -252,6 +260,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -281,6 +290,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -310,6 +320,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -339,7 +350,8 @@
     "VERIFICACION": 2,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
-    "OTROS": 1
+    "GOLONDRINAJE_TRANSHUMANCIA": 1,
+    "OTROS": 0
    },
    "dominante": "VERIFICACION",
    "documentos": [
@@ -371,6 +383,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -404,6 +417,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -433,6 +447,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -462,6 +477,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -491,6 +507,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -522,6 +539,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -553,6 +571,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 1
    },
    "dominante": "OTROS",
@@ -582,6 +601,7 @@
     "VERIFICACION": 2,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -612,9 +632,10 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
-    "OTROS": 1
+    "GOLONDRINAJE_TRANSHUMANCIA": 1,
+    "OTROS": 0
    },
-   "dominante": "OTROS",
+   "dominante": "GOLONDRINAJE_TRANSHUMANCIA",
    "documentos": [
     "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC"
    ],
@@ -641,6 +662,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -670,6 +692,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -699,6 +722,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -729,6 +753,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -758,6 +783,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 1
    },
    "dominante": "OTROS",
@@ -787,6 +813,7 @@
     "VERIFICACION": 0,
     "PADRON": 2,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "PADRON",
@@ -818,6 +845,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 1,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "SUSPENSION DE DEPURACION",
@@ -847,6 +875,7 @@
     "VERIFICACION": 0,
     "PADRON": 1,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -875,11 +904,12 @@
    "por_tipo": {
     "IMPUGNACION": 0,
     "VERIFICACION": 0,
-    "PADRON": 0,
+    "PADRON": 1,
     "SUSPENSION DE DEPURACION": 0,
-    "OTROS": 1
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
+    "OTROS": 0
    },
-   "dominante": "OTROS",
+   "dominante": "PADRON",
    "documentos": [
     "PROVEIDO N° 002652-2026/DRE/SDPEG/RENIEC"
    ],
@@ -906,6 +936,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -916,6 +947,36 @@
    "ciudadanos_cobertura": 0,
    "fecha_min": "10/08/2026",
    "fecha_max": "10/08/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "100321",
+   "ubigeo_reniec": "090321",
+   "departamento": "HUANUCO",
+   "provincia": "DOS DE MAYO",
+   "distrito": "SHUNQUI",
+   "localidades": [],
+   "lat": -9.750425,
+   "lon": -76.811833,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 1,
+    "OTROS": 0
+   },
+   "dominante": "GOLONDRINAJE_TRANSHUMANCIA",
+   "documentos": [
+    "PROVEIDO N° 002794-2026/DRE/SDPEG/RENIEC"
+   ],
+   "ciudadanos": 41,
+   "ciudadanos_cobertura": 1,
+   "fecha_min": "21/09/2026",
+   "fecha_max": "21/09/2026",
    "canales": [
     "RENIEC"
    ]
@@ -935,6 +996,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -964,6 +1026,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -993,6 +1056,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1022,6 +1086,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1051,6 +1116,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1080,6 +1146,7 @@
     "VERIFICACION": 1,
     "PADRON": 1,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1111,6 +1178,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1140,6 +1208,7 @@
     "VERIFICACION": 2,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1170,6 +1239,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1199,6 +1269,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1228,6 +1299,7 @@
     "VERIFICACION": 0,
     "PADRON": 1,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1258,6 +1330,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1287,6 +1360,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1316,6 +1390,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1345,6 +1420,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1374,6 +1450,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1405,6 +1482,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1436,6 +1514,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1465,6 +1544,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1494,6 +1574,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1523,6 +1604,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1554,6 +1636,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -1583,6 +1666,7 @@
     "VERIFICACION": 2,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1613,6 +1697,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1642,6 +1727,7 @@
     "VERIFICACION": 2,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1672,6 +1758,7 @@
     "VERIFICACION": 1,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "VERIFICACION",
@@ -1701,6 +1788,7 @@
     "VERIFICACION": 0,
     "PADRON": 0,
     "SUSPENSION DE DEPURACION": 0,
+    "GOLONDRINAJE_TRANSHUMANCIA": 0,
     "OTROS": 0
    },
    "dominante": "IMPUGNACION",
@@ -3173,7 +3261,7 @@
    "provincia": "",
    "distrito": "",
    "localidad_original": "",
-   "tipo": "OTROS",
+   "tipo": "GOLONDRINAJE_TRANSHUMANCIA",
    "tipo_original": "Transhumancia",
    "fecha": "16/09/2026",
    "documento": "PROVEIDO N° 002657-2026/DRE/SDPEG/RENIEC",
@@ -3194,7 +3282,7 @@
    "provincia": "HUANUCO",
    "distrito": "SAN PABLO DE PILLAO",
    "localidad_original": "",
-   "tipo": "OTROS",
+   "tipo": "PADRON",
    "tipo_original": "Padron / Cambios Domiciliarios",
    "fecha": "16/09/2026",
    "documento": "PROVEIDO N° 002652-2026/DRE/SDPEG/RENIEC",
@@ -3215,7 +3303,7 @@
    "provincia": "HUAYLAS",
    "distrito": "YURACMARCA",
    "localidad_original": "",
-   "tipo": "OTROS",
+   "tipo": "GOLONDRINAJE_TRANSHUMANCIA",
    "tipo_original": "Prevencion De Golondrinaje",
    "fecha": "14/09/2026",
    "documento": "PROVEIDO N° 002679-2026/DRE/SDPEG/RENIEC",
@@ -3257,7 +3345,7 @@
    "provincia": "LUCANAS",
    "distrito": "CARMEN SALCEDO",
    "localidad_original": "",
-   "tipo": "OTROS",
+   "tipo": "GOLONDRINAJE_TRANSHUMANCIA",
    "tipo_original": "Prevencion De Golondrinaje",
    "fecha": "18/09/2026",
    "documento": "PROVEIDO N° 002701-2026/DRE/SDPEG/RENIEC",
@@ -3291,6 +3379,27 @@
    "metodo_match": "equivalencia_documentada",
    "match_confidence": "alta",
    "observacion_match": "Columnas invertidas en la fuente (distrito|provincia|departamento) - item 74"
+  },
+  {
+   "item": 76,
+   "ubigeo_inei": "100321",
+   "departamento": "HUANUCO",
+   "provincia": "DOS DE MAYO",
+   "distrito": "SHUNQUI",
+   "localidad_original": "",
+   "tipo": "GOLONDRINAJE_TRANSHUMANCIA",
+   "tipo_original": "Golondrinaje",
+   "fecha": "21/09/2026",
+   "documento": "PROVEIDO N° 002794-2026/DRE/SDPEG/RENIEC",
+   "formato": "OFICIO",
+   "canal": "RENIEC",
+   "denunciante": "POBLADORES DEL DISTRITO DE SHUNQUI",
+   "caracter": "Institucional",
+   "ciudadanos": 41,
+   "observacion": "El Jurado Electoral Especial de Huamalíes traslada a RENIEC una denuncia anónima de pobladores del distrito de Shunqui sobre el traslado domiciliario fraudulento de 41 electores hacia dicho distrito (\"electores golondrinos\"), y solicita la depuración del padrón antes de las Elecciones Regionales y Municipales del 4 de octubre de 2026. Los denunciantes piden reserva de identidad por temor a represalias.",
+   "metodo_match": "exacto",
+   "match_confidence": "alta",
+   "observacion_match": "Coincidencia exacta con el shapefile INEI"
   }
  ]
 }

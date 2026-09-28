@@ -207,8 +207,9 @@ impugnacion = "Impugnación"
 verificacion = "Verificación"
 padron = "Padrón"
 suspension_de_depuracion = "Suspensión de depuración"
+golondrinaje_transhumancia = "Golondrinaje / transhumancia"
 
-# Agrupa los tipos de denuncia que no son ninguno de los cuatro anteriores (p. ej.
+# Agrupa los tipos de denuncia que no son ninguno de los cinco anteriores (p. ej.
 # pedidos de información de otras entidades). En la tabla, cada fila "Otros" sigue
 # mostrando el nombre real que trae la fuente (por ejemplo "Otros · Transhumancia").
 otros = "Otros"
@@ -230,7 +231,8 @@ impugnacion = "Denuncia formal, presentada en el formato administrativo de impug
 verificacion = "Se detecta una variación importante en el número de pobladores o electores de una localidad y se solicita una verificación domiciliaria."
 padron = "Un ciudadano o institución solicita el padrón electoral, o revisarlo, para comprobar si determinadas personas viven o no en la localidad."
 suspension_de_depuracion = "Se solicita suspender la depuración porque se advierte un error en el proceso de Verificación anterior."
-otros = "Pedidos de información y remisiones de instituciones (JNE, Ministerio del Interior, Defensoría del Pueblo, entre otras) que no encajan en los cuatro tipos anteriores. El detalle de cada denuncia va en la tabla."
+golondrinaje_transhumancia = "Se denuncia, o se pide prevenir o informar sobre, el traslado masivo de domicilios para votar en un distrito donde no se reside («electores golondrinos» o trashumancia electoral)."
+otros = "Pedidos de información y remisiones de instituciones (JNE, Ministerio del Interior, Defensoría del Pueblo, entre otras) que no encajan en los cinco tipos anteriores. El detalle de cada denuncia va en la tabla."
 
 
 # Línea pequeña al pie del recuadro (por ejemplo, de dónde salen las definiciones).
