@@ -6,8 +6,13 @@ Tablero interno de la Subdirección de Procedimiento Electoral y Georreferenciac
 Sirve para saber **en qué zonas se concentran las denuncias de probable trashumancia electoral**
 registradas en el Registro de Alertas.
 
-**Corte vigente:** 14 de setiembre de 2026 · 67 denuncias · 52 distritos ·
-15 departamentos · 100 % georreferenciado.
+**Corte vigente:** 28 de setiembre de 2026 · 75 denuncias · 57 distritos ·
+17 departamentos · 98,7 % georreferenciado (1 caso sin territorio: pedido del JNE
+sin domicilio, se cuenta en el total pero no en el mapa).
+
+**La versión oficial en uso por la DRE/SDPEG es la app F** (`app_f.py`, mapa
+intercambiable). La app B (`app_b.py`, coropleta departamental) se mantiene como
+vista alterna/de referencia, no como la que se comparte para el trabajo diario.
 
 ---
 
