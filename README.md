@@ -238,6 +238,18 @@ publica y cuenta las filas tocadas. La regla es estrecha (solo singular y solo s
 termina antes de un verbo); revisar el conteo de «DEPURACION» en el reporte de cada corte. Si una
 base nueva trae otra redacción, el nombre podría no detectarse: leer las observaciones nuevas.
 
+### Filas que llegan por correo, sin proveído formal
+
+No todas las filas vienen del Excel consolidado de la oficina. El ítem 75 (28/09/2026) se
+añadió a mano a partir de un correo urgente de una agencia de RENIEC (Camaná), sin proveído ni
+oficio: el patrón es dejar `DNI`/`APELLIDO MATERNO`/`PRENOMBRES` vacíos y `APELLIDO PATERNO` con
+la identificación institucional (p. ej. «RENIEC - AGENCIA CAMANA», nunca el nombre del
+trabajador que escribe), `TIPO DE FORMATO REMITIDO = "CORREO ELECTRONICO"` y `CASOS` con un
+texto libre que no está en el catálogo de tipos, así cae solo en «Otros» sin tocar código. La
+redacción de `OBSERVACIONES` se resume a mano (no es un recorte del correo) y sigue la misma
+regla de privacidad que las demás: sin nombres de personas, sean ciudadanos o trabajadores de
+RENIEC.
+
 ## Decisiones de diseño que conviene no deshacer
 
 **La paleta está validada por cómputo, no elegida por gusto.** Un mapa es una forma

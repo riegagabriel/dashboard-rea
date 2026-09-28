@@ -1,8 +1,8 @@
 {
  "meta": {
-  "fecha_corte": "25/09/2026",
-  "generado": "25/09/2026 17:22",
-  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_25_09_26_Q20260925.xlsx",
+  "fecha_corte": "28/09/2026",
+  "generado": "28/09/2026 11:48",
+  "fuente": "CONSOLIDADO REA_POST CIERRE PADRON_28_09_26_Q20260928.xlsx",
   "geodata": "Shapefile distrital INEI (1891 distritos, EPSG:4326)",
   "nota_ubigeo": "El codigo territorial es UBIGEO INEI, el que corresponde a la geometria. NO es el ubigeo RENIEC: difieren en el 94,1 % de los distritos.",
   "titulo": "Denuncias registradas en el REA por casos de probable golondrinaje",
@@ -18,17 +18,17 @@
   "OTROS": "#52514e"
  },
  "kpis": {
-  "casos": 74,
-  "documentos": 65,
-  "distritos": 56,
+  "casos": 75,
+  "documentos": 66,
+  "distritos": 57,
   "departamentos": 17,
   "ciudadanos": 5089,
   "ciudadanos_cobertura": 21,
-  "georreferenciado_pct": 98.6,
+  "georreferenciado_pct": 98.7,
   "sin_match": 1
  },
  "canales": {
-  "RENIEC": 69,
+  "RENIEC": 70,
   "Ministerio Publico": 2,
   "Defensoria del Pueblo": 2,
   "ONPE": 1
@@ -532,6 +532,37 @@
    "ciudadanos_cobertura": 0,
    "fecha_min": "04/06/2026",
    "fecha_max": "04/06/2026",
+   "canales": [
+    "RENIEC"
+   ]
+  },
+  {
+   "ubigeo_inei": "040205",
+   "ubigeo_reniec": "040305",
+   "departamento": "AREQUIPA",
+   "provincia": "CAMANA",
+   "distrito": "NICOLAS DE PIEROLA",
+   "localidades": [
+    "SECOCHA"
+   ],
+   "lat": -16.473605,
+   "lon": -72.624341,
+   "total": 1,
+   "por_tipo": {
+    "IMPUGNACION": 0,
+    "VERIFICACION": 0,
+    "PADRON": 0,
+    "SUSPENSION DE DEPURACION": 0,
+    "OTROS": 1
+   },
+   "dominante": "OTROS",
+   "documentos": [
+    "CORREO ELECTRONICO - ASUNTO: URGENTE TOMAR MEDIDAS (25/09/2026)"
+   ],
+   "ciudadanos": null,
+   "ciudadanos_cobertura": 0,
+   "fecha_min": "25/09/2026",
+   "fecha_max": "25/09/2026",
    "canales": [
     "RENIEC"
    ]
@@ -3092,6 +3123,27 @@
    "metodo_match": "exacto",
    "match_confidence": "alta",
    "observacion_match": "Coincidencia exacta con el shapefile INEI"
+  },
+  {
+   "item": 75,
+   "ubigeo_inei": "040205",
+   "departamento": "AREQUIPA",
+   "provincia": "CAMANA",
+   "distrito": "NICOLAS DE PIEROLA",
+   "localidad_original": "SECOCHA",
+   "tipo": "OTROS",
+   "tipo_original": "Alerta De Riesgo Social",
+   "fecha": "25/09/2026",
+   "documento": "CORREO ELECTRONICO - ASUNTO: URGENTE TOMAR MEDIDAS (25/09/2026)",
+   "formato": "CORREO ELECTRONICO",
+   "canal": "RENIEC",
+   "denunciante": "RENIEC - AGENCIA CAMANA",
+   "caracter": "Institucional",
+   "ciudadanos": null,
+   "observacion": "La Agencia Camaná (RENIEC) informa que un grupo de ciudadanos de la localidad de Secocha, distrito de Nicolás de Piérola, ha manifestado su disconformidad porque el cambio de domicilio que habían declarado fue revertido a su domicilio anterior. La mayoría de las direcciones de la zona no consigna numeración (S/N), lo que dificultó la verificación domiciliaria y derivó en la reversión. La Agencia advierte que existe un precedente de 2022, cuando un conflicto similar en Camaná derivó en ataques violentos contra la fiscalía, el Poder Judicial y la SUNAT, y señala que este es su principal motivo de preocupación; en consecuencia, solicita documentación de sustento sobre las notificaciones realizadas y la adopción urgente de medidas de protección para el personal de RENIEC.",
+   "metodo_match": "equivalencia_documentada",
+   "match_confidence": "alta",
+   "observacion_match": "Secocha es una localidad minera dentro del distrito de Nicolas de Pierola; no es distrito propio (correo Agencia Camana, item 75, 25/09/2026)."
   },
   {
    "item": 68,
